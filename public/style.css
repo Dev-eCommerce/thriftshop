@@ -1,0 +1,104 @@
+html {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    width: 99%;
+    height: 122px;
+    top: 0px;
+    z-index: 10;
+    background: white;
+}
+
+.nav_info {
+    color: #00CC99;
+    margin: 0 auto;
+}
+
+.nav_browser {
+    background: #00CC99;
+    font-size: 15px;
+    color: floralwhite;
+}
+
+.store_name {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px;
+}
+
+.nav_user_info {
+    position: relative;
+    right: -480px;
+    margin-right: 40px;
+}
+
+.browser_categories {
+    position: relative;
+    left: 280px;
+    margin-right: 30px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+input {
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    color: #A6A6A6;
+}
+
+.home_content {
+    position: absolute;
+    top: 130px;
+    width: 98.5%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.lorem_ipsum {
+    position: absolute;
+    top: 10px;
+    left: 225px;
+}
+
+.home_carousel_images {
+    height: 450px;
+    width: 800px;
+    border: 2px solid #00CC99;
+}
+
+.home_footer {
+    position: relative;
+    top: 500px;
+    width: 100%;
+    margin: 0 auto;
+    height: 150px;
+    background: #E6E6E6;
+    color: dimgray;
+}
+
+#store_about_us {
+    position: absolute;
+    top: 35px;
+    left: 200px;
+    font-size: 13px;
+}
+
+#store_contact {
+    position: absolute;
+    top: 35px;
+    left: 550px;
+    font-size: 13px;
+}
+
+#store_social_media {
+    position: absolute;
+    top: 35px;
+    left: 950px;
+    font-size: 13px;
+}
