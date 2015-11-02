@@ -103,3 +103,40 @@ input {
     left: 950px;
     font-size: 13px;
 }
+
+.myAccount-content {
+    position: relative;
+    top: 150px;
+    left: 500px;
+    height: 350px;
+    width: 300px;
+    background: white;
+}
+
+.accountTab {
+    color: #00CC99;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.tab-pane {
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    font-family: cursive;
+    font-size: 16px;
+    color: #00CC99;
+}
+
+button {
+    background: #00CC99;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
