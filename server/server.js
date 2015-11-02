@@ -1,36 +1,30 @@
  // External Modules
 var express = require('express');
 var bodyParser = require('body-parser');
-var session = require('express-session');
 var mongoose = require('mongoose');
 var cors = require('cors');
 
 // CONFIG
+<<<<<<< HEAD
 //var config = require('./config');
+=======
+var config = require('../config');
+>>>>>>> master
 
 //Controllers
 var UsersCtrl = require('./controllers/UsersCtrl');
+var ProductsCtrl = require('./controllers/ProductsCtrl');
+var OrdersCtrl= require('./controllers/OrdersCtrl');
 
-// Services
-var passport = require('./services/passport');
-
-// Express
 var app = express();
 
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/../public'));
-app.use(session({
-    secret: 'akjajfalkdj',
-    saveUninitialized: true,
-      resave: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
 // Endpoints
 
+<<<<<<< HEAD
 //sign up and login
 //app.post('/user', UsersCtrl.register);
 //app.post('/login', passport.authenticate('local'), function(req, res) {
@@ -56,7 +50,29 @@ app.use(passport.session());
 //    res.redirect('/');
 //});
 
+=======
+>>>>>>> master
 
+//-----endpoints for users
+app.get('/api/users', UsersCtrl.findAll);
+app.get('/api/users/:id', UsersCtrl.findOne);
+app.post('/api/users', UsersCtrl.create);
+app.put('/api/users/:id', UsersCtrl.update);
+app.delete('/api/users/:id', UsersCtrl.delete);
+
+//-----endpoints for orders---------
+// app.get('/api/orders', OrdersCtrl.findAll);
+// app.get('/api/orders/:id', OrdersCtrl.findOne);
+// app.post('/api/orders', OrdersCtrl.create);
+// app.put('/api/orders/:id', OrdersCtrl.update);
+// app.delete('/orders/:id', OrdersCtrl.delete);
+
+//-----endpoints for products-------
+app.get('/api/products', ProductsCtrl.findAll);
+app.get('/api/products/:id', ProductsCtrl.findOne);
+app.post('/api/products', ProductsCtrl.create);
+app.put('/api/products/:id', ProductsCtrl.update);
+app.delete('/api/products/:id', ProductsCtrl.delete);
 
 
 
