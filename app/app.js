@@ -1,7 +1,14 @@
-var app = angular.module('eCommerce', ['ngRoute']);
+var me = angular.module('eCommerce', ['ui.router']);
 
-app.config(function ($routeProvider) {
-    
-    
-    
+me.config(function($stateProvider, $urlRouterProvider) {
+   
+   $urlRouterProvider.otherwise('/home');
+   
+   $stateProvider
+       
+       .state('home', {
+           url: '/home',
+           templateUrl: '../public/views/homeTmpl.html'
+       })
+       
 });
