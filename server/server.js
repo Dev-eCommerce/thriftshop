@@ -5,11 +5,7 @@ var mongoose = require('mongoose');
 var cors = require('cors');
 
 // CONFIG
-<<<<<<< HEAD
-//var config = require('./config');
-=======
 var config = require('../config');
->>>>>>> master
 
 //Controllers
 var UsersCtrl = require('./controllers/UsersCtrl');
@@ -23,35 +19,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/../public'));
 // Endpoints
-
-<<<<<<< HEAD
-//sign up and login
-//app.post('/user', UsersCtrl.register);
-//app.post('/login', passport.authenticate('local'), function(req, res) {
-//    res.json(req.user);
-//});
-// app.post('/login', passport.authenticate('local', {
-//     //successRedirect: '/#/users',
-//     failureRedirect: '/'
-//     }), function(req, res){
-//         if (req.user.admin === true) {
-//             res.redirect('http://www.amazon.com');
-//         } else {
-//             res.redirect('http://www.google.com');
-//         }
-// });
-
-
-//get user and users
-//app.get('/user/:id', UsersCtrl.getCurrentUser);
-//app.get('/sessionUser', UsersCtrl.me)
-//app.get('/logout', function(req, res){
-//    req.logout();
-//    res.redirect('/');
-//});
-
-=======
->>>>>>> master
 
 //-----endpoints for users
 app.get('/api/users', UsersCtrl.findAll);
@@ -77,10 +44,8 @@ app.delete('/api/products/:id', ProductsCtrl.delete);
 
 
 //Connection
-//var mongoUri = config.MONGO_URI;
-//var port = config.PORT;
-var mongoUri = "mongodb://localhost:27017/devcommerce"
-var port = 9998;
+var mongoUri = config.MONGO_URI;
+var port = config.PORT;
 
 // mongoose.set('debug', true);
 mongoose.connect(mongoUri);
