@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='eCommerce'>
 <head>
     <title>Derelicte</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
@@ -19,6 +19,8 @@
     </div>
     
     <div class="home_content">
+        
+        <!-- Carousel -->
         <div id="home_carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
               <!-- Indicators -->
               <ol class="carousel-indicators">
@@ -48,7 +50,6 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
               </a>
             </div> 
-        <!-- Carousel -->
 
         <!-- Modal -->
         <div id="myAccount" class="modal fade" role="dialog">
@@ -69,7 +70,7 @@
                       <div class="tab-pane active" id="login">
                             Email: <br> <input type="email"/><br><br>
                             Password: <br> <input type="password"/><br><br>
-                            <button>Register</button>
+                            <button>Login</button>
                         </div>
                     
                         <div class="tab-pane" id="register">
@@ -124,6 +125,8 @@
 
     </div>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </body>
