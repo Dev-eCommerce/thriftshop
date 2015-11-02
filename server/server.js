@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var cors = require('cors');
 
 // CONFIG
-var config = require('./config');
+//var config = require('./config');
 
 //Controllers
 var UsersCtrl = require('./controllers/UsersCtrl');
@@ -32,10 +32,10 @@ app.use(passport.session());
 // Endpoints
 
 //sign up and login
-app.post('/user', UsersCtrl.register);
-app.post('/login', passport.authenticate('local'), function(req, res) {
-    res.json(req.user);
-});
+//app.post('/user', UsersCtrl.register);
+//app.post('/login', passport.authenticate('local'), function(req, res) {
+//    res.json(req.user);
+//});
 // app.post('/login', passport.authenticate('local', {
 //     //successRedirect: '/#/users',
 //     failureRedirect: '/'
@@ -49,20 +49,22 @@ app.post('/login', passport.authenticate('local'), function(req, res) {
 
 
 //get user and users
-app.get('/user/:id', UsersCtrl.getCurrentUser);
-app.get('/sessionUser', UsersCtrl.me)
-app.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-});
+//app.get('/user/:id', UsersCtrl.getCurrentUser);
+//app.get('/sessionUser', UsersCtrl.me)
+//app.get('/logout', function(req, res){
+//    req.logout();
+//    res.redirect('/');
+//});
 
 
 
 
 
 //Connection
-var mongoUri = config.MONGO_URI;
-var port = config.PORT;
+//var mongoUri = config.MONGO_URI;
+//var port = config.PORT;
+var mongoUri = "mongodb://localhost:27017/devcommerce"
+var port = 9998;
 
 // mongoose.set('debug', true);
 mongoose.connect(mongoUri);
