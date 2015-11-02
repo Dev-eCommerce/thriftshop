@@ -11,7 +11,7 @@
     
     <div class="navbar">
         <div class="nav_info">
-            <span class="store_name">Derelicte</span>   <span class="nav_user_info"><i class="fa fa-user"></i>  MY ACCOUNT</span> <span class="nav_user_info"><i class="fa fa-opencart"></i>    CART (0)</span>   <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
+            <span class="store_name">Derelicte</span>   <span class="nav_user_info" data-toggle="modal" data-target="#myAccount"><i class="fa fa-user"></i>  MY ACCOUNT</span> <span class="nav_user_info"><i class="fa fa-opencart"></i>    CART (0)</span>   <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
         </div>
         <div class="nav_browser">
             <span class="browser_categories">NEW ARRIVALS</span>    <span class="browser_categories">TOPS</span>    <span class="browser_categories">BOTTOMS</span> <span class="browser_categories">SHOES</span>  <span class="browser_categories">JEWELRY</span> <span class="browser_categories">ACCESSORIES</span>    <span class="browser_categories">SALE</span>
@@ -50,6 +50,42 @@
             </div> 
         <!-- Carousel -->
 
+        <!-- Modal -->
+        <div id="myAccount" class="modal fade" role="dialog">
+          <div class="myAccount-dialog">
+
+            <!-- Modal content-->
+            <div class="myAccount-content">
+                    
+              <div class="myAccount-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div>   
+                  <ul class="nav nav-tabs"id="tabContent">
+                    <li><a class="accountTab" href="#login" data-toggle="tab">LOGIN</a></li>
+                    <li><a class="accountTab" href="#register" data-toggle="tab">REGISTER</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                      <div class="tab-pane active" id="login">
+                            Email: <br> <input type="email"/><br><br>
+                            Password: <br> <input type="password"/><br><br>
+                            <button>Register</button>
+                        </div>
+                    
+                        <div class="tab-pane" id="register">
+                            Email: <br> <input type="email"/><br><br>
+                            Password: <br> <input type="password"/><br><br>
+                            Confirm Password: <br> <input type="password"/><br><br>
+                            <button>Sign Up</button>
+                        </div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
         <div class="home_footer">
         
                 <div id="store_about_us">
