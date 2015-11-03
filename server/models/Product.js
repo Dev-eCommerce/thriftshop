@@ -10,15 +10,13 @@ var Product = new mongoose.Schema({
     image: {type: String},
     category: {type: String},
     stockTotal: {type: Number},
-    totalBySizes: {
-        extraSmall: {type: Number},
-        small: {type: Number},
-        medium: {type: Number},
-        large: {type: Number},
-        extraLarge: {type: Number},
-        extraExtraLarge: {type: Number},
+    options: {
+        optionName: {type: String},
+        optinValues:[{
+            name: {type: String},
+            count: {type: Number}
+        }]
     }
-
     
 });
 
