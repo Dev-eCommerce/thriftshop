@@ -13,7 +13,7 @@ h2{margin-bottom:10px;font-size:22px;line-height:40px}
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
 }
-body{
+#chbody{
   padding:0;
   margin:0;
   background: url(http://subtlepatterns.com/patterns/scribble_light.png) #FFF;
