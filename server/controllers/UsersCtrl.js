@@ -1,10 +1,9 @@
-
- var User = require('../models/User')
+var Users = require('../models/User')
 
 module.exports = {
     // Create New User
     create: function(req, res){
-        User.create(req.body, function(err, user){
+        Users.create(req.body, function(err, user){
             if(err){
                 return res.status(500).json(err)
             } else {
@@ -13,7 +12,7 @@ module.exports = {
         });
     },
     findAll: function(req, res){
-        User.findById({}, function(err, result){
+        Users.findById({}, function(err, result){
             if(err){
                 res.send(err)
             } else {
@@ -23,23 +22,25 @@ module.exports = {
         })    
     },
     findOne: function(req, res){
-        User.findById(req.params.id, function(err, result){
+        Users.findById(req.params.id).populate({
+            path: 'orders',
+        }).exec(function(err, result){
             if(err){
                 res.send(err)
             } else {
-                console.log("Get Current User", result)
+                console.log("Get Current User's orders", result)
                 res.json(result)
             }
-        })    
+        });    
     },
-        update: function(req, res){
-        User.findByIdAndUpdate(req.body._id, req.body, {new: true}, function(err, result){
+    update: function(req, res){
+        Users.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, result){
             if(err) return res.status(500).json(err);
             return res.status(200).json(result);
         });
     },
     delete: function(req, res){
-       User.findByIdAndRemove(req.params.id, function(err, result){
+       Users.findByIdAndRemove(req.params.id, function(err, result){
           if (err) {
                     res.status(500).send(err);
                 } else {

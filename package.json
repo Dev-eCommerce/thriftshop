@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/Dev-eCommerce/thriftshop#readme",
   "dependencies": {
+    "aws-sdk": "^2.2.14",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.1",
     "cors": "^2.7.1",

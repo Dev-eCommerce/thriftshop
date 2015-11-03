@@ -5,7 +5,10 @@ var mongoose = require('mongoose');
 var cors = require('cors');
 
 // CONFIG
+var AWS = require('aws-sdk');
+
 var config = require('../config');
+
 
 //Controllers
 var UsersCtrl = require('./controllers/UsersCtrl');

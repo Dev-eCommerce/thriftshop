@@ -1,15 +1,35 @@
 var Products = require('../models/Product')
+var AWS = require('../services/AmazonService');
 
 module.exports = {
     create: function(req, res) {
-            console.log(req.body);
-            Products.create(req.body, function(err, result) {
+            var image = req.body.image;
+            console.log(image);
+
+            var buf = new Buffer(image.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+
+            var fileObj = {
+                name: image.name,
+                body: buf,
+                type: image.type
+            };
+
+            AWS.uploadToS3(fileObj, function(err, data){
                 if (err) {
-                 	res.send(err);
+                    console.log(err, "image not uploaded")
+                    res.status(500).send(err)
                 } else {
-                  	res.json(result);
+                    req.body.image = data.Location;
+                    console.log(req.body);
+                    Products.create(req.body, function(err, result) {
+                        if (err) {
+                         	res.send(err, "user not created");
+                        } else {
+                          	res.json(result);
+                        }
+                    });
                 }
-            });
+            })
     },
     update: function(req, res) {
             Products.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, result) {
