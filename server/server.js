@@ -45,8 +45,14 @@ app.use(passport.session());
 // Endpoints
 
 //-----login
-app.post('/login', passport.authenticate('local'), function(req, res) {
+app.post('/api/login', passport.authenticate('local'), function(req, res) {
+	console.log(req.body)
 	res.json(req.user);
+});
+app.get('/api/sessionUser', UsersCtrl.me)
+app.get('/api/logout', function(req, res){
+	req.logout();
+	res.redirect('/');
 });
 
 
@@ -58,11 +64,11 @@ app.put('/api/users/:id', UsersCtrl.update);
 app.delete('/api/users/:id', UsersCtrl.delete);
 
 //-----endpoints for orders---------
-// app.get('/api/orders', OrdersCtrl.findAll);
-// app.get('/api/orders/:id', OrdersCtrl.findOne);
-// app.post('/api/orders', OrdersCtrl.create);
-// app.put('/api/orders/:id', OrdersCtrl.update);
-// app.delete('/orders/:id', OrdersCtrl.delete);
+app.get('/api/orders', OrdersCtrl.findAll);
+app.get('/api/orders/:id', OrdersCtrl.findOne);
+app.post('/api/orders', OrdersCtrl.create);
+app.put('/api/orders/:id', OrdersCtrl.update);
+app.delete('/orders/:id', OrdersCtrl.delete);
 
 //-----endpoints for products-------
 app.get('/api/products', ProductsCtrl.findAll);

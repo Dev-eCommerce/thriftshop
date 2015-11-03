@@ -7,10 +7,19 @@ module.exports = {
             if(err){
                 return res.status(500).json(err)
             } else {
+                user.password = null;
                 return res.json(user)
             }
         });
     },
+    me: function(req, res){
+		if(!req.user){
+			return res.send("current user not defined");
+		} else {
+			req.user.password = null;
+			return res.json(req.user);
+		}
+	},
     findAll: function(req, res){
         Users.findById({}, function(err, result){
             if(err){
