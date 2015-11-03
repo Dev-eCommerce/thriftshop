@@ -15,7 +15,8 @@ var User = new mongoose.Schema({
     orders: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Order'
-    }]
+    }],
+    addressUsed: []
     
 });
 

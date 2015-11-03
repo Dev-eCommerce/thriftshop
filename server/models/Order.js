@@ -6,7 +6,7 @@ var Order = new mongoose.Schema({
     orderShipAddress: {type: String},
     shippingCost: {type: Number},
     orderTax: {type: Number},
-    orderDate: {type: Date}
+    orderDate: {type: Date},
     orderStatus: {type: String, enum: [Cart, Submitted, Fulfilled, Shipped]},
     shipDate: {type: Date},
     trackingNumber: {type: String},

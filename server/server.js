@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
+var session = require('express-session');
 
 // CONFIG
 var config = require('../config');
@@ -12,13 +13,39 @@ var UsersCtrl = require('./controllers/UsersCtrl');
 var ProductsCtrl = require('./controllers/ProductsCtrl');
 var OrdersCtrl= require('./controllers/OrdersCtrl');
 
+// Services
+var passport = require('./services/passport');
+
+// Policies
+var isAuthed = function(req, res, next){
+	if(!req.isAuthenticated()) return res.sendStatus(401);
+	return next();
+};
+
+// Express
 var app = express();
 
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/../public'));
+app.use(session({
+	secret: 'blah',
+	saveUninitialized: true,
+  	resave: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 // Endpoints
+
+//-----login
+app.post('/login', passport.authenticate('local'), function(req, res) {
+	res.json(req.user);
+});
+
 
 //-----endpoints for users
 app.get('/api/users', UsersCtrl.findAll);
