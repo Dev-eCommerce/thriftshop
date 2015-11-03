@@ -32,6 +32,7 @@ html {
     position: relative;
     right: -480px;
     margin-right: 40px;
+    cursor: pointer;
 }
 
 .browser_categories {
