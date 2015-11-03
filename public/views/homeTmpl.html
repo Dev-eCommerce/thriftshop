@@ -50,16 +50,16 @@
 
                   <div class="tab-content">
                       <div class="tab-pane active" id="login">
-                            Email: <br> <input type="email"/><br><br>
-                            Password: <br> <input type="password"/><br><br>
-                            <button>Login</button>
+                            Email: <br> <input type="email" ng-model="user.email"><br><br>
+                            Password: <br> <input type="password" ng-model="user.passsword"><br><br>
+                            <button ng-click="loginUser(user)">Login</button>
                         </div>
                     
                         <div class="tab-pane" id="register">
-                            Email: <br> <input type="email"/><br><br>
-                            Password: <br> <input type="password"/><br><br>
+                            Email: <br> <input type="email" ng-model="user.email"><br><br>
+                            Password: <br> <input type="password" ng-model="user.passsword"><br><br>
                             Confirm Password: <br> <input type="password"/><br><br>
-                            <button>Sign Up</button>
+                            <button ng-click="createUser(user)">Sign Up</button>
                         </div> 
                   </div>
                 </div>
