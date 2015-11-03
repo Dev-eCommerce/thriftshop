@@ -2,7 +2,7 @@ html {
     font-family: 'Quicksand', sans-serif;
 }
 
-.navbar {
+#navbar {
     position: fixed;
     width: 99%;
     height: 122px;

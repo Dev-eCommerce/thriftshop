@@ -20,7 +20,6 @@ app.use(cors());
 app.use(express.static(__dirname + '/../public'));
 // Endpoints
 
-
 //-----endpoints for users
 app.get('/api/users', UsersCtrl.findAll);
 app.get('/api/users/:id', UsersCtrl.findOne);
