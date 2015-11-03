@@ -8,6 +8,50 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
+    <div id="navbar">
+        <div class="nav_info">
+            <span class="store_name">Derelicte</span>   <span class="nav_user_info" data-toggle="modal" data-target="#myAccount"><i class="fa fa-user"></i>  MY ACCOUNT</span> <span class="nav_user_info"><i class="fa fa-opencart"></i>    CART (0)</span>   <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
+        </div>
+        <div class="nav_browser">
+            <span class="browser_categories">NEW ARRIVALS</span>    <span class="browser_categories">TOPS</span>    <span class="browser_categories">BOTTOMS</span> <span class="browser_categories">SHOES</span>  <span class="browser_categories">JEWELRY</span> <span class="browser_categories">ACCESSORIES</span>    <span class="browser_categories">SALE</span>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+        <div id="myAccount" class="modal fade" role="dialog">
+          <div class="myAccount-dialog">
+
+            <!-- Modal content-->
+            <div class="myAccount-content" ng-controller="loginCtrl">
+                    
+              <div class="myAccount-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div>   
+                  <ul class="nav nav-tabs"id="tabContent">
+                    <li><a class="accountTab" href="#login" data-toggle="tab">LOGIN</a></li>
+                    <li><a class="accountTab" href="#register" data-toggle="tab">REGISTER</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                      <div class="tab-pane active" id="login">
+                            Email: <br> <input type="email" ng-model="user.email"><br><br>
+                            Password: <br> <input type="password" ng-model="user.password"><br><br>
+                            <button ng-click="loginUser(user)">Login</button>
+                        </div>
+                    
+                        <div class="tab-pane" id="register">
+                            Email: <br> <input type="email" ng-model="user.email"><br><br>
+                            Password: <br> <input type="password" ng-model="user.passsword"><br><br>
+                            Confirm Password: <br> <input type="password" ng-model="user.password"><br><br>
+                            <button ng-click="createUser(user)">Sign Up</button>
+                        </div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
     
     <div ui-view></div>
     
@@ -17,8 +61,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="/app/app.js"></script>
-    <script src="/app/controllers/homeCtrl.js"></script>
+    <script src="/app/controllers/loginCtrl.js"></script>
     <script src="/app/directives.js"></script>
-    <script src="/app/service/homeService.js"></script>
+    <script src="/app/service/loginService.js"></script>
 </body>
 </html>
