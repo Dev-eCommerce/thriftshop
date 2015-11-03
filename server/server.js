@@ -42,8 +42,14 @@ app.use(passport.session());
 // Endpoints
 
 //-----login
-app.post('/login', passport.authenticate('local'), function(req, res) {
+app.post('/api/login', passport.authenticate('local'), function(req, res) {
+	console.log(req.body)
 	res.json(req.user);
+});
+app.get('/api/sessionUser', UsersCtrl.me)
+app.get('/api/logout', function(req, res){
+	req.logout();
+	res.redirect('/');
 });
 
 
