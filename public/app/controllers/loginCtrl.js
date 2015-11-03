@@ -2,7 +2,7 @@ var eCommerce = angular.module('eCommerce');
 
 eCommerce.controller('loginCtrl', function($scope, $location, loginService){
 	$scope.createUser = function(user){
-		homeService.createUser(user).then(function(resp) {
+		loginService.createUser(user).then(function(resp) {
 			// $location.path('/user/' + resp.data._id)
 		}, function(err) {
 			return err;

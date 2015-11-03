@@ -12,7 +12,7 @@ var Product = new mongoose.Schema({
     stockTotal: {type: Number},
     options: {
         optionName: {type: String},
-        optinValues:[{
+        optionValues:[{
             name: {type: String},
             count: {type: Number}
         }]
