@@ -1,0 +1,61 @@
+{
+  "name": "thriftshop",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dev-eCommerce/thriftshop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dev-eCommerce/thriftshop/issues"
+  },
+  "homepage": "https://github.com/Dev-eCommerce/thriftshop#readme",
+  "dependencies": {
+    "aws-sdk": "^2.2.14",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "mongoose": "^4.2.4",
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
+
+
+
+
+// Postman TEST data
+
+//  Test products
+// {
+//     "name": "Crew T",
+//     "price": 18.99,
+//     "weight": 1.5,
+//     "descriptionCart": "Slim Fit Crew Top",
+//     "descriptionShort": "Very breathable shirt, great for excercising or comfortable on a hot day.",
+//     "descriptionLong": "Everything you could possibly want in a light, breathable, shirt. It is the most comfortable shirt ever. It also doesn't skimp on durability. This shirt is stronger than the cables holding up the golden gate bridge. While remaining as soft as babies skin.",
+//     "category": "mens",
+//     "stockTotal": 50,
+//     "options": {
+//         "optionName": "Sizes",
+//         "optionValues": [
+//             {
+//                 "name": "Medium",
+//                 "count": 34
+//             },
+//             {
+//                 "name": "large",
+//                 "count": 16
+//             },
+//         ]
+//     }
+// }
