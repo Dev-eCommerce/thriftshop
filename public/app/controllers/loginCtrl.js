@@ -1,7 +1,6 @@
 var eCommerce = angular.module('eCommerce');
 
-eCommerce.controller('homeCtrl', function($scope, $location, homeService){
-    
+eCommerce.controller('loginCtrl', function($scope, $location, loginService){
 	$scope.createUser = function(user){
 		homeService.createUser(user).then(function(resp) {
 			// $location.path('/user/' + resp.data._id)
@@ -12,7 +11,7 @@ eCommerce.controller('homeCtrl', function($scope, $location, homeService){
 	
 	$scope.loginUser = function(user){
 		console.log(user, "Success function fired")
-		homeService.loginUser(user).then(function(resp) {
+		loginService.loginUser(user).then(function(resp) {
 			if(resp.data.admin === true){
 				// $location.path('/admin/' + resp.data._id)
 			} else {
@@ -24,7 +23,6 @@ eCommerce.controller('homeCtrl', function($scope, $location, homeService){
 			return err;
 		});
 	}
-    
 })
 
 
