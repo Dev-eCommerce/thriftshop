@@ -105,7 +105,7 @@ input {
     font-size: 13px;
 }
 
-.myAccount-content {
+.myLogin-content {
     position: relative;
     top: 150px;
     left: 500px;
@@ -114,7 +114,16 @@ input {
     background: white;
 }
 
-.accountTab {
+.myAccount-content {
+    position: relative;
+    top: 150px;
+    left: 330px;
+    height: 450px;
+    width: 600px;
+    background: white;
+}
+
+.modalTab {
     color: #00CC99;
     font-family: 'Quicksand', sans-serif;
 }
