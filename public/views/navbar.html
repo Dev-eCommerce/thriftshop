@@ -1,6 +1,11 @@
+<div ng-controller="loginCtrl">
 <div id="navbar">
     <div class="nav_info">
-        <span class="store_name">Derelicte</span>   <span class="nav_user_info" data-toggle="modal" data-target="#myLogin"><i class="fa fa-user"></i>  MY ACCOUNT</span> <span class="nav_user_info"><i class="fa fa-opencart"></i>    CART (0)</span>   <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
+        <span class="store_name" ng-click="test = !test">Derelicte</span>   
+        <span class="nav_user_info" data-toggle="modal" data-target="#myLogin" ng-show="!test"><i class="fa fa-user"></i>  LOGIN</span> 
+        <span class="nav_user_info" data-toggle="modal" data-target="#myAccount" ng-show="test"><i class="fa fa-user"></i>  MY ACCOUNT</span>
+        <span class="nav_user_info"><i class="fa fa-opencart"></i>    CART (0)</span>   
+        <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
     </div>
     <div class="nav_browser">
         <span class="browser_categories">NEW ARRIVALS</span>    <span class="browser_categories">TOPS</span>    <span class="browser_categories">BOTTOMS</span> <span class="browser_categories">SHOES</span>  <span class="browser_categories">JEWELRY</span> <span class="browser_categories">ACCESSORIES</span>    <span class="browser_categories">SALE</span>
@@ -8,7 +13,7 @@
 </div>
 
  <!-- Login Modal -->
-        <div id="myLogin" class="modal fade" role="dialog" ng-controller="loginCtrl">
+        <div id="myLogin" class="modal fade" role="dialog">
           <div class="myLogin-dialog">
 
             <!-- Login Modal content-->
@@ -26,14 +31,14 @@
                       <div class="tab-pane active" id="login">
                             Email: <br> <input type="email" ng-model="user.email"><br><br>
                             Password: <br> <input type="password" ng-model="user.password"><br><br>
-                            <button ng-click="loginUser(user)">Login</button>
+                            <button ng-click="loginUser(user)" data-dismiss="modal">Login</button>
                         </div>
                     
                         <div class="tab-pane" id="register">
                             Email: <br> <input type="email" ng-model="user.email"><br><br>
                             Password: <br> <input type="password" ng-model="user.passsword"><br><br>
                             Confirm Password: <br> <input type="password" ng-model="user.password"><br><br>
-                            <button ng-click="createUser(user)">Sign Up</button>
+                            <button ng-click="createUser(user)" data-dismiss="modal">Sign Up</button>
                         </div> 
                   </div>
                 </div>
@@ -47,7 +52,6 @@
         <div id="myAccount" class="modal fade" role="dialog">
           <div class="myAccount-dialog">
 
-            <!-- Account Modal content-->
             <div class="myAccount-content">
                     
               <div class="myAccount-header">
@@ -58,11 +62,13 @@
                     <li><a class="modalTab" href="#shipping" data-toggle="tab">SHIPPING</a></li>
                     <li><a class="modalTab" href="#billing" data-toggle="tab">BILLING</a></li>
                     <li><a class="modalTab" href="#orderHistory" data-toggle="tab">ORDERS</a></li>
+                    <li><a class="modalTab" href="#cart" data-toggle="tab">CART</a></li>
                   </ul>
 
                   <div class="tab-content">
                       <div class="tab-pane active" id="customerInfo">
-                            Customer Info
+                            Customer Info<br>
+                          {{currentUser.email}}
                         </div>
                     
                         <div class="tab-pane" id="shipping">
@@ -77,6 +83,10 @@
                             Order History
                         </div>
                       
+                      <div class="tab-pane" id="cart">
+                            Cart
+                        </div>
+                      
                   </div>
                 </div>
               </div>
@@ -84,3 +94,4 @@
 
           </div>
         </div>
+</div>

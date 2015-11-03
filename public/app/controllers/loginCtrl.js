@@ -1,9 +1,9 @@
 var eCommerce = angular.module('eCommerce');
 
-eCommerce.controller('loginCtrl', function($scope, $location, loginService){
+eCommerce.controller('loginCtrl', function($scope, $state, loginService){
 	$scope.createUser = function(user){
-		homeService.createUser(user).then(function(resp) {
-			// $location.path('/user/' + resp.data._id)
+		loginService.createUser(user).then(function(resp) {
+			
 		}, function(err) {
 			return err;
 		});
@@ -12,14 +12,15 @@ eCommerce.controller('loginCtrl', function($scope, $location, loginService){
 	$scope.loginUser = function(user){
 		console.log(user, "Success function fired")
 		loginService.loginUser(user).then(function(resp) {
+            $scope.currentUser = resp.data;
 			if(resp.data.admin === true){
-				// $location.path('/admin/' + resp.data._id)
+				
 			} else {
-				console.log("User should be logged in")
-			// $location.path('/user/' + resp.data._id) 
+				console.log("User should be logged in");
+                $scope.test = !$scope.test;
 			}
 		}, function(err) {
-			alert("Email or password is incorrect please try again")
+			alert("Email or password is incorrect. Please try again.")
 			return err;
 		});
 	}
