@@ -24,7 +24,7 @@ eCommerce.controller('homeCtrl', function($scope, $location, homeService){
 			return err;
 		});
 	}
->>>>>>> e06e7a79868a0ee2b0c81c5b80a6bec07e46c6dc
+    
 })
 
 
