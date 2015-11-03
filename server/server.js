@@ -58,11 +58,11 @@ app.put('/api/users/:id', UsersCtrl.update);
 app.delete('/api/users/:id', UsersCtrl.delete);
 
 //-----endpoints for orders---------
-// app.get('/api/orders', OrdersCtrl.findAll);
-// app.get('/api/orders/:id', OrdersCtrl.findOne);
-// app.post('/api/orders', OrdersCtrl.create);
-// app.put('/api/orders/:id', OrdersCtrl.update);
-// app.delete('/orders/:id', OrdersCtrl.delete);
+app.get('/api/orders', OrdersCtrl.findAll);
+app.get('/api/orders/:id', OrdersCtrl.findOne);
+app.post('/api/orders', OrdersCtrl.create);
+app.put('/api/orders/:id', OrdersCtrl.update);
+app.delete('/orders/:id', OrdersCtrl.delete);
 
 //-----endpoints for products-------
 app.get('/api/products', ProductsCtrl.findAll);
