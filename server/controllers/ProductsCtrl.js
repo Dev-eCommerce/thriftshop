@@ -3,24 +3,24 @@ var AWS = require('../services/AmazonService');
 
 module.exports = {
     create: function(req, res) {
-            var image = req.body.image;
-            console.log(image);
+            // var image = req.body.image;
+            // console.log(image);
 
-            var buf = new Buffer(image.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+            // var buf = new Buffer(image.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
-            var fileObj = {
-                name: image.name,
-                body: buf,
-                type: image.type
-            };
+            // var fileObj = {
+            //     name: image.name,
+            //     body: buf,
+            //     type: image.type
+            // };
 
-            AWS.uploadToS3(fileObj, function(err, data){
-                if (err) {
-                    console.log(err, "image not uploaded")
-                    res.status(500).send(err)
-                } else {
-                    req.body.image = data.Location;
-                    console.log(req.body);
+            // AWS.uploadToS3(fileObj, function(err, data){
+            //     if (err) {
+            //         console.log(err, "image not uploaded")
+            //         res.status(500).send(err)
+            //     } else {
+            //         req.body.image = data.Location;
+            //         console.log(req.body);
                     Products.create(req.body, function(err, result) {
                         if (err) {
                          	res.send(err, "user not created");
@@ -28,8 +28,8 @@ module.exports = {
                           	res.json(result);
                         }
                     });
-                }
-            })
+            //     }
+            // })
     },
     update: function(req, res) {
             Products.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, result) {

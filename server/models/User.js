@@ -16,7 +16,8 @@ var User = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Order'
     }],
-    addressUsed: []
+    addressUsed: [],
+    date: {type: Date, default: Date.now}
     
 });
 
