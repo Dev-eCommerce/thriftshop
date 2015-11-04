@@ -12,14 +12,17 @@ module.exports = {
         });
     },
     findAll: function(req, res){
-        Orders.find({}, function(err, result){
+        Orders.find().populate({
+            path: 'productsOrdered',
+            select: 'name weight category options image'
+        }).exec(function(err, result){
             if(err){
                 res.send(err)
             } else {
                 console.log("Get all orders", result)
                 res.json(result)
             }
-        })    
+        });    
     },
     findOne: function(req, res){
         Orders.findById(req.params.id).populate({
