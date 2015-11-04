@@ -20,14 +20,16 @@ module.exports = {
             //         res.status(500).send(err)
             //     } else {
             //         req.body.image = data.Location;
-                    console.log(req.body);
-                    Products.create(req.body, function(err, result) {
-                        if (err) {
-                         	res.send(err, "user not created");
-                        } else {
-                          	res.json(result);
-                        }
-                    });
+                    if (!req.body.image){
+                        console.log(req.body);
+                        Products.create(req.body, function(err, result) {
+                            if (err) {
+                             	res.send(err, "user not created");
+                            } else {
+                              	res.json(result);
+                            }
+                        });
+                    }
             //     }
             // })
     },
