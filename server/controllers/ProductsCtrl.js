@@ -4,7 +4,11 @@ var AWS = require('../services/AmazonService');
 module.exports = {
     create: function(req, res) {
             // var image = req.body.image;
+
             // console.log(image);
+
+            // console.log(req.body);
+
 
             // var buf = new Buffer(image.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
@@ -20,6 +24,7 @@ module.exports = {
             //         res.status(500).send(err)
             //     } else {
             //         req.body.image = data.Location;
+
             //         console.log(req.body);
                     Products.create(req.body, function(err, result) {
                         if (err) {
@@ -28,6 +33,16 @@ module.exports = {
                           	res.json(result);
                         }
                     });
+                    if (!req.body.image){
+                        console.log(req.body);
+                        Products.create(req.body, function(err, result) {
+                            if (err) {
+                             	res.send(err, "user not created");
+                            } else {
+                              	res.json(result);
+                            }
+                        });
+                    }  
             //     }
             // })
     },
@@ -59,11 +74,25 @@ module.exports = {
             });
     },
     delete: function(req, res) {
-        Products.findByIdAndRemove(req.params.id, function(err, result){
+        Products.findById(req.params.id, function(err, result){
           if (err) {
                     res.status(500).send(err);
                 } else {
-                    res.json(result);
+                    // var imageToDelete = result.data.image;
+                    // //need to splice the string here.
+                    // AWS.deleteFromS3(imageToDelete, function(err, result){
+                    //     if (err) {
+                    //         res.send("failed to delete from s3")
+                    //     } else {
+                            Products.findByIdAndRemove(req.params.id, function(err, result){
+                                if (err) {
+                                    res.send("failed to delete from User")
+                                } else {
+                                    res.json(result, "Success");
+                                }
+                            })
+                    //     }
+                    // })
                 }
             });
     }
