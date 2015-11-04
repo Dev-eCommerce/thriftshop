@@ -8,6 +8,16 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
        
        .state('home', {
            url: '/home',
-           templateUrl: '/views/homeTmpl.html',
+           templateUrl: '/views/homeTmpl.html'
        })
+   
+        .state('admin', {
+            url: '/admin',
+            templateUrl: '/views/adminTmpl.html'
+        })
+   
+        .state('checkout', {
+            url: '/checkout',
+            templateUrl: '/views/checkoutTmpl.html'
+        })
 });
