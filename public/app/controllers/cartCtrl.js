@@ -28,4 +28,7 @@ eCommerce.controller('cartForm', function($scope) {
 
         return total;
     }
+    
+    
+    
 });
