@@ -39,6 +39,12 @@ module.exports = {
             return res.status(200).json(result);
         });
     },
+    checkout: function(req, res){
+        Orders.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, result){
+            if(err) return res.status(500).json(err);
+            return res.status(200).json(result);
+        });
+    },
     delete: function(req, res){
        Orders.findByIdAndRemove(req.params.id, function(err, result){
           if (err) {

@@ -32,30 +32,3 @@
 
 
 
-
-// Postman TEST data
-
-//  Test products
-// {
-//     "name": "Crew T",
-//     "price": 18.99,
-//     "weight": 1.5,
-//     "descriptionCart": "Slim Fit Crew Top",
-//     "descriptionShort": "Very breathable shirt, great for excercising or comfortable on a hot day.",
-//     "descriptionLong": "Everything you could possibly want in a light, breathable, shirt. It is the most comfortable shirt ever. It also doesn't skimp on durability. This shirt is stronger than the cables holding up the golden gate bridge. While remaining as soft as babies skin.",
-//     "category": "mens",
-//     "stockTotal": 50,
-//     "options": {
-//         "optionName": "Sizes",
-//         "optionValues": [
-//             {
-//                 "name": "Medium",
-//                 "count": 34
-//             },
-//             {
-//                 "name": "large",
-//                 "count": 16
-//             },
-//         ]
-//     }
-// }
