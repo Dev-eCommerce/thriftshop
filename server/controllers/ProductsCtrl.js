@@ -29,7 +29,7 @@ module.exports = {
                               	res.json(result);
                             }
                         });
-                    }
+                    }  
             //     }
             // })
     },
