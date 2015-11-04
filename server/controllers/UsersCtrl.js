@@ -22,7 +22,7 @@ module.exports = {
 		}
 	},
     findAll: function(req, res){
-        Users.findById({}, function(err, result){
+        Users.find({}, function(err, result){
             if(err){
                 res.send(err)
             } else {
