@@ -12,7 +12,7 @@ module.exports = {
         });
     },
     findAll: function(req, res){
-        Orders.findById({}, function(err, result){
+        Orders.find({}, function(err, result){
             if(err){
                 res.send(err)
             } else {

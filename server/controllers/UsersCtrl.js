@@ -8,6 +8,7 @@ module.exports = {
                 return res.status(500).json(err)
             } else {
                 user.password = null;
+                console.log(user._id);
                 return res.json(user)
             }
         });
@@ -21,7 +22,7 @@ module.exports = {
 		}
 	},
     findAll: function(req, res){
-        Users.findById({}, function(err, result){
+        Users.find({}, function(err, result){
             if(err){
                 res.send(err)
             } else {
