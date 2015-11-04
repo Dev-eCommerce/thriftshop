@@ -24,6 +24,11 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
 			return err;
 		});
 	}
+    
+    $scope.checkout = function() {
+        $state.go('checkout');
+    }
+    
 })
 
 

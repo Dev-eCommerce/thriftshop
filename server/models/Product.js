@@ -16,11 +16,11 @@ var Product = new mongoose.Schema({
             name: {type: String},
             count: {type: Number}
         }]
-    }
-    // newArrival: {type: Boolean, default: false},
-    // sale: {type: Boolean, default: false},
-    // date: {type: Date, default: Date.now},
-    // gender: {type: String}
+    },
+    newArrival: {type: Boolean, default: false},
+    sale: {type: Boolean, default: false},
+    date: {type: Date, default: Date.now},
+    gender: {type: String}
     
 });
 
