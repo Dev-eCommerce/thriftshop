@@ -17,7 +17,7 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
 				
 			} else {
 				console.log("User should be logged in");
-                $scope.test = !$scope.test;
+                $scope.loggedIn = !$scope.loggedIn;
 			}
 		}, function(err) {
 			alert("Email or password is incorrect. Please try again.")
