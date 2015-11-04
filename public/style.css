@@ -123,6 +123,26 @@ input {
     background: white;
 }
 
+.myCart-content {
+    position: relative;
+    top: 100px;
+    left: 430px;
+    height: 500px;
+    width: 400px;
+    background: white;
+    overflow: auto;
+}
+
+.myCart-content > button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-family: cursive;
+    font-size: 16px;
+    background: #00CC99;
+    color: white;
+}
+
 .modalTab {
     color: #00CC99;
     font-family: 'Quicksand', sans-serif;
