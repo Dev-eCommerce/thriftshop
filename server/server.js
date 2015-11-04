@@ -68,7 +68,7 @@ app.get('/api/orders', OrdersCtrl.findAll);
 app.get('/api/orders/:id', OrdersCtrl.findOne);
 app.post('/api/orders', OrdersCtrl.create);
 app.put('/api/orders/:id', OrdersCtrl.update);
-app.put('/api/checkout/:id', OrdersCtrl.checkout;
+app.put('/api/checkout/:id', OrdersCtrl.checkout);
 app.delete('/api/orders/:id', OrdersCtrl.delete);
 
 //-----endpoints for products-------
