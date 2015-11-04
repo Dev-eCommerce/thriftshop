@@ -11,4 +11,13 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
            templateUrl: '/views/homeTmpl.html'
        })
    
+        .state('admin', {
+            url: '/admin',
+            templateUrl: '/views/adminTmpl.html'
+        })
+   
+        .state('checkout', {
+            url: '/checkout',
+            templateUrl: '/views/checkoutTmpl.html'
+        })
 });
