@@ -13,7 +13,8 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
    
         .state('admin', {
             url: '/admin',
-            templateUrl: '/views/adminTmpl.html'
+            templateUrl: '/views/adminTmpl.html',
+            controller: 'adminCtrl'
         })
    
         .state('checkout', {
