@@ -1,7 +1,6 @@
 var eCommerce = angular.module('eCommerce');
 
 eCommerce.service('productService', function($http){
-
 this.getProducts = function(){
 		return $http({
 			method: 'GET',
