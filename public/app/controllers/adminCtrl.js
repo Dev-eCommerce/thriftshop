@@ -1,9 +1,44 @@
 var app = angular.module('eCommerce');
 
-app.controller('adminCtrl', function($scope, adminSrvc){
+app.controller('adminCtrl', function($scope, adminSrvc, $location){
 	var getOrders = adminSrvc.getOrders()
 			.then(function(response){
-				$scope.orders = response;
-	});
-
+				$scope.submitted = [];
+				$scope.fulfilled = [];
+				$scope.shipped = [];
+				response.forEach(function(item){
+					if (item.orderStatus == "Submitted"){
+						$scope.submitted.push(item);
+					}
+					if (item.orderStatus == "Fulfilled"){
+						$scope.fulfilled.push(item);
+					}
+					if (item.orderStatus == "Shipped"){
+						$scope.shipped.push(item);
+					}
+				})
+				
+			});
+	$scope.updateOrderStatus = function (orderId, status){
+		adminSrvc.updateOrderStatus(orderId, status)
+				.then(function(response){
+					adminSrvc.getOrders()
+						.then(function(response){
+							$scope.submitted = [];
+							$scope.fulfilled = [];
+							$scope.shipped = [];
+							response.forEach(function(item){
+								if (item.orderStatus == "Submitted"){
+									$scope.submitted.push(item);
+								}
+								if (item.orderStatus == "Fulfilled"){
+									$scope.fulfilled.push(item);
+								}
+								if (item.orderStatus == "Shipped"){
+									$scope.shipped.push(item);
+								}
+							})
+						})
+				})
+	};
 });
