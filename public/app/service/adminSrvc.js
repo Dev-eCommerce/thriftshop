@@ -54,4 +54,11 @@ app.service('adminSrvc', function($http){
 			return response;
 		})
 	}
+	
+	this.deleteProduct = function(productId){
+		return $http({
+			method: "DELETE",
+			url: '/api/products/' + productId
+		})
+	}
 })

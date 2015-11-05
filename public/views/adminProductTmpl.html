@@ -1,9 +1,17 @@
 <h1>Product</h1>
 <button ng-click="showProducts=!showProducts">Get All Products</button>
-<div class="test-size" ng-repeat="product in products" ng-show="showProducts">
-	{{product.name}} {{product.category}} {{product.image}} {{product.price | currency}}
+<div ng-repeat="product in products track by $index" ng-show="showProducts">
+	{{product.image}} <br>
+	{{product.name}} {{product.category}} {{product.price | currency}} <br>
+	{{product.descriptionShort}}
+	<div class="msgBtn">
+            <button type="button" class="btn btn-primary btn-xs" ng-click="">update</button>
+            <button type="button" class="btn btn-primary btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
+	</div>
+	<hr>
 </div>
-
+<br>
+<br>
 <button ng-click="addProducts=!addProducts">Add Product</button>
 
 <div class="container" ng-show="addProducts">

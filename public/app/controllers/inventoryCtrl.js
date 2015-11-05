@@ -25,4 +25,11 @@ app.controller('inventoryCtrl', function($scope, adminSrvc){
 		adminSrvc.addProduct(product)
 	}
 	
+	$scope.deleteProduct = function(productId, index){
+		confirm("Are you sure?")
+		adminSrvc.deleteProduct(productId)
+		alert("Product Deleted")
+		$scope.products.splice(index, 1)
+	}
+	
 })
