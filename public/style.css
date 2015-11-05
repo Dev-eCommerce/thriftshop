@@ -78,6 +78,7 @@ input {
 
 .home_footer {
     position: relative;
+    left: 15px;
     top: 500px;
     width: 100%;
     margin: 0 auto;

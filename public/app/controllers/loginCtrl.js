@@ -3,7 +3,8 @@ var eCommerce = angular.module('eCommerce');
 eCommerce.controller('loginCtrl', function($scope, $state, loginService){
 	$scope.createUser = function(user){
 		loginService.createUser(user).then(function(resp) {
-
+            $scope.loggedIn = !$scope.loggedIn;
+            $scope.currentUser = resp.data;
 		}, function(err) {
 			return err;
 		});
@@ -24,9 +25,8 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
 	}
     
     $scope.updateUser = function(currentUser){
-        console.log(000, currentUser);
         loginService.updateUser(currentUser).then(function(response){
-            console.log(111, response);
+            
         })
     }
     
