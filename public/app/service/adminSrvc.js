@@ -9,7 +9,20 @@ app.service('adminSrvc', function($http){
 			if (response.status != 200) {
 				return "Orders not found";
 			}
-			console.log(response.data);
+			return response.data;
+		});
+	}
+	this.updateOrderStatus = function(orderId, status){
+		return $http({
+			method: 'PUT',
+			url: '/api/orders/' + orderId,
+			data: {
+				orderStatus: status
+			}
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
 			return response.data;
 		});
 	}
