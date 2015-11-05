@@ -4,9 +4,9 @@ var Product = new mongoose.Schema({
     name: {type: String},
     price: {type: Number},
     weight: {type: Number},
-    decsriptionCart: {type: String, maxlength: 50},
-    decsriptionShort: {type: String, maxlength: 140},
-    decsriptionLong: {type: String},
+    descriptionCart: {type: String},
+    descriptionShort: {type: String},
+    descriptionLong: {type: String},
     image: {type: String},
     category: {type: String},
     stockTotal: {type: Number},
@@ -19,7 +19,7 @@ var Product = new mongoose.Schema({
     },
     newArrival: {type: Boolean, default: false},
     sale: {type: Boolean, default: false},
-    date: {type: Date, default: Date.now},
+    date: {type: Date, default: Date.now()},
     gender: {type: String}
     
 });

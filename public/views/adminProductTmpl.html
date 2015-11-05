@@ -1,0 +1,191 @@
+<h1>Product</h1>
+<button ng-click="showProducts=!showProducts">Get All Products</button>
+<div class="test-size" ng-repeat="product in products" ng-show="showProducts">
+	{{product.name}} {{product.category}} {{product.price | currency}}
+</div>
+
+<button ng-click="addProducts=!addProducts">Add Product</button>
+
+<div class="container" ng-show="addProducts">
+    <h1 class="well">Add Product</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+		<form>
+			<div class="col-sm-12">
+				<h3>Product Information</h3>
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label>Product Name</label>
+						<input type="text", placeholder="Product Name" class="form-control" ng-model="product.name">
+					</div>
+					<div class="col-sm-6 form-group">
+						<label>Price</label>
+						<input type="text", placeholder="Price" class="form-control" ng-model="product.price">
+					</div>
+				</div>
+				<div class="form-group">
+						<label>Description Long</label>
+						<textarea placeholder="DL" rows="3" class="form-control" ng-model="product.descriptionLong"></textarea>
+				</div>
+				<div class="form-group">
+						<label>Description Short</label>
+						<textarea placeholder="DS" rows="3" class="form-control" ng-model="product.descriptionShort"></textarea>
+				</div>
+				<div class="form-group">
+						<label>Description Cart</label>
+						<textarea placeholder="DC" rows="3" class="form-control" ng-model="product.descriptionCart"></textarea>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 form-group">
+						<label>Category</label>
+						<input type="text" placeholder="Category" class="form-control" ng-model="product.category">
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Quantity</label>
+						<input type="text" placeholder="Quantity" class="form-control" ng-model="product.stockTotal">
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Gender</label>
+						<input type="text" placeholder="Gender" class="form-control" ng-model="product.gender">
+					</div>
+					</div>
+					 <br>
+					 
+				<div class="checkbox">
+  					<label><input ng-click="newArrival=!newArrival" type="checkbox" name="newArrival">New Arrival</label><br>
+					<label><input ng-click="sale=!sale" type="checkbox" name="sale">Sale</label>
+				</div>	 
+				<!--Begin Options	-->
+				<div class="checkbox">
+  					<label><input ng-click="showOptions=!showOptions" type="checkbox" name="Options">Product Options</label><br>
+				</div> <br>
+				<div class="row" ng-show="showOptions">
+					<div class="col-sm-3 form-group">
+						<label>Option Name<select name="optionName" class="select-field" ng-model="product.options.optionName">
+								<option>Size</option>
+								<option>Color</option>
+          			</select></label>
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Sizes <select name="optionValues" class="select-field" ng-model="product.options.optionValues.name">
+								<option class="select-dash" disabled="disabled">--TOPS--</option>
+									<option>Extra Small</option>	
+									<option>Small</option>
+									<option>Medium</option>
+									<option>Large</option>
+									<option>Extra Large</option>
+								<option class="select-dash" disabled="disabled">--BOTTOMS/MALE--</option>
+									<option>32</option>	
+									<option>33</option>
+									<option>34</option>
+									<option>35</option>
+									<option>36</option>
+								<option class="select-dash" disabled="disabled">--BOTTOMS/FEMALE--</option>
+									<option>Extra Small</option>	
+									<option>Small</option>
+									<option>Medium</option>
+									<option>Large</option>
+									<option>Extra Large</option>
+								<option class="select-dash" disabled="disabled">--SHOES--</option>
+									<option>4</option>	
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>7.5</option>
+									<option>8</option>	
+									<option>8.5</option>
+									<option>9</option>
+									<option>9.5</option>
+									<option>10</option>
+									<option>10.5</option>
+									<option>11</option>
+									<option>12</option>
+								<option class="select-dash" disabled="disabled">Accessories</option>
+          			</select></label>
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Quantity</label>
+						<input type="text" placeholder="Child Name" class="form-control" ng-model="product.options.optionValues.count">
+					</div> <br>
+					
+					<!--Add More Options-->
+					<div class="checkbox">
+  					<label><input ng-click="addOptions=!addOptions" type="checkbox" name="Options">Add More Options</label><br>
+				</div> <br>
+				<div class="row" ng-show="addOptions">
+					<div class="col-sm-3 form-group">
+						<label>Option Name<select name="optionName1" class="select-field" ng-model="product.options.optionName">
+								<option>Size</option>
+								<option>Color</option>
+          			</select></label>
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Sizes <select name="optionValues2" class="select-field" ng-model="product.options.optionValues.name">
+								<option class="select-dash" disabled="disabled">--TOPS--</option>
+									<option>Extra Small</option>	
+									<option>Small</option>
+									<option>Medium</option>
+									<option>Large</option>
+									<option>Extra Large</option>
+								<option class="select-dash" disabled="disabled">--BOTTOMS/MALE--</option>
+									<option>32</option>	
+									<option>33</option>
+									<option>34</option>
+									<option>35</option>
+									<option>36</option>
+								<option class="select-dash" disabled="disabled">--BOTTOMS/FEMALE--</option>
+									<option>Extra Small</option>	
+									<option>Small</option>
+									<option>Medium</option>
+									<option>Large</option>
+									<option>Extra Large</option>
+								<option class="select-dash" disabled="disabled">--SHOES--</option>
+									<option>4</option>	
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>7.5</option>
+									<option>8</option>	
+									<option>8.5</option>
+									<option>9</option>
+									<option>9.5</option>
+									<option>10</option>
+									<option>10.5</option>
+									<option>11</option>
+									<option>12</option>
+								<option class="select-dash" disabled="disabled">Accessories</option>
+          			</select></label>
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Quantity</label>
+						<input type="text" name="Q2" placeholder="Child Name" class="form-control" ng-model="product.options.optionValues.count">
+					</div> <br>
+				
+				<!--Add More Options-->
+				<!--<div class="checkbox">
+  					<label><input ng-click="addOptions2=!addOptions2" type="checkbox" name="Options">Add More Options</label><br>
+				</div> <br>
+				<div class="row" ng-show="addOptions2">
+					<div class="col-sm-3 form-group">
+						<label>Option Name</label>
+						<input type="text" placeholder="Child Name" class="form-control" ng-model="product.options.optionName">
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Size Name</label>
+						<input type="text" placeholder="Child Name" class="form-control" ng-model="product.options.optionValues.name">
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Quantity</label>
+						<input type="text" placeholder="Child Name" class="form-control" ng-model="product.options.optionValues.count">
+					</div>
+				-->
+				
+				</div>
+				</div> <br>
+				</div>
+				<button type="button" class="btn btn-lg btn-primary" ng-click="addProduct(product)">Save</button>
+				</div>
+		</form>	
+	</div>
+ </div>
+ </div>
