@@ -3,9 +3,9 @@ var eCommerce = angular.module('eCommerce');
 eCommerce.controller('cartForm', function($scope) {
     $scope.invoice = {
         items: [{
-            qty: 10,
-            description: 'item',
-            cost: 9.95}]
+            qty: 1,
+            description: '',
+            cost: 0}]
     };
 
     $scope.addItem = function() {
