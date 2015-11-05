@@ -37,9 +37,14 @@ module.exports = {
         });    
     },
     update: function(req, res){
-        Orders.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, result){
-            if(err) return res.status(500).json(err);
+        Orders.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, function(err, result){
+            if(err){
+                return res.status(500).json(err);
+            } else {
+            console.log(result);
+            result.save();
             return res.status(200).json(result);
+        }
         });
     },
     checkout: function(req, res){

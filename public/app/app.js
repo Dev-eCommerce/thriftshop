@@ -21,4 +21,10 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             url: '/checkout',
             templateUrl: '/views/checkoutTmpl.html'
         })
+        
+        .state('inventory', {
+            url: '/inventory',
+            templateUrl: '/views/adminProductTmpl.html',
+            controller: 'inventoryCtrl'
+        })
 });

@@ -171,3 +171,11 @@ button {
     right: 10px;
     top: 5px;
 }
+
+.test-size {
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+.fullfilled {
+    float: right;
+    margin-right: 45px;

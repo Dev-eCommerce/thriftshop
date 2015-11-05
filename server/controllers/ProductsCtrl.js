@@ -4,7 +4,11 @@ var AWS = require('../services/AmazonService');
 module.exports = {
     create: function(req, res) {
             // var image = req.body.image;
+
+            // console.log(image);
+
             // console.log(req.body);
+
 
             // var buf = new Buffer(image.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
@@ -20,16 +24,25 @@ module.exports = {
             //         res.status(500).send(err)
             //     } else {
             //         req.body.image = data.Location;
-                    if (!req.body.image){
-                        console.log(req.body);
-                        Products.create(req.body, function(err, result) {
-                            if (err) {
-                             	res.send(err, "user not created");
-                            } else {
-                              	res.json(result);
-                            }
-                        });
-                    }  
+
+            //         console.log(req.body);
+                    Products.create(req.body, function(err, result) {
+                        if (err) {
+                         	res.send(err, "user not created");
+                        } else {
+                          	res.json(result);
+                        }
+                    });
+                    // if (!req.body.image){
+                    //     console.log(req.body);
+                    //     Products.create(req.body, function(err, result) {
+                    //         if (err) {
+                    //          	res.send(err, "user not created");
+                    //         } else {
+                    //           	res.json(result);
+                    //         }
+                    //     });
+                    // }  
             //     }
             // })
     },
