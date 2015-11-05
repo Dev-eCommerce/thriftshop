@@ -1,16 +1,11 @@
 var eCommerce = angular.module('eCommerce');
-eCommerce.controller("productCtrl", function($scope, $location, $http) {
-  $http.get('api/products').
-    success(function(data, status, headers, config) {
-      $scope.products = data;
-      console.log(data);
-    }).
-    error(function(data, status, headers, config) {
-      // log error
-    });
-});
-
-
+eCommerce.controller("productCtrl", function($scope, $location, $http, productService) {
+  var getProducts = productService.getProducts()
+			.then(function(response){
+				$scope.products = response;
+            });
+                  
+	});
 
 //eCommerce.controller('productCtrl', function($scope, $location, productService){
 //	$scope.findProduct = function(){
@@ -22,4 +17,13 @@ eCommerce.controller("productCtrl", function($scope, $location, $http) {
 //			return err;
 //		});
 //	};
+//});
+//    $http.get('api/products').
+//    success(function(data, status, headers, config) {
+//      $scope.products = data;
+//      console.log(data);
+//    }).
+//    error(function(data, status, headers, config) {
+//      // log error
+//    });
 //});
