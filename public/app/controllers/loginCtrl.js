@@ -29,6 +29,10 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
         $state.go('checkout');
     }
     
+    $scope.goHome = function() {
+        $state.go('home');
+    }
+    
 })
 
 

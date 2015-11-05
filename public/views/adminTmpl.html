@@ -1,1 +1,5 @@
 <h1>Admin</h1>
+<button ng-click="getOrders()">Get All Orders</button>
+<div class="test-size" ng-repeat="order in orders">
+	{{order.orderDate | date: 'short'}} {{order.orderShipTo}}
+</div>

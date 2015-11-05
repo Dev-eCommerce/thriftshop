@@ -26,6 +26,7 @@ html {
 .store_name {
     font-family: 'Kaushan Script', cursive;
     font-size: 72px;
+    cursor: pointer;
 }
 
 .nav_user_info {
@@ -39,6 +40,7 @@ html {
     position: relative;
     left: 250px;
     margin-right: 30px;
+    cursor: pointer;
 }
 
 input:focus,

@@ -1,7 +1,7 @@
 <div ng-controller="loginCtrl">
 <div id="navbar">
     <div class="nav_info">
-        <span class="store_name">Derelicte</span>   
+        <span class="store_name" ng-click="goHome()">Derelicte</span>   
         <span class="nav_user_info" data-toggle="modal" data-target="#myLogin" ng-show="!loggedIn"><i class="fa fa-user"></i>  LOGIN</span> 
         <span class="nav_user_info" data-toggle="modal" data-target="#myAccount" ng-show="loggedIn"><i class="fa fa-user"></i>  MY ACCOUNT</span>
         <span class="nav_user_info" data-toggle="modal" data-target="#myCart"><i class="fa fa-opencart"></i>    CART (0)</span>   
@@ -68,7 +68,7 @@
                   <div class="tab-content">
                       <div class="tab-pane active" id="customerInfo">
                           <form>
-                            <input type="text" ng-model="currentUser.email"/>
+                            Email:  <input type="text" ng-model="currentUser.email"/>
                           </form>
                         </div>
                     
