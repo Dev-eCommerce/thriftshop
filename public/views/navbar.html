@@ -62,30 +62,34 @@
                     <li><a class="modalTab" href="#shipping" data-toggle="tab">SHIPPING</a></li>
                     <li><a class="modalTab" href="#billing" data-toggle="tab">BILLING</a></li>
                     <li><a class="modalTab" href="#orderHistory" data-toggle="tab">ORDERS</a></li>
-                    <li><a class="modalTab" href="#cart" data-toggle="tab">CART</a></li>
                   </ul>
 
                   <div class="tab-content">
                       <div class="tab-pane active" id="customerInfo">
                           <form>
-                            Email:  <input type="text" ng-model="currentUser.email"/>
+                            Email:  <input type="text" ng-model="currentUser.email"/><br>
+                            Phone: <input type="text" ng-model="currentUser.phoneNumber"/><br><br>
+                            <button ng-click="updateUser(user)">Update</button>
                           </form>
                         </div>
                     
                         <div class="tab-pane" id="shipping">
-                            Shipping
+                            Name: <input type="text" size="10" ng-model="currentUser.firstName"/> <input type="text" size="10" ng-model="currentUser.lastName"/><br>
+                            Address: <input type="text" ng-model="currentUser.address"/><br>
+                            City: <input type="text" size="10" ng-model="currentUser.city"/><br>
+                            State: <input type="text" size="3" maxlength="2" ng-model="currentUser.state"/><br>
+                            Zip Code: <input type="text" size="6" maxlength="5" ng-model="currentUser.zip"/><br><br>
+                            <button ng-click="updateUser(user)">Update</button>
                         </div> 
                       
                       <div class="tab-pane" id="billing">
                             Billing
+                            <br><br>
+                            <button ng-click="updateUser(user)">Update</button>
                         </div>
                       
                       <div class="tab-pane" id="orderHistory">
                             Order History
-                        </div>
-                      
-                      <div class="tab-pane" id="cart">
-                            Cart
                         </div>
                       
                   </div>
