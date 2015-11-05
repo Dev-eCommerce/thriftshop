@@ -44,8 +44,10 @@ module.exports = {
         });    
     },
     update: function(req, res){
-        Users.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, result){
-            if(err) return res.status(500).json(err);
+        Users.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, function(err, result){
+            if(err) {
+                return res.status(500).json(err);
+            }
             return res.status(200).json(result);
         });
     },

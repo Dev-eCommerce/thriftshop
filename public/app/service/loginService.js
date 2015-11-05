@@ -17,6 +17,17 @@ eCommerce.service('loginService', function($http){
 			}
 		})
 	}
+    
+    this.updateUser = function (user) {
+        return $http({
+            method: "PUT",
+            url: '/api/users/' + user._id,
+            data: user
+        }).then(function(data){
+            console.log(222, data.data);
+            return data.data;
+        })
+    }
 	
 	var currentUser = null;
 	
@@ -44,7 +55,6 @@ eCommerce.service('loginService', function($http){
 				console.log(err);
 				return(err);
 			} else {
-				console.log("login User Service",res);
 				currentUser = res.data;
 				return res;
 			}
