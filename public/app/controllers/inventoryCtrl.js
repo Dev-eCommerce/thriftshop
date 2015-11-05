@@ -6,8 +6,22 @@ app.controller('inventoryCtrl', function($scope, adminSrvc){
 				$scope.products = response;
 	});
 	
+	$scope.options = [];
+	$scope.addOptions = function(option){
+		$scope.options.push(
+			{
+			name: option.name, 
+			count: option.count
+			}
+		);
+		console.log($scope.options);
+	};
+	
+	
 	$scope.addProduct = function(product){
-		console.log("inventory controller", product)
+		// console.log(2222222, $scope.options, product.options)
+		product.options.optionValues = $scope.options
+		// console.log("inventory controller", product)
 		adminSrvc.addProduct(product)
 	}
 	

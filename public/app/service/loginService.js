@@ -19,8 +19,15 @@ eCommerce.service('loginService', function($http){
 	}
     
     this.updateUser = function (user) {
-        return $http.put('http://localhost:3000/api/users/:id/' + user._id, user);
-    };
+        return $http({
+            method: "PUT",
+            url: '/api/users/' + user._id,
+            data: user
+        }).then(function(data){
+            console.log(222, data.data);
+            return data.data;
+        })
+    }
 	
 	var currentUser = null;
 	
