@@ -47,7 +47,7 @@ module.exports = {
             // })
     },
     update: function(req, res) {
-            Products.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, result) {
+            Products.findByIdAndUpdate(req.params.id, {$set: req.body}, { new: true }, function(err, result) {
                 if (err) {
                   	res.send(err);
                 } else {
