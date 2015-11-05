@@ -41,7 +41,7 @@ app.service('adminSrvc', function($http){
 	}
 	
 	this.addProduct = function(product){
-		product.options = {optionName: product.options.optionName, optionValues: [{count: product.options.optionValues.count, name: product.options.optionValues.name}]}
+		// product.options = {optionName: product.options.optionName, optionValues: [{count: product.options.optionValues.count, name: product.options.optionValues.name}]}
 		return $http({
 			method: 'POST',
 			url: '/api/products',
