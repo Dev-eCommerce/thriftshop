@@ -17,6 +17,10 @@ eCommerce.service('loginService', function($http){
 			}
 		})
 	}
+    
+    this.updateUser = function (user) {
+        return $http.put('http://localhost:3000/api/users/:id/' + user._id, user);
+    };
 	
 	var currentUser = null;
 	
@@ -44,7 +48,6 @@ eCommerce.service('loginService', function($http){
 				console.log(err);
 				return(err);
 			} else {
-				console.log("login User Service",res);
 				currentUser = res.data;
 				return res;
 			}

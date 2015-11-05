@@ -10,13 +10,11 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
 	}
 	
 	$scope.loginUser = function(user){
-		console.log(user, "Success function fired")
 		loginService.loginUser(user).then(function(resp) {
             $scope.currentUser = resp.data;
 			if(resp.data.admin === true){
-				
+				$state.go('admin');
 			} else {
-				console.log("User should be logged in");
                 $scope.loggedIn = !$scope.loggedIn;
 			}
 		}, function(err) {
@@ -24,6 +22,12 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
 			return err;
 		});
 	}
+    
+    $scope.updateUser = function(currentUser){
+        loginService.updateUser(currentUser).then(function(res){
+            console.log(res);
+        })
+    }
     
     $scope.checkout = function() {
         $state.go('checkout');
