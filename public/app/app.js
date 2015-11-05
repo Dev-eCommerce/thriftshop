@@ -1,4 +1,4 @@
-var eCommerce = angular.module('eCommerce', ['ui.router']);
+var eCommerce = angular.module('eCommerce', ['ui.router', 'ngFileUpload']);
 
 eCommerce.config(function($stateProvider, $urlRouterProvider) {
    

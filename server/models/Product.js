@@ -7,7 +7,7 @@ var Product = new mongoose.Schema({
     descriptionCart: {type: String},
     descriptionShort: {type: String},
     descriptionLong: {type: String},
-    image: {type: String},
+    image: [{type: String}],
     category: {type: String},
     stockTotal: {type: Number},
     options: {
