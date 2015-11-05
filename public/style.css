@@ -31,7 +31,7 @@ html {
 
 .nav_user_info {
     position: relative;
-    right: -480px;
+    right: -425px;
     margin-right: 40px;
     cursor: pointer;
 }
@@ -177,6 +177,13 @@ button {
     height: 50px;
     border-bottom: 1px solid black;
 }
+
 .fullfilled {
     float: right;
     margin-right: 45px;
+}
+
+.logout {
+    font-size: 12px;
+    color: #00CC99;
+}
