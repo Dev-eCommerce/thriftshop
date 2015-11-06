@@ -1,6 +1,7 @@
 var app = angular.module('eCommerce');
 
 app.controller('inventoryCtrl', function($scope, adminSrvc){
+
 	var getProducts = adminSrvc.getProducts()
 			.then(function(response){
 				$scope.products = response;
@@ -17,12 +18,21 @@ app.controller('inventoryCtrl', function($scope, adminSrvc){
 		console.log($scope.options);
 	};
 	
+	$scope.setProductToUpdate = function(product){
+		adminSrvc.product = product;
+	}
+	
 	
 	$scope.addProduct = function(product){
-		// console.log(2222222, $scope.options, product.options)
 		product.options.optionValues = $scope.options
-		// console.log("inventory controller", product)
 		adminSrvc.addProduct(product)
+	}
+	
+	$scope.updateProduct = function(product){
+		adminSrvc.updateProduct($scope.product).then(function(res, err){
+			if(err) console.log(err);
+			console.log("controller updateproduct",res);
+		})
 	}
 	
 })

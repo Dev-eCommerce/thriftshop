@@ -27,4 +27,9 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/views/adminProductTmpl.html',
             controller: 'inventoryCtrl'
         })
+        .state('updateInventory', {
+           url: '/inventory/:id/update',
+           templateUrl: '/views/updateProductTmpl.html',
+           controller: 'updateProductCtrl',
+        })
 });

@@ -1,6 +1,7 @@
 var app = angular.module('eCommerce');
 
 app.service('adminSrvc', function($http){
+	this.product ={};
 	this.getOrders = function(){
 		return $http({
 			method: 'GET',
@@ -28,7 +29,6 @@ app.service('adminSrvc', function($http){
 	}
 	
 	this.addProduct = function(product){
-		// product.options = {optionName: product.options.optionName, optionValues: [{count: product.options.optionValues.count, name: product.options.optionValues.name}]}
 		return $http({
 			method: 'POST',
 			url: '/api/products',
@@ -41,4 +41,20 @@ app.service('adminSrvc', function($http){
 			return response;
 		})
 	}
+	
+	this.updateProduct = function(product){
+		return $http({
+			method: 'PUT',
+			url: 'api/products/' + product,
+			date: product
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			console.log("update call",response);
+			return response;
+		})
+	}
+	
+	
 })
