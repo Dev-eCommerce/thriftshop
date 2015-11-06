@@ -47,7 +47,19 @@ app.service('adminSrvc', function($http){
 			data: product
 		}).then(function(response){
 			if (response.status != 200) {
-				return "Orders not found";
+				return "Product not created";
+			}
+			console.log(response.data);
+			return response;
+		})
+	}
+	this.deleteProduct = function(id){
+		return $http({
+			method: 'DELETE',
+			url: 'api/products' + id
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Product not found";
 			}
 			console.log(response.data);
 			return response;
