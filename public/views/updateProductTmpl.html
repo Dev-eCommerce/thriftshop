@@ -1,0 +1,115 @@
+<div class="container">
+    <h1 class="well">Update Product</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+		<form>
+			<h3>Add Image</h3>
+				<label>Add Image</label>
+				<input type="file" name="pic" accept="image/*" ng-model="product.image">
+			<div class="col-sm-12">
+				<h3>Product Information</h3>
+				<div class="row">
+					<div class="col-sm-6 form-group">
+						<label>Product Name</label>
+						<input type="text", placeholder="Product Name" class="form-control" ng-model="product.name" value="product.name">
+					</div>
+					<div class="col-sm-6 form-group">
+						<label>Price</label>
+						<input type="text", placeholder="Price" class="form-control" ng-model="product.price">
+					</div>
+				</div>
+				<div class="form-group">
+						<label>Description Long</label>
+						<textarea placeholder="DL" rows="3" class="form-control" ng-model="product.descriptionLong"></textarea>
+				</div>
+				<div class="form-group">
+						<label>Description Short</label>
+						<textarea placeholder="DS" rows="3" class="form-control" ng-model="product.descriptionShort"></textarea>
+				</div>
+				<div class="form-group">
+						<label>Description Cart</label>
+						<textarea placeholder="DC" rows="3" class="form-control" ng-model="product.descriptionCart"></textarea>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 form-group">
+						<label>Category</label>
+						<input type="text" placeholder="Category" class="form-control" ng-model="product.category">
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Quantity</label>
+						<input type="text" placeholder="Quantity" class="form-control" ng-model="product.stockTotal">
+					</div>
+					<div class="col-sm-4 form-group">
+						<label>Gender</label>
+						<input type="text" placeholder="Gender" class="form-control" ng-model="product.gender">
+					</div>
+					</div>
+					 <br>
+					 
+				<div class="checkbox">
+  					<label><input ng-click="newArrival=!newArrival" type="checkbox" name="newArrival">New Arrival</label><br>
+					<label><input ng-click="sale=!sale" type="checkbox" name="sale">Sale</label>
+				</div>	 
+				<!--Begin Options	-->
+				<div class="checkbox">
+  					<label><input ng-click="showOptions=!showOptions" type="checkbox" name="Options">Product Options</label><br>
+				</div> <br>
+				<div class="row" ng-show="showOptions">
+					<div class="col-sm-3 form-group">
+						<label>Option Name<select name="optionName" class="select-field" ng-model="product.options.optionName">
+								<option>Size</option>
+								<!--<option>Color</option>-->
+          			</select></label>
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Sizes <select ng-model='newProduct.options.optionValues.name'>
+								<option class="select-dash" disabled="disabled">--TOPS--</option>
+									<option>Extra Small</option>	
+									<option>Small</option>
+									<option>Medium</option>
+									<option>Large</option>
+									<option>Extra Large</option>
+								<option class="select-dash" disabled="disabled">--BOTTOMS/MALE--</option>
+									<option>32</option>	
+									<option>33</option>
+									<option>34</option>
+									<option>35</option>
+									<option>36</option>
+								<option class="select-dash" disabled="disabled">--BOTTOMS/FEMALE--</option>
+									<option>Extra Small</option>	
+									<option>Small</option>
+									<option>Medium</option>
+									<option>Large</option>
+									<option>Extra Large</option>
+								<option class="select-dash" disabled="disabled">--SHOES--</option>
+									<option>4</option>	
+									<option>5</option>
+									<option>6</option>
+									<option>7</option>
+									<option>7.5</option>
+									<option>8</option>	
+									<option>8.5</option>
+									<option>9</option>
+									<option>9.5</option>
+									<option>10</option>
+									<option>10.5</option>
+									<option>11</option>
+									<option>12</option>
+								<option class="select-dash" disabled="disabled">Accessories</option>
+          			</select></label>
+					</div>
+					<div class="col-sm-3 form-group">
+						<label>Quantity</label>
+						<input type="number" ng-model='newProduct.options.optionValues.count' placeholder='Count'>
+					</div> <br>
+					<input type='submit' ng-click='addOptions(newProduct.options.optionValues)'><br>
+					<div ng-repeat='option in options'>{{option.name}} {{option.count}}</div>	
+				</div>
+				</div> <br>
+				</div>
+				<button type="button" class="btn btn-lg btn-primary" ng-click="updateProduct(product)">Save</button>
+				</div>
+		</form>	
+	</div>
+ </div>
+ </div>
