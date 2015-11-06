@@ -1,7 +1,7 @@
 <h1>Product</h1>
 <button ng-click="showProducts=!showProducts">Get All Products</button>
 <div ng-repeat="product in products track by $index" ng-show="showProducts">
-	{{product.image}} <br>
+	<!--{{product.image}} <br>-->
 	{{product.name}} {{product.category}} {{product.price | currency}} <br>
 	{{product.descriptionShort}}
 	<div class="msgBtn">

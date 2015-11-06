@@ -1,20 +1,43 @@
+<head>
+     <link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+
 <div class="container">
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <div class="row" style="width : 100%">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-around" >
+            <div ng-repeat ="product in products" style="width: calc(100% * (1/3));">
+                <div class="thumbnail" style="margin: 1%;">
+                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" />
+                <div class="caption">
+                    <h4>{{product.name}}</h4>
+                    <p>{{product.descriptionShort}}</p>
+                    <p>{{product.price | currency}}</p>
+                    <p>
+                        <a href="#"><button class="btn btn-primary btn-sm">Button</button></a> 
+                        <a href="#" class="btn btn-default pull-right btn-sm" role="button">Button</a>
+                    </p>
+                </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-  
-   <link rel="stylesheet" type="text/css" href="../style.css" />
-    <div class="well well-sm" ng-app="eCommerce" ng-controller="productCtrl">
+
+
+
+
+
+
+
+
+
 
             
-    <div data-ng-repeat="product in products | filter: {category: 'Mens'}" id="products" class="row list-group">
+    <!--<div data-ng-repeat="product in products id="products" class="row list-group">
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
                 <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
@@ -35,7 +58,7 @@
                 </div>
             </div>
         </div>
-        </div>
+        </div>-->
 <!--
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
