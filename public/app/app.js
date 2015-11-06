@@ -10,7 +10,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
            url: '/home',
            templateUrl: '/views/homeTmpl.html'
        })
-   
+
         .state('admin', {
             url: '/admin',
             templateUrl: '/views/adminTmpl.html',
@@ -30,6 +30,11 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
         .state('updateInventory', {
            url: '/inventory/:id/update',
            templateUrl: '/views/updateProductTmpl.html',
-           controller: 'updateProductCtrl',
-        })
+           controller: 'updateProductCtrl'
+   })
+       .state('products', {
+            url: '/products',
+            templateUrl: '/views/products.html',
+            controller: 'productCtrl',
+        });
 });
