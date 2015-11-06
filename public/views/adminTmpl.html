@@ -1,24 +1,25 @@
-<h1>Admin</h1>
-<a ng-href="/#/inventory">Inventory</a> | <a ng-click="logout">logout</a></br>
-<button ng-click="getOrders()">New Orders</button>
+<h1 class="adminHeader">Orders</h1>
+<a ng-href="/#/inventory"><button class="adminInventory">Inventory</button></a>
+<a class="adminLogout"><button ng-href="/api/logout">log out</button></a></br>
+<button class="adminButton" ng-click="getOrders()">NEW</button>
 <div class="test-size" ng-repeat="order in submitted">
-	Submitted On: {{order.orderDate | date: 'short'}} Status: {{order.orderStatus}}</br> Ship To: {{order.orderShipTo}}{{order.orderShipAddress}}
-	<div class="fullfilled">
-		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Fulfill</button>
+	Submitted On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}}{{order.orderShipAddress}}
+	<div class="fulfilled">
+		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Fulfilled</button>
 	</div>
 </div>
-<button ng-click="getOrders()">Fullfilled Orders</button>
+<button class="adminButton" ng-click="getOrders()">FULFILLED</button>
 <div class="test-size" ng-repeat="order in fulfilled">
-	Submitted On: {{order.orderDate | date: 'short'}} Status: {{order.orderStatus}}</br> Shipped To: {{order.orderShipTo}}{{order.orderShipAddress}}
-	<div class="fullfilled">
-		<button ng-click="updateOrderStatus(order._id, 'Submitted')">Unfulfill</button>
+	Fulfilled On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}}{{order.orderShipAddress}}
+	<div class="fulfilled">
+		<button ng-click="updateOrderStatus(order._id, 'Submitted')">Undo</button>
 		<button ng-click="updateOrderStatus(order._id, 'Shipped')">Shipped</button>
 	</div>
 </div>
-<button ng-click="getOrders()">Shipped Orders</button>
+<button class="adminButton" ng-click="getOrders()">SHIPPED</button>
 <div class="test-size" ng-repeat="order in shipped">
-	Shipped On: {{order.shipDate | date: 'short'}} Status: {{order.orderStatus}}</br> Shipped To: {{order.orderShipTo}}{{order.orderShipAddress}}
-	<div class="fullfilled">
-		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">unShipped</button>
+	Shipped On: {{order.shipDate | date: 'short'}}</br> Shipped To: {{order.orderShipTo}}{{order.orderShipAddress}}
+	<div class="fulfilled">
+		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Undo</button>
 	</div>
 </div>

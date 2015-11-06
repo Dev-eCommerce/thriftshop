@@ -1,27 +1,27 @@
-<h1>Product</h1>
-<button ng-click="showProducts=!showProducts">Get All Products</button>
-<div ng-repeat="product in products track by $index" ng-show="showProducts">
+<h1 class="adminHeader">Products</h1>
+<a ng-href="/#/admin"><button class="adminOrders">Orders</button></a>
+<a class="adminLogout"><button ng-href="/api/logout">log out</button></a></br>
+<button ng-click="showProducts=!showProducts" class="adminButton">Get All Products</button>
+<div class="container" ng-repeat="product in products" ng-show="showProducts">
 	{{product.image}} <br>
 	{{product.name}} {{product.category}} {{product.price | currency}} <br>
 	{{product.descriptionShort}}
 	<div class="msgBtn">
-            <a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-primary btn-xs" ng-click="setProductToUpdate(product)">update</button></a>
-            <button type="button" class="btn btn-primary btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
+            <a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-xs" ng-click="setProductToUpdate(product)">Update</button></a>
+            <button type="button" class="btn btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
 	</div>
 	<hr>
 </div>
 <br>
 <br>
-<button ng-click="addProducts=!addProducts">Add Product</button>
 
-<div class="container" ng-show="addProducts">
-    <h1 class="well">Add Product</h1>
+<button class="adminButton" ng-click="addProducts=!addProducts">Add Product</button>
+<div class="container" ng-show="!addProducts"><br><br>
 	<div class="col-lg-12 well">
 	<div class="row">
 
 		<form ng-submit="addProduct(product)">
-			<h3>Add Image</h3>
-    		<label>Add Image</label>
+            <h4>Add Image</h4>
     		<input type="file" ngf-select ng-model="images" ngf-multiple="true" accept="image/*" fileread id="fu"/>
 			<div class="col-sm-12">
 				<h3>Product Information</h3>
@@ -36,44 +36,41 @@
 					</div>
 				</div>
 				<div class="form-group">
-						<label>Description Long</label>
-						<textarea placeholder="DL" rows="3" class="form-control" ng-model="product.descriptionLong"></textarea>
+						<label>Description (Long)</label>
+						<textarea placeholder="In-depth product description to show when customer clicks on this product" rows="3" class="form-control" ng-model="product.descriptionLong"></textarea>
 				</div>
 				<div class="form-group">
-						<label>Description Short</label>
-						<textarea placeholder="DS" rows="3" class="form-control" ng-model="product.descriptionShort"></textarea>
-				</div>
-				<div class="form-group">
-						<label>Description Cart</label>
-						<textarea placeholder="DC" rows="3" class="form-control" ng-model="product.descriptionCart"></textarea>
+						<label>Description (Short)</label>
+						<textarea maxlength="40" placeholder="Brief product description to show on products page (max 40 characters)" rows="3" class="form-control" ng-model="product.descriptionShort"></textarea>
 				</div>
 				<div class="row">
 					<div class="col-sm-4 form-group">
 						<label>Category</label>
-						<input type="text" placeholder="Category" class="form-control" ng-model="product.category">
+						<input type="text" placeholder="Tops, Bottoms, Accessories, etc." class="form-control" ng-model="product.category">
 					</div>
 					<div class="col-sm-4 form-group">
 						<label>Quantity</label>
-						<input type="text" placeholder="Quantity" class="form-control" ng-model="product.stockTotal">
+						<input type="text" placeholder="Total Quantity" class="form-control" ng-model="product.stockTotal">
 					</div>
 					<div class="col-sm-4 form-group">
 						<label>Gender</label>
-						<input type="text" placeholder="Gender" class="form-control" ng-model="product.gender">
+						<input type="text" class="form-control" ng-model="product.gender">
 					</div>
 					</div>
 					 <br>
 					 
 				<div class="checkbox">
-  					<label><input ng-click="newArrival=!newArrival" type="checkbox" name="newArrival">New Arrival</label><br>
-					<label><input ng-click="sale=!sale" type="checkbox" name="sale">Sale</label>
+  					<label><input ng-model="product.newArrival" type="checkbox" value="true">New Arrival</label><br>
+					<label><input ng-model="product.sale" type="checkbox" value="true">Sale</label>
 				</div>	 
+                
 				<!--Begin Options	-->
 				<div class="checkbox">
   					<label><input ng-click="showOptions=!showOptions" type="checkbox" name="Options">Product Options</label><br>
 				</div> <br>
 				<div class="row" ng-show="showOptions">
 					<div class="col-sm-3 form-group">
-						<label>Option Name<select name="optionName" class="select-field" ng-model="product.options.optionName">
+						<label>Option Name <select name="optionName" class="select-field" ng-model="product.options.optionName">
 								<option>Size</option>
 								<!--<option>Color</option>-->
           			</select></label>
@@ -119,12 +116,12 @@
 						<label>Quantity</label>
 						<input type="number" ng-model='newProduct.options.optionValues.count' placeholder='Count'>
 					</div> <br>
-					<input type='submit' ng-click='addOptions(newProduct.options.optionValues)'><br>
-					<div ng-repeat='option in options'>{{option.name}} {{option.count}}</div>
+					<input type="submit" class="btn btn-xs" ng-click='addOptions(newProduct.options.optionValues)'><br>
+					<div ng-repeat='option in options'>+{{option.count}} {{option.name}}</div>
 				</div>
-				</div> <br>
+				</div> <br><br>
 				</div>
-				<label><input type="submit" class="btn btn-lg btn-primary" value="Save"/></label>
+				<input type="submit" class="btn btn-lg" value="Save"/>
 				</div>
 		</form>	
 	</div>
