@@ -41,16 +41,15 @@ app.service('adminSrvc', function($http){
 	}
 	
 	this.addProduct = function(product){
-		// product.options = {optionName: product.options.optionName, optionValues: [{count: product.options.optionValues.count, name: product.options.optionValues.name}]}
 		return $http({
 			method: 'POST',
 			url: '/api/products',
 			data: product
 		}).then(function(response){
 			if (response.status != 200) {
-				return "Orders not found";
+				return "Product not created";
 			}
-			console.log(response);
+			console.log(response.data);
 			return response;
 		})
 	}
@@ -59,6 +58,12 @@ app.service('adminSrvc', function($http){
 		return $http({
 			method: "DELETE",
 			url: '/api/products/' + productId
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Product not found";
+			}
+			console.log(response.data);
+			return response;
 		})
 	}
 })
