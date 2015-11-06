@@ -2,7 +2,6 @@ var app = angular.module('eCommerce');
 
 app.controller('inventoryCtrl', function($scope, adminSrvc, Upload){
 	$scope.images = [];
-	
 	var getProducts = adminSrvc.getProducts()
 			.then(function(response){
 				$scope.products = response;
@@ -19,10 +18,13 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload){
 		console.log($scope.options);
 	};
 	
+	$scope.setProductToUpdate = function(product){
+		adminSrvc.product = product;
+	}
+	
 	
 	$scope.addProduct = function(product){
-
-			$scope.product.options.optionValues = $scope.options
+		$scope.product.options.optionValues = $scope.options
 				if($scope.images.length < 1){
 							adminSrvc.addProduct($scope.product);
 				}
@@ -55,6 +57,15 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload){
 		$scope.products.splice(index, 1)
 	};
 
-
+	
+	$scope.updateProduct = function(product){
+		adminSrvc.updateProduct($scope.product).then(function(res, err){
+			if(err) console.log(err);
+			console.log("controller updateproduct",res);
+		})
+	}
+	
 });
+
+
 

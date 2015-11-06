@@ -5,7 +5,7 @@
 	{{product.name}} {{product.category}} {{product.price | currency}} <br>
 	{{product.descriptionShort}}
 	<div class="msgBtn">
-            <button type="button" class="btn btn-primary btn-xs" ng-click="">update</button>
+            <a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-primary btn-xs" ng-click="setProductToUpdate(product)">update</button></a>
             <button type="button" class="btn btn-primary btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
 	</div>
 	<hr>
