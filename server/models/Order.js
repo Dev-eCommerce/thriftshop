@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var Order = new mongoose.Schema({
+    userId: {type: String},
     orderTotal: {type: Number},
     orderShipTo: {type: String},
     orderShipAddress: {type: String},

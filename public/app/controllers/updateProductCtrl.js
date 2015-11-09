@@ -1,6 +1,6 @@
 var app = angular.module('eCommerce');
 
-app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams){
+app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $state){
 	console.log($stateParams.id);
 	$scope.productId = $stateParams.id;
 	var productToUpdate = adminSrvc.getAProduct($scope.productId).then(function(response){
@@ -21,7 +21,9 @@ app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams){
 
 	$scope.setProductToUpdate = function(product, id){
 		if($scope.images == undefined){
-			adminSrvc.updateProduct(product, id);
+			adminSrvc.updateProduct(product, id).then(function(response){
+				$state.go('inventory');
+			})
 		}
 		else if ($scope.images.length > 0){
 			var images = $scope.images;
@@ -37,7 +39,9 @@ app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams){
 					if (productImagesArr.length == images.length) {
 						$scope.product.image = productImagesArr;
 						console.log($scope.product);
-						adminSrvc.updateProductAndImage(product, id);
+						adminSrvc.updateProductAndImage(product, id).then(function(response){
+							$state.go('inventory');
+						})
 					}
 				};
 	        	reader.readAsDataURL(image)
