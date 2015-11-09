@@ -7,9 +7,21 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
    $stateProvider
        
        .state('home', {
+           abstract: true,
            url: '/home',
            templateUrl: '/views/homeTmpl.html', 
        })
+   
+        .state('home.carousel', {
+            url: '',
+            templateUrl: '/views/carouselTmpl.html'
+        })
+   
+        .state('home.products', {
+            url: '/products',
+            templateUrl: '/views/products.html',
+            controller: 'productCtrl',
+        })
 
         .state('admin', {
             url: '/admin',
@@ -35,11 +47,6 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
            templateUrl: '/views/updateProductTmpl.html',
            controller: 'updateProductCtrl'
         })
-       .state('products', {
-            url: '/products',
-            templateUrl: '/views/products.html',
-            controller: 'productCtrl',
-        });
     
     
     

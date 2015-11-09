@@ -16,3 +16,15 @@ angular.module('eCommerce').directive('navbar', function ($http) {
     
 });
 
+angular.module('eCommerce').directive('footer', function ($http) {
+    return {
+        restrict: 'E',
+        templateUrl: 'views/footer.html',
+    };
+    
+});
+
+
+
+
+
