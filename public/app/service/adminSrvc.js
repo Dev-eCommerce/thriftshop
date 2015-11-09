@@ -1,8 +1,7 @@
 var app = angular.module('eCommerce');
 
 app.service('adminSrvc', function($http){
-	this.product ={};
-	this.getOrders = function(){
+ 	this.getOrders = function(){
 		return $http({
 			method: 'GET',
 			url: '/api/orders'
@@ -40,6 +39,17 @@ app.service('adminSrvc', function($http){
 			return response.data;
 		});
 	}
+	this.getAProduct = function(id){
+		return $http({
+			method: 'GET',
+			url: '/api/products/' + id
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			return response.data;
+		});
+	}
 	
 	this.addProduct = function(product){
 		return $http({
@@ -68,16 +78,29 @@ app.service('adminSrvc', function($http){
 		})
 	}
 	
-	this.updateProduct = function(product){
+	this.updateProduct = function(product, id){
 		return $http({
 			method: 'PUT',
-			url: 'api/products/' + product,
-			date: product
+			url: 'api/products/' + id,
+			data: product
 		}).then(function(response){
 			if (response.status != 200) {
-				return "Orders not found";
+				return "product not found";
 			}
-			console.log("update call",response);
+			console.log("updated product",response);
+			return response;
+		})
+	}
+	this.updateProductAndImage = function(product, id){
+		return $http({
+			method: 'PUT',
+			url: 'api/productsandimage/' + id,
+			data: product
+		}).then(function(response){
+			if (response.status != 200) {
+				return "product not found";
+			}
+			console.log("updated product",response);
 			return response;
 		})
 	}

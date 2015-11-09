@@ -48,14 +48,108 @@ module.exports = {
                 })
             }
     },
-    update: function(req, res) {
-            Products.findByIdAndUpdate(req.params.id, {$set: req.body}, { new: true }, function(err, result) {
+    update: function(req, res){
+        Products.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, function(err, result){
+            if(err){
+                return res.status(500).json(err);
+            } else {
+            console.log(result);
+            result.save();
+            return res.status(200).json(result);
+        }
+        });
+    },
+     updateImage: function(req, res) {
+            Products.findById(req.params.id, function(err, product) {
                 if (err) {
                   	res.send(err);
-                } else {
-                  	res.json(result);
+                } else { 
+                    if(product.image.length < 1){
+                        console.log("no image to delete just upload");
+                                var images = req.body.image;
+
+                                var productImages = [];
+                                images.forEach(function(image){
+
+                                    var buf = new Buffer(image.base64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+
+                                    var fileObj = {
+                                        name: image.file.name,
+                                        body: buf,
+                                        type: image.file.type
+                                    };
+                                    AWS.uploadToS3(fileObj, function(err, data){
+                                        if (err) {
+                                            console.log(err, "image(s) not uploaded")
+                                            res.status(500).send(err)
+                                        } else {
+                                            productImages.push(data.Location)
+                                            if (productImages.length == images.length){
+                                                req.body.image = productImages;
+                                                console.log(req.body);
+                                                Products.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, result) {
+                                                    if (err) {
+                                                        res.send(err, "Product not updated");
+                                                    } else {
+                                                        res.json(result, "success");
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    })
+                                })
+                    } else if (product.image.length > 0){
+                        var imagesArr = product.image;
+                        var imagesToDelete = [];
+                        for(var i = 0; i < imagesArr.length; i++){
+                            imagesToDelete.push({Key: imagesArr[i].substr(45)});
+                        }
+                        if (imagesToDelete.length == imagesArr.length) {
+                            console.log(imagesToDelete);
+                            AWS.deleteFromS3(imagesToDelete, function(err, result){
+                                if (err) {
+                                    res.status(err).send("failed to delete from s3");
+                                } else {
+                                    console.log("aws s3");
+                                    var images = req.body.image;
+
+                                    var productImages = [];
+                                    images.forEach(function(image){
+
+                                        var buf = new Buffer(image.base64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+
+                                        var fileObj = {
+                                            name: image.file.name,
+                                            body: buf,
+                                            type: image.file.type
+                                        };
+                                        AWS.uploadToS3(fileObj, function(err, data){
+                                            if (err) {
+                                                console.log(err, "image(s) not uploaded")
+                                                res.status(500).send(err)
+                                            } else {
+                                                productImages.push(data.Location)
+                                                if (productImages.length == images.length){
+                                                    req.body.image = productImages;
+                                                    console.log(req.body);
+                                                    Products.findByIdAndUpdate(req.params.id, {$set: req.body}, function(err, result) {
+                                                        if (err) {
+                                                            res.send(err, "Product not updated");
+                                                        } else {
+                                                            res.json(result);
+                                                        }
+                                                    });
+                                                }
+                                            }
+                                        })
+                                    })
+     
+                                }
+                            })
+                        }
+                    }
                 }
-            });
+            })
     },
     findAll: function(req, res) {
         Products.find({}, function(err, result){
@@ -71,27 +165,35 @@ module.exports = {
           if (err) {
                     res.send(err);
                 } else {
-                    res.json(result);
+                   res.json(result);
                 }
             });
     },
     delete: function(req, res) {
-        Products.findById(req.params.id, function(err, result){
-          if (err) {
+        Products.findById(req.params.id, function(err, product){
+            if (err) {
                     res.status(500).send(err);
+            } else {
+                if (product.image.length < 1){
+                    Products.findByIdAndRemove(product._id, function(err, result){
+                                if (err) {
+                                    res.send("failed to delete from User")
+                                } else {
+                                    res.json(result, "Success");
+                                }
+                            })
                 } else {
-                    console.log(result.data);
-                    var imagesArr = result.data.image;
+                    var imagesArr = product.image;
                     var imagesToDelete = [];
                     for(var i = 0; i < imagesArr.length; i++){
-                        imagesToDelete.push(imagesArr[i].substr(45));
+                        imagesToDelete.push({Key: imagesArr[i].substr(45)});
                     }
                     if (imagesToDelete.length == imagesArr.length) {
                         AWS.deleteFromS3(imagesToDelete, function(err, result){
                             if (err) {
-                                res.send(err, "failed to delete from s3");
+                                res.status(err).send("failed to delete from s3");
                             } else {
-                                Products.findByIdAndRemove(req.params.id, function(err, result){
+                                Products.findByIdAndRemove(product._id, function(err, result){
                                     if (err) {
                                         res.send("failed to delete from User")
                                     } else {
@@ -102,6 +204,7 @@ module.exports = {
                         })
                     }
                 }
-            });
+            }
+        });
     }
 };

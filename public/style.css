@@ -241,3 +241,7 @@ button {
     background-color: #00CC99;
     color: white;
 }
+.thumbnailImage {
+    height: 45px;
+    width: 45px;
+}

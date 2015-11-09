@@ -1,3 +1,4 @@
+
 <h1 class="adminHeader">Products</h1>
 <a ng-href="/#/admin"><button class="adminOrders">Orders</button></a>
 <a class="adminLogout"><button ng-href="/api/logout">log out</button></a></br>
@@ -7,8 +8,7 @@
 	{{product.name}} {{product.category}} {{product.price | currency}} <br>
 	{{product.descriptionShort}}
 	<div class="msgBtn">
-            <a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-xs" ng-click="setProductToUpdate(product)">Update</button></a>
-            <button type="button" class="btn btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
+		<a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-primary btn-xs" ng-click="getAProduct(product._id)">update</button></a><button type="button" class="btn btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
 	</div>
 	<hr>
 </div>
@@ -116,12 +116,14 @@
 						<label>Quantity</label>
 						<input type="number" ng-model='newProduct.options.optionValues.count' placeholder='Count'>
 					</div> <br>
-					<input type="submit" class="btn btn-xs" ng-click='addOptions(newProduct.options.optionValues)'><br>
+					<button  class="btn btn-lg" ng-click='addOptions(newProduct.options.optionValues)'>Add options</button><br>
 					<div ng-repeat='option in options'>+{{option.count}} {{option.name}}</div>
 				</div>
 				</div> <br><br>
 				</div>
+
 				<input type="submit" class="btn btn-lg" value="Save"/>
+
 				</div>
 		</form>	
 	</div>
