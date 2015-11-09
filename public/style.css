@@ -187,3 +187,8 @@ button {
     font-size: 12px;
     color: #00CC99;
 }
+
+.thumbnailImage {
+    height: 45px;
+    width: 45px;
+}

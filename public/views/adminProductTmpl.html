@@ -1,11 +1,11 @@
 <h1>Product</h1>
 <button ng-click="showProducts=!showProducts">Get All Products</button>
 <div ng-repeat="product in products track by $index" ng-show="showProducts">
-	{{product.image}} <br>
+	<img src={{product.image[0]}} class="thumbnailImage"/> <br>
 	{{product.name}} {{product.category}} {{product.price | currency}} <br>
 	{{product.descriptionShort}}
 	<div class="msgBtn">
-            <a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-primary btn-xs" ng-click="setProductToUpdate(product)">update</button></a>
+            <a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-primary btn-xs" ng-click="getAProduct(product._id)">update</button></a>
             <button type="button" class="btn btn-primary btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
 	</div>
 	<hr>
@@ -124,7 +124,7 @@
 				</div>
 				</div> <br>
 				</div>
-				<label><input type="submit" class="btn btn-lg btn-primary" value="Save"/></label>
+				<label><input type="submit" class="btn btn-lg" value="Save"/></label>
 				</div>
 		</form>	
 	</div>
