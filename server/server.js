@@ -59,6 +59,9 @@ app.get('/api/logout', function(req, res){
 //-----endpoints for users
 app.get('/api/users', UsersCtrl.findAll);
 app.get('/api/users/:id', UsersCtrl.findOne);
+app.get('/api/user', function(req, res){
+	res.json(req.user)
+})
 app.post('/api/users', UsersCtrl.create);
 app.put('/api/users/:id', UsersCtrl.update);
 app.delete('/api/users/:id', UsersCtrl.delete);
@@ -78,6 +81,25 @@ app.post('/api/products', ProductsCtrl.create);
 app.put('/api/products/:id', ProductsCtrl.update);
 app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);
 app.delete('/api/products/:id', ProductsCtrl.delete);
+
+
+
+
+//CART
+
+function isCart (req, res, next) {
+    if (!req.session.cart) {
+        req.session.cart = []
+    }
+    next()
+}
+
+app.put('/api/cart', isCart,  function(req, res) {
+    req.session.cart.push(req.body);
+    res.send(req.session.cart)
+})
+
+
 
 //get authorized user
 app.get('/user/auth', function(req, res) {

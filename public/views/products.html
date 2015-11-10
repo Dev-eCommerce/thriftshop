@@ -10,8 +10,8 @@
                     <p>{{product.descriptionShort}}</p>
                     <p>{{product.price | currency}}</p>
                     <p>
-                        <a href="#" class="btn btn-sm" role="button">Button</a> 
-                        <a href="#" class="btn btn-sm pull-right" role="button">Button</a>
+                        <button class="btn btn-sm" role="button"><i class="fa fa-info-circle fa-lg"></i></button> 
+                        <button ng-click="addToCart(product)" class="btn btn-sm pull-right" role="button"><i class="fa fa-cart-plus fa-lg"></i></button>
                     </p>
                 </div>
                 </div>
