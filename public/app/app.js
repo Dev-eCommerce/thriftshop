@@ -46,7 +46,15 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
            url: '/inventory/:id/update',
            templateUrl: '/views/updateProductTmpl.html',
            controller: 'updateProductCtrl'
-        })
+
+   })
+       .state('products', {
+            url: '/products',
+            templateUrl: '/views/products.html',
+            controller: 'productCtrl'
+   })
+        });
+
     
     
     
@@ -72,4 +80,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             }
         })
     };
+
+
 });
+

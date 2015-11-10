@@ -245,3 +245,33 @@ button {
     height: 45px;
     width: 45px;
 }
+
+.products {
+	width: calc(100% * (1/3));
+}
+.row {
+    width : 100%;
+}
+.products1 {
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.thumbnail {
+	margin: 1%;
+}
+
+.panel-primary {
+  border-color: #00cc99;
+}
+.panel-primary > .panel-heading {
+  color: #ffffff;
+  background-color: #00cc99;
+  border-color: #00cc99;
+}
+
+.panel-primary > .panel-heading-custom{
+  background-image: none;
+  color: #ffffff;
+}
