@@ -52,10 +52,24 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
     
     
     
-    function getAuth ($http) {
+    function getAuth ($http, $state, $stateParams) {
         return $http({
             method: 'GET',
             url: '/user/auth',
+        }).then(function(response) {
+            var currentUser = response.data;
+            if (currentUser.admin === true) {
+              $state.go('admin');
+              return;
+            } 
+            if (currentUser.admin === false) {
+              $state.go($stateParams);
+              return;
+            }
+            if (currentUser.admin === undefined){
+              $state.go('home');
+              return;
+            }
         })
-    }
+    };
 });
