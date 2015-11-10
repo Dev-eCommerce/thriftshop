@@ -4,7 +4,9 @@
         <div class="products1">
             <div class="products" ng-repeat ="product in products">
                 <div class="thumbnail">
-                    <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" />
+                    <div class="group list-group-image backgroundColor">
+                        <img class="customImg" ng-src="{{product.image[0]}}" />
+                    </div>
                 <div class="caption">
                     <h4>{{product.name}}</h4>
                     <p>{{product.descriptionShort}}</p>

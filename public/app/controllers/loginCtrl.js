@@ -1,7 +1,13 @@
 var eCommerce = angular.module('eCommerce');
 
-eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginService){
-
+eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginService, productService){
+	$scope.getCart = function() {
+		console.log("getting cart");
+		productService.getCart().then(function(resp) {
+			$scope.cart = resp;
+		})
+	};
+	
 	$scope.createUser = function(user){
 		loginService.createUser(user).then(function(resp) {
             $scope.currentUser = resp.data;
@@ -37,7 +43,7 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
     $scope.goHome = function() {
         $state.go('home.carousel');
     }
-    
+
 })
 
 

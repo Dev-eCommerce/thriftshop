@@ -7,7 +7,10 @@ eCommerce.controller("productCtrl", function($scope, $location, $http, productSe
             });
     
     $scope.addToCart = function(product) {
-        productService.addToCart(product);
-    }
+        console.log("ID", product)
+        productService.addToCart(product).then(function(response){
+            $scope.cart = productService.getCart();
+        })
+    };
                   
 });

@@ -9,7 +9,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
         .state('home', {
            abstract: true,
            url: '/home',
-           templateUrl: '/views/homeTmpl.html', 
+           templateUrl: '/views/homeTmpl.html'
         })
    
         .state('home.carousel', {
