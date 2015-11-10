@@ -30,7 +30,7 @@ eCommerce.service('loginService', function($http){
         })
     }
 	
-	// var currentUser = null;
+	var currentUser = null;
 	
 	this.getCurrentUser = function(id){
 		return $http({
