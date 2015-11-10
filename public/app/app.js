@@ -54,11 +54,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             url: '/products',
             templateUrl: '/views/products.html',
             controller: 'productCtrl'
-
         })
-    
-    
-    
     
     
     function getUser ($http, $state, $stateParams, $q) {

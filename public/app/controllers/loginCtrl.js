@@ -1,6 +1,7 @@
 var eCommerce = angular.module('eCommerce');
 
 eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginService){
+
 	$scope.createUser = function(user){
 		loginService.createUser(user).then(function(resp) {
             $scope.currentUser = resp.data;

@@ -81,6 +81,25 @@ app.put('/api/products/:id', ProductsCtrl.update);
 app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);
 app.delete('/api/products/:id', ProductsCtrl.delete);
 
+
+
+
+//CART
+
+function isCart (req, res, next) {
+    if (!req.session.cart) {
+        req.session.cart = []
+    }
+    next()
+}
+
+app.put('/api/cart', isCart,  function(req, res) {
+    req.session.cart.push(req.body);
+    res.send(req.session.cart)
+})
+
+
+
 //get authorized user
 app.get('/user/auth', function(req, res) {
     if (req.user) {
