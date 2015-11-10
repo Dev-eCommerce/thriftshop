@@ -20,8 +20,19 @@ eCommerce.service('productService', function($http){
             url: '/api/cart', 
             data: product
         }).then(function(response){
+			console.log("addToCart", response)
             return response.data
         })
     }
+	
+	this.getCart = function(){
+		return $http({
+			method: 'GET',
+			url: '/api/cart'
+		}).then(function(response){
+			console.log("found Cart", response)
+            return response.data
+        })
+	}
 
 });
