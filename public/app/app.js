@@ -35,6 +35,6 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
        .state('products', {
             url: '/products',
             templateUrl: '/views/products.html',
-            controller: 'productCtrl',
+            controller: 'productCtrl'
+   })
         });
-});
