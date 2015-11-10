@@ -79,6 +79,14 @@ app.put('/api/products/:id', ProductsCtrl.update);
 app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);
 app.delete('/api/products/:id', ProductsCtrl.delete);
 
+//get authorized user
+app.get('/user/auth', function(req, res) {
+    if (req.user) {
+        res.send(req.user)
+    }
+    res.end()
+})
+
 
 
 //Connection

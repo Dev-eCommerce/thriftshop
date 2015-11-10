@@ -34,7 +34,7 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
     }
     
     $scope.goHome = function() {
-        $state.go('home');
+        $state.go('home.carousel');
     }
     
 })
