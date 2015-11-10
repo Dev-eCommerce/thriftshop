@@ -61,7 +61,7 @@ app.service('adminSrvc', function($http){
 				return "Product not created";
 			}
 			console.log(response.data);
-			return response;
+			return response.data;
 		})
 	}
 	
