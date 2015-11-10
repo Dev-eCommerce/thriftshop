@@ -1,6 +1,7 @@
 var app = angular.module('eCommerce');
 
-app.controller('adminCtrl', function($scope, adminSrvc, $location){
+app.controller('adminCtrl', function($scope, adminSrvc, $location, user){
+	console.log(user)
 	var getOrders = adminSrvc.getOrders()
 			.then(function(response){
 				$scope.submitted = [];

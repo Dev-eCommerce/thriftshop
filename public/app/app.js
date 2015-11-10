@@ -28,7 +28,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/views/adminTmpl.html',
             controller: 'adminCtrl',
             resolve : {
-               user: getAuth
+               user: isAdmin
            }
         })
    
@@ -53,34 +53,39 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/views/products.html',
             controller: 'productCtrl'
    })
-        });
 
     
     
     
     
     
-    function getAuth ($http, $state, $stateParams) {
-        return $http({
+    function getUser ($http, $state, $stateParams, $q) {
+        var deferred = $q.defer()
+        $http({
             method: 'GET',
-            url: '/user/auth',
+            url: '/api/user',
         }).then(function(response) {
-            var currentUser = response.data;
-            if (currentUser.admin === true) {
-              $state.go('admin');
-              return;
-            } 
-            if (currentUser.admin === false) {
-              $state.go($stateParams);
-              return;
+            if (!response.data) {
+                return $state.go('home.carousel')
             }
-            if (currentUser.admin === undefined){
-              $state.go('home');
-              return;
-            }
+            deferred.resolve(response.data)
         })
+        return deferred.promise
     };
-
+    
+    function isAdmin ($http, $state, $stateParams, $q) {
+        var deferred = $q.defer()
+        $http({
+            method: 'GET',
+            url: '/api/user',
+        }).then(function(response) {
+            if (!response.data.admin) {
+                return $state.go('home.carousel')
+            }
+            deferred.resolve(response.data)
+        })
+        return deferred.promise
+    };
 
 });
 

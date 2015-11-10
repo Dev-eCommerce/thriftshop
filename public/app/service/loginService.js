@@ -24,6 +24,7 @@ eCommerce.service('loginService', function($http){
             url: '/api/users/' + user._id,
             data: user
         }).then(function(data){
+			console.log('updateUser', data)
             return data.data;
         })
     }

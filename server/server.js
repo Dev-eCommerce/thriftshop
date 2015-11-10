@@ -59,6 +59,9 @@ app.get('/api/logout', function(req, res){
 //-----endpoints for users
 app.get('/api/users', UsersCtrl.findAll);
 app.get('/api/users/:id', UsersCtrl.findOne);
+app.get('/api/user', function(req, res){
+	res.json(req.user)
+})
 app.post('/api/users', UsersCtrl.create);
 app.put('/api/users/:id', UsersCtrl.update);
 app.delete('/api/users/:id', UsersCtrl.delete);
