@@ -77,4 +77,5 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
 
         // })
     };
+});
 
