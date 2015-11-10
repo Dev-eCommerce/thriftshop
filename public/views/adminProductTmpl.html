@@ -1,7 +1,7 @@
 
 <h1 class="adminHeader">Products</h1>
 <a ng-href="/#/admin"><button class="adminOrders">Orders</button></a>
-<a class="adminLogout"><button ng-href="/api/logout">log out</button></a></br>
+<a class="adminLogout" ng-href="/api/logout"><button>log out</button></a></br>
 <button ng-click="showProducts=!showProducts" class="adminButton">Get All Products</button>
 <div class="container" ng-repeat="product in products" ng-show="showProducts">
 	<img ng-src={{product.image[0]}} class="thumbnailImage" /> <br>

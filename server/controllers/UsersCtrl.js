@@ -44,7 +44,7 @@ module.exports = {
         });    
     },
     update: function(req, res){
-        console.log(req.body)
+        delete req.body._id;
         Users.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true}, function(err, result){
             if(err) {
                 return res.status(500).json(err);
