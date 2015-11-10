@@ -6,11 +6,11 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
    
    $stateProvider
        
-       .state('home', {
+        .state('home', {
            abstract: true,
            url: '/home',
            templateUrl: '/views/homeTmpl.html', 
-       })
+        })
    
         .state('home.carousel', {
             url: '',
@@ -42,19 +42,19 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/views/adminProductTmpl.html',
             controller: 'inventoryCtrl'
         })
+
         .state('updateInventory', {
            url: '/inventory/:id/update',
            templateUrl: '/views/updateProductTmpl.html',
            controller: 'updateProductCtrl'
 
-   })
-       .state('products', {
+        })
+
+        .state('products', {
             url: '/products',
             templateUrl: '/views/products.html',
             controller: 'productCtrl'
-   })
-        });
-
+        })
     
     
     
@@ -64,21 +64,18 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
         return $http({
             method: 'GET',
             url: '/user/auth',
-        }).then(function(response) {
-            var currentUser = response.data;
-            if (currentUser.admin === true) {
-              $state.go('admin');
-              return;
-            } 
-            if (currentUser.admin === false) {
-              $state.go($stateParams);
-              return;
-            }
-            if (currentUser.admin === undefined){
-              $state.go('home');
-              return;
-            }
-        })
+         })//.then(function(response) {
+        //     var currentUser = response.data;
+        //     if (currentUser.admin === true) {
+        //       $state.go('admin');
+        //       return;
+        //     } 
+        //     if (currentUser.admin === false) {
+        //       $state.go($state);
+        //       return;
+        //     }
+
+        // })
     };
 
 

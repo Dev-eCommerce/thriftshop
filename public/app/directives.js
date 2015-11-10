@@ -1,4 +1,7 @@
-angular.module('eCommerce').directive('navbar', function ($http) {
+var app = angular.module('eCommerce');
+
+
+app.directive('navbar', function ($http) {
     return {
         restrict: 'E',
         templateUrl: 'views/navbar.html',
@@ -16,7 +19,7 @@ angular.module('eCommerce').directive('navbar', function ($http) {
     
 });
 
-angular.module('eCommerce').directive('footer', function ($http) {
+app.directive('footer', function ($http) {
     return {
         restrict: 'E',
         templateUrl: 'views/footer.html',

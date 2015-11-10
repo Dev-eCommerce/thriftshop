@@ -25,7 +25,7 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
     
     $scope.updateUser = function(currentUser){
         loginService.updateUser(currentUser).then(function(response){
-            
+            console.log(response)
         })
     }
     
