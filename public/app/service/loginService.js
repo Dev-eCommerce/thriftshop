@@ -24,9 +24,9 @@ eCommerce.service('loginService', function($http){
             method: "PUT",
             url: '/api/users/' + user._id,
             data: user
-        }).then(function(response){
-        	console.log(response)
-            return response.data;
+        }).then(function(data){
+			console.log('updateUser', data)
+            return data.data;
         })
     }
 	
