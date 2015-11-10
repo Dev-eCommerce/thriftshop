@@ -7,7 +7,6 @@ var session = require('express-session');
 
 // CONFIG
 var AWS = require('aws-sdk');
-
 var config = require('../config');
 
 

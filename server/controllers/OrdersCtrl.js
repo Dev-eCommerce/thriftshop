@@ -1,4 +1,6 @@
 var Orders = require('../models/Order')
+var Users = require('../models/User')
+
 
 module.exports = {
     // Create New Order
@@ -7,8 +9,13 @@ module.exports = {
             if(err){
                 return res.status(500).json(err)
             } else {
-                return res.json(order)
-            }
+                Users.findById(req.body.userId, function(err, user){
+                    user.orders.push(order._id);
+                    Users.save();
+                    return res.json(order)
+            
+                })
+            }    
         });
     },
     findAll: function(req, res){
@@ -48,7 +55,7 @@ module.exports = {
         });
     },
     checkout: function(req, res){
-        Orders.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, result){
+        Orders.findByIdAndUpdate(req.body.id, {$set: req.body}, {new: true}, function(err, result){
             if(err) return res.status(500).json(err);
             return res.status(200).json(result);
         });

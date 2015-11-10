@@ -1,6 +1,10 @@
 var Products = require('../models/Product')
 var AWS = require('../services/AmazonService');
 
+ var getRandomIndexNumber = function() {
+        return Math.floor(Math.random() * (10000 - 1000)) + 1000;
+};
+
 module.exports = {
     create: function(req, res) {
             if (!req.body.image){
@@ -15,14 +19,14 @@ module.exports = {
             } else {
                 console.log("aws s3");
                 var images = req.body.image;
-
                 var productImages = [];
+               
                 images.forEach(function(image){
 
                     var buf = new Buffer(image.base64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
                     var fileObj = {
-                        name: image.file.name,
+                        name: getRandomIndexNumber() + image.file.name,
                         body: buf,
                         type: image.file.type
                     };
@@ -74,7 +78,7 @@ module.exports = {
                                     var buf = new Buffer(image.base64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
                                     var fileObj = {
-                                        name: image.file.name,
+                                        name: getRandomIndexNumber() + image.file.name,
                                         body: buf,
                                         type: image.file.type
                                     };
@@ -119,7 +123,7 @@ module.exports = {
                                         var buf = new Buffer(image.base64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
 
                                         var fileObj = {
-                                            name: image.file.name,
+                                            name: getRandomIndexNumber() + image.file.name,
                                             body: buf,
                                             type: image.file.type
                                         };

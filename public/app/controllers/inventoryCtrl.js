@@ -1,6 +1,6 @@
 var app = angular.module('eCommerce');
 
-app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $stateParams){
+app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $stateParams, $window){
 	$scope.images = [];
 	var getProducts = adminSrvc.getProducts()
 			.then(function(response){
@@ -39,7 +39,9 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $stateParams
 							if (productImagesArr.length == images.length) {
 								$scope.product.image = productImagesArr;
 								console.log($scope.product);
-								adminSrvc.addProduct($scope.product);
+								adminSrvc.addProduct($scope.product).then(function(response){
+									$scope.products.push(response);
+								});
 							}
 						};
 			        	reader.readAsDataURL(image)

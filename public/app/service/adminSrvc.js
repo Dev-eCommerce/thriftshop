@@ -10,7 +10,7 @@ app.service('adminSrvc', function($http){
 				return "Orders not found";
 			}
 			return response.data;
-		});
+		})
 	}
 	this.updateOrderStatus = function(orderId, status){
 		return $http({
@@ -24,7 +24,7 @@ app.service('adminSrvc', function($http){
 				return "Orders not found";
 			}
 			return response.data;
-		});
+		})
 	}
 	
 	this.getProducts = function(){
@@ -37,7 +37,7 @@ app.service('adminSrvc', function($http){
 			}
 			console.log(response.data);
 			return response.data;
-		});
+		})
 	}
 	this.getAProduct = function(id){
 		return $http({
@@ -48,7 +48,7 @@ app.service('adminSrvc', function($http){
 				return "Orders not found";
 			}
 			return response.data;
-		});
+		})
 	}
 	
 	this.addProduct = function(product){
@@ -61,7 +61,7 @@ app.service('adminSrvc', function($http){
 				return "Product not created";
 			}
 			console.log(response.data);
-			return response;
+			return response.data;
 		})
 	}
 	

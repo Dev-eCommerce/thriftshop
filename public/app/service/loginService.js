@@ -19,6 +19,7 @@ eCommerce.service('loginService', function($http){
 	}
     
     this.updateUser = function (user) {
+        console.log(user);
         return $http({
             method: "PUT",
             url: '/api/users/' + user._id,
@@ -35,14 +36,14 @@ eCommerce.service('loginService', function($http){
 		return $http({
 			method: "GET",
 			url: 'api/users/' + id
-		}).then(function(data){
-			console.log('users', data)
-			return data.data
+		}).then(function(response){
+			console.log('users', response)
+			return response.data
 		})
 	}
 	
 	this.logout = function(){
-		currentUser = null;
+		var currentUser = null;
 	}
 	
 	this.loginUser = function(user){
