@@ -87,5 +87,6 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
         return deferred.promise
     };
 
+
 });
 
