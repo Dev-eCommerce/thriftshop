@@ -53,11 +53,6 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/views/products.html',
             controller: 'productCtrl'
    })
-        });
-
-    
-    
-    
     
     
     function getAuth ($http, $state, $stateParams) {
