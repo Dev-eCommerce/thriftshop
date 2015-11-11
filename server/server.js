@@ -6,6 +6,7 @@ var cors = require('cors');
 var session = require('express-session');
 
 // CONFIG
+var Stripe = require('stripe')(process.env.STRIPE_PUBLIC_KEY)
 var AWS = require('aws-sdk');
 var config = require('../config');
 
@@ -94,15 +95,11 @@ function isCart (req, res, next) {
 }
 
 app.put('/api/cart', isCart,  function(req, res) {
-    // console.log("api cart", req.body)
     req.session.cart.push(req.body);
-    console.log("api cart", req.session)
     res.send(req.session.cart)
 })
 
 app.get('/api/cart', isCart,  function(req, res) {
-    // console.log("api cart", req.body)
-    console.log("api cart", req.session)
     res.send(req.session.cart)
 })
 
