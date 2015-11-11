@@ -6,7 +6,7 @@ var cors = require('cors');
 var session = require('express-session');
 
 // CONFIG
-var Stripe = require('stripe')(process.env.STRIPE_PUBLIC_KEY)
+var Stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 var AWS = require('aws-sdk');
 var config = require('../config');
 
