@@ -72,9 +72,6 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             method: 'GET',
             url: '/api/user',
         }).then(function(response) {
-            if (!response.data) {
-                return $state.go('home.carousel')
-            }
             deferred.resolve(response.data)
         })
         console.log("checkout user", deferred.promise )

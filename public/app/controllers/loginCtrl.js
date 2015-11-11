@@ -22,8 +22,8 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
 			if(resp.data.admin === true){
 				$state.go('admin');
 			} else {
-                
-			}
+                $state.reload;
+            }
 		}, function(err) {
 			alert("Email or password is incorrect. Please try again.")
 			return err;
