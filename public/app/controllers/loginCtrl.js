@@ -37,10 +37,14 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
     }
     
     $scope.checkout = function() {
-        $state.go('checkout');
-    }
+		productService.getCart().then(function(resp) {
+		$scope.cart = resp;
+        $state.go('checkout')
+    })
+	}
     
     $scope.goHome = function() {
+		
         $state.go('home.carousel');
     }
 
