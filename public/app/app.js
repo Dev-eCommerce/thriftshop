@@ -34,7 +34,15 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
    
         .state('checkout', {
             url: '/checkout',
-            templateUrl: '/views/checkoutTmpl.html'
+            templateUrl: '/views/checkoutTmpl.html',
+            controller: 'cartCtrl',
+            resolve: {
+               getCart: function(productService){
+                   return productService.getCart().then(function(res){
+                       return res;
+                   });
+               }
+            }
         })
         
         .state('inventory', {
