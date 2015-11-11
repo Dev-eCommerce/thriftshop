@@ -5,7 +5,7 @@
                 </div>
             </div>
             <div>
-                <form class="form-horizontal" method="post" action="">
+                <form stripe-form="stripeCallback" class="form-horizontal" method="post" action="">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                    
                     <div class="panel panel-primary">
@@ -157,18 +157,18 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" /></div>
+                                <div class="col-md-12"><input type="text" class="form-control" ng-model="number" name="car_number" value="" /></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Card CVV:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
+                                <div ng-model="cvc" class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
                                     <strong>Expiration Date</strong>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
+                                    <select ng-model="expiry" class="form-control" name="">
                                         <option value="">Month</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -185,7 +185,7 @@
                                 </select>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
+                                    <select ng-model="expiry" class="form-control" name="">
                                         <option value="">Year</option>
                                         <option value="2015">2015</option>
                                         <option value="2016">2016</option>
