@@ -9,7 +9,16 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
         .state('home', {
            abstract: true,
            url: '/home',
-           templateUrl: '/views/homeTmpl.html'
+           templateUrl: '/views/homeTmpl.html',
+           controller: 'productCtrl',
+           resolve: {
+               getCart: function(productService){
+                   return productService.getCart().then(function(res){
+                       return res;
+                   });
+               },
+               User: getUser
+            }
         })
    
         .state('home.carousel', {
@@ -19,8 +28,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
    
         .state('home.products', {
             url: '/products',
-            templateUrl: '/views/products.html',
-            controller: 'productCtrl',
+            templateUrl: '/views/products.html'
         })
 
         .state('admin', {
@@ -72,9 +80,6 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             method: 'GET',
             url: '/api/user',
         }).then(function(response) {
-            if (!response.data) {
-                return $state.go('home.carousel')
-            }
             deferred.resolve(response.data)
         })
         console.log("checkout user", deferred.promise )

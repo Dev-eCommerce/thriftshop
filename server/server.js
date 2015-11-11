@@ -96,7 +96,7 @@ function isCart (req, res, next) {
 app.put('/api/cart', isCart,  function(req, res) {
     // console.log("api cart", req.body)
     req.session.cart.push(req.body);
-    console.log("api cart", req.session)
+    // console.log("api cart", req.session)
     res.send(req.session.cart)
 })
 
