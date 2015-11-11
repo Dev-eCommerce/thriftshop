@@ -170,6 +170,12 @@ button {
 
 .close {
     position: fixed;
+    right: 420px;
+    top: 160px;
+}
+
+.close_cart {
+    position: fixed;
     right: 480px;
     top: 110px;
 }

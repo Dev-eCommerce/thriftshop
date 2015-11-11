@@ -29,7 +29,8 @@ eCommerce.service('productService', function($http){
 		return $http({
 			method: 'GET',
 			url: '/api/cart'
-		}).then(function(response){
+		})
+		.then(function(response){
 			console.log("found Cart", response)
             return response.data
         })
