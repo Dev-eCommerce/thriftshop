@@ -1,10 +1,10 @@
-<div ng-controller="loginCtrl">
+<div>
 <div id="navbar">
     <div class="nav_info">
         <span class="store_name" ng-click="goHome()">Derelicte</span>   
         <span class="nav_user_info" data-toggle="modal" data-target="#myLogin" ng-show="!currentUser"><i class="fa fa-user"></i>  LOGIN</span> 
         <span class="nav_user_info" data-toggle="modal" data-target="#myAccount" ng-show="currentUser"><i class="fa fa-user"></i>  MY ACCOUNT <a class="logout" ng-href="/api/logout">(log out)</a></span>
-        <span class="nav_user_info" data-toggle="modal" data-target="#myCart" ng-click="getCart()"><i class="fa fa-opencart"></i>    CART ()</span>   
+        <span class="nav_user_info" data-toggle="modal" data-target="#myCart" ng-click="getCart()"><i class="fa fa-opencart"></i>    CART({{cart.length}})</span>   
         <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
     </div>
     <div class="nav_browser">
