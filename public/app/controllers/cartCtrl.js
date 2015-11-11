@@ -1,12 +1,10 @@
 var eCommerce = angular.module('eCommerce');
 
-eCommerce.controller('cartCtrl', function($scope, productService, getCart) {
+eCommerce.controller('cartCtrl', function($scope, productService, getCart, User) {
     $scope.reviewCart = getCart;
-    console.log(getCart)
-//  var reviewOrder = productService.getCart().then(function(res){
-//         $scope.reviewCart = res;
-//          console.log('reviewOrder', $scope.reviewCart)
-//     })
+    $scope.user = User;
+    console.log("reviewCart", getCart)
+    console.log("user", User)
 
 
 

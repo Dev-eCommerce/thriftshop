@@ -41,7 +41,8 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
                    return productService.getCart().then(function(res){
                        return res;
                    });
-               }
+               },
+               User: getUser
             }
         })
         
@@ -76,6 +77,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             }
             deferred.resolve(response.data)
         })
+        console.log("checkout user", deferred.promise )
         return deferred.promise
     };
     
