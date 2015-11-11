@@ -137,9 +137,9 @@ input {
 }
 
 .myCart-content > button {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    position: fixed;
+    bottom: 50px;
+    right: 470px;
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     background: #00CC99;
@@ -169,9 +169,15 @@ button {
 }
 
 .close {
-    position: absolute;
-    right: 10px;
-    top: 5px;
+    position: fixed;
+    right: 420px;
+    top: 160px;
+}
+
+.close_cart {
+    position: fixed;
+    right: 480px;
+    top: 110px;
 }
 
 .test-size {
@@ -244,6 +250,9 @@ button {
 .thumbnailImage {
     height: 45px;
     width: 45px;
+    border: 2px solid #00CC99;
+    float: left;
+    margin-right: 5px;
 }
 
 .products {
@@ -288,5 +297,12 @@ button {
 
 .backgroundColor{
     background-color: #00CC99;
+}
+
+.cart_list {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #00CC99;
 }
 
