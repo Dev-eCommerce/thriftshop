@@ -11,5 +11,10 @@ eCommerce.controller("productCtrl", function($scope, $location, $http, productSe
             $scope.cart = response;
         })
     };
+    
+    $scope.selectProduct = function(product) {
+        $scope.selectedProduct = product;
+        console.log($scope.selectedProduct)
+    }
                   
 });

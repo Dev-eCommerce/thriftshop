@@ -228,6 +228,8 @@ button {
 
 .container {
     font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    top: 10px;
 }
 
 .btn {
@@ -322,4 +324,9 @@ button {
 
 .shipping_speed {
     background: #00CC99;
+}
+
+#productInfo {
+    font-family: 'Quicksand', sans-serif;
+    color: #00CC99;
 }
