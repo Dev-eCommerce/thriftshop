@@ -47,5 +47,16 @@ eCommerce.service('productService', function($http){
 			return response.data;
 		})
 	}
+	
+	   this.removeFromCart = function(cart){
+        return $http({
+            method: 'PUT',
+            url: '/api/cart/update', 
+            data: cart
+        }).then(function(response){
+			console.log("removeProduct", response)
+            return response.data
+        })
+    }
 
 });
