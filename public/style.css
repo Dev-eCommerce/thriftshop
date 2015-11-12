@@ -327,6 +327,24 @@ button {
 }
 
 #productInfo {
+    position: fixed;
+    top: 5%;
     font-family: 'Quicksand', sans-serif;
     color: #00CC99;
+    text-align: center;
+}
+
+.prodInfoImg {
+    float: left;
+    border: 2px solid #00CC99;
+}
+
+.prodInfo {
+    font-size: 20px;
+}
+
+.prodInfoPrice {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
 }

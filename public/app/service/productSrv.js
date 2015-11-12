@@ -35,5 +35,17 @@ eCommerce.service('productService', function($http){
             return response.data
         })
 	}
+	
+	this.getAProduct = function(id){
+		return $http({
+			method: 'GET',
+			url: '/api/products/' + id
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			return response.data;
+		})
+	}
 
 });

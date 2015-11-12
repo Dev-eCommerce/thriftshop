@@ -15,8 +15,8 @@
                         <div class="panel-heading panel-heading-custom">
                             Review Order <div class="pull-right"><small><a href="#" ng-click="getCart()">Edit Cart</a></small></div>
                         </div>
-                        <div class="panel-body" ng-repeat="product in reviewCart">
-                            <div class="form-group">
+                        <div class="panel-body">
+                            <div class="form-group" ng-repeat="product in reviewCart track by $index">
                                 <div class="col-sm-3 col-xs-3">
                                     <img ng-src="{{product.image[0]}}" class="thumbnailImage"/>
                                 </div>
@@ -27,23 +27,34 @@
                                 <div class="col-sm-3 col-xs-3 text-right">
                                     <h6><span>{{product.price | currency}}</span></h6>
                                 </div>
+                                <button class="btn" ng-click="removeProduct(product._id)">x</button>
                             </div>
                             <div class="form-group"><hr /></div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <strong>Subtotal</strong>
-                                    <div class="pull-right"><span>$</span><span></span></div>
+                                    <div class="pull-right"><span>{{subtotal | currency}}</span><span></span></div>
                                 </div>
                                 <div class="col-xs-12">
-                                    <small>Shipping</small>
-                                    <div class="pull-right"><span>-</span></div>
+                                    <!--<small>Shipping</small>-->
+                                    <!--<div class="pull-right"><span>{{shipping.option | currency}}</span></div>-->
+                                    <a type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> shipping <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a ng-click='shipping(1)'>fedex standard free</a></li>
+                                        <li><a ng-click="shipping(2)">fedex express $10</a></li>
+                                        <li><a ng-click="shipping(3)">fedex overnight $20</a></li>
+                                        <li><a ng-click="shipping(4)">USPS free</a></li>
+                                        <li><a ng-click="shipping(5)">UPS standard free</a></li>
+                                        <li><a ng-click="shipping(6)">UPS express $10</a></li>
+                                        <li><a ng-click="shipping(7)">UPS express $20</a></li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="form-group"><hr /></div>
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <strong>Order Total</strong>
-                                    <div class="pull-right"><span>$</span><span></span></div>
+                                    <div class="pull-right"><span>{{total | currency}}</span></div>
                                 </div>
                             </div>
                         </div>
@@ -109,12 +120,27 @@
                                 <div class="col-md-12"><strong>Email Address:</strong></div>
                                 <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" ng-model="user.email"/></div>
                                 </div>
+
                                 <div class="form-group">
                                 <div class="col-md-12"><strong>Shipping Speed:</strong></div>
                                 <div class="col-md-12"><label class="btn">
                     <input type="radio" id="q156" name="quality[25]" value="1" /> 1-3 Business Days
                 </label> </div>
                             </div>
+
+                                <!--<div class="form-group">
+                                <div class="col-md-12"><strong>Shipping</strong></div>
+                                    <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> shipping options <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a ng-click='shipping(1)'>fedex standard free</a></li>
+                                        <li><a ng-click="shipping(2)">fedex express $10</a></li>
+                                        <li><a ng-click="shipping(3)">fedex overnight $20</a></li>
+                                        <li><a ng-click="shipping(4)">USPS free</a></li>
+                                        <li><a ng-click="shipping(5)">UPS standard free</a></li>
+                                        <li><a ng-click="shipping(6)">UPS express $10</a></li>
+                                        <li><a ng-click="shipping(7)">UPS express $20</a></li>
+                                    </ul>
+                            </div>-->
                         
                     </div>
                     </div>
