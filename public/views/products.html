@@ -11,8 +11,9 @@
                     <h4>{{product.name}}</h4>
                     <p>{{product.descriptionShort}}</p>
                     <p>{{product.price | currency}}</p>
-                    <p>
-                        <a ng-href="#/home/product/{{product._id}}/info"><button ng-click="getProductInfo(product._id)"class="btn btn-sm" role="button"><i class="fa fa-info-circle fa-lg"></i></button></a> 
+                        
+                        <button class="btn btn-sm" role="button" data-toggle="modal" data-target="#productInfo" ng-click="selectProduct(product)"><i class="fa fa-info-circle fa-lg"></i></button> 
+
                         <button ng-click="addToCart(product)" class="btn btn-sm pull-right" role="button"><i class="fa fa-cart-plus fa-lg"></i></button>
                     </p>
                 </div>
@@ -22,5 +23,30 @@
             
         </div>
     </div>
+    
 </div>
 
+<!-- PRODUCT INFO MODAL -->
+<div id="productInfo" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">{{selectedProduct.name}}</h2>
+      </div>
+      <div class="modal-body">
+        <img class="customImg prodInfoImg" ng-src="{{selectedProduct.image[0]}}"/>
+        <div class="prodInfo">
+            {{selectedProduct.descriptionLong}}<br><br>
+            {{selectedProduct.price | currency}}
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer></footer>

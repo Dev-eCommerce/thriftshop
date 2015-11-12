@@ -228,6 +228,8 @@ button {
 
 .container {
     font-family: 'Quicksand', sans-serif;
+    position: absolute;
+    top: 10px;
 }
 
 .btn {
@@ -306,3 +308,43 @@ button {
     color: #00CC99;
 }
 
+.checkout_page {
+    position: absolute;
+    top: 150px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.panel-heading {
+    font-size: 18px;
+}
+
+.panel-body {
+    color: #A6A6A6;
+}
+
+.shipping_speed {
+    background: #00CC99;
+}
+
+#productInfo {
+    position: fixed;
+    top: 5%;
+    font-family: 'Quicksand', sans-serif;
+    color: #00CC99;
+    text-align: center;
+}
+
+.prodInfoImg {
+    float: left;
+    border: 2px solid #00CC99;
+}
+
+.prodInfo {
+    font-size: 20px;
+}
+
+.prodInfoPrice {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
