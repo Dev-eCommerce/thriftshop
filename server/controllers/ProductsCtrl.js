@@ -164,7 +164,7 @@ module.exports = {
                 }
             });
     },
-    findOne: function(req, res) {
+    findById: function(req, res) {
         Products.findById(req.params.id, function(err, result){
           if (err) {
                     res.send(err);
@@ -173,6 +173,19 @@ module.exports = {
                 }
             });
     },
+    
+    findOne: function(req, res) {
+        Products.find({})
+        .where(Products.category).equals(req.params.category) 
+        .exec(function(err, result){
+          if (err) {
+                    res.send(err);
+                } else {
+                   res.json(result);
+                }
+            });
+    },
+    
     delete: function(req, res) {
         Products.findById(req.params.id, function(err, product){
             if (err) {

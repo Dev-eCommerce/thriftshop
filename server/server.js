@@ -75,11 +75,13 @@ app.delete('/api/orders/:id', OrdersCtrl.delete);
 
 //-----endpoints for products-------
 app.get('/api/products', ProductsCtrl.findAll);
-app.get('/api/products/:id', ProductsCtrl.findOne);
+app.get('/api/products/:id', ProductsCtrl.findById);
+app.get('/api/products/:category', ProductsCtrl.findOne)
 app.post('/api/products', ProductsCtrl.create);
 app.put('/api/products/:id', ProductsCtrl.update);
 app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);
 app.delete('/api/products/:id', ProductsCtrl.delete);
+
 
 
 

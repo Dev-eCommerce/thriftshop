@@ -48,6 +48,18 @@ eCommerce.service('productService', function($http){
 		})
 	}
 	
+		this.getCategory = function(category){
+		return $http({
+			method: 'GET',
+			url: '/api/products/' + category
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			return response.data;
+		})
+	}
+	
 	   this.removeFromCart = function(cart){
         return $http({
             method: 'PUT',

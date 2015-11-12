@@ -3,7 +3,19 @@ eCommerce.controller("productCtrl", function($scope, $location, $http, $state, $
     $scope.cart = getCart;
     var getProducts = productService.getProducts()
 			.then(function(response){
+                console.log('products', response)
 				$scope.products = response;
+                $scope.tops = [];
+                response.forEach(function(item){
+                    var category = item.category;
+                    switch(category){
+                        case 'tops':
+                        $scope.tops.push(category)
+                        break;
+                        default:
+                        alert("non found");
+                    }
+                })
             });
     
     $scope.addToCart = function(product) {
@@ -16,12 +28,5 @@ eCommerce.controller("productCtrl", function($scope, $location, $http, $state, $
         $scope.selectedProduct = product;
         console.log($scope.selectedProduct)
     }
-    
-//    console.log($stateParams.id);
-// 	$scope.productId = $stateParams.id;
-// 	var productInfo = productService.getAProduct($scope.productId).then(function(response){
-// 		console.log(response);
-// 		$scope.product = response;
-// 	});
                   
 });
