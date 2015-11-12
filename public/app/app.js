@@ -40,7 +40,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
            }
         })
    
-        .state('checkout', {
+        .state('home.checkout', {
             url: '/checkout',
             templateUrl: '/views/checkoutTmpl.html',
             controller: 'cartCtrl',

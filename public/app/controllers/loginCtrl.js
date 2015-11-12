@@ -39,7 +39,7 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
     $scope.checkout = function() {
 		productService.getCart().then(function(resp) {
 		$scope.cart = resp;
-        $state.go('checkout')
+        $state.go('home.checkout')
     })
 	}
     
