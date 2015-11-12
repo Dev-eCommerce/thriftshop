@@ -1,4 +1,5 @@
 var Orders = require('../models/Order')
+var stripe = require('stripe')('sk_test_BeIiX9J8nuif15swpckvXlIS');
 
 module.exports = {
     // Create New Order
@@ -48,11 +49,20 @@ module.exports = {
         });
     },
     checkout: function(req, res){
-        Orders.findByIdAndUpdate(req.body.id, req.body, {new: true}, function(err, result){
-            if(err) return res.status(500).json(err);
-            return res.status(200).json(result);
-        });
-    },
+        console.log('111', req);
+    stripe.charges.create({
+                    amount: 1600,
+                    currency: "usd",
+                    description: "Charge for user1@example.com",
+                    card: req.body.stripeToken,
+            }, function(err, charge){
+                    if (err){
+                        console.log(err);
+                   } else {
+                        console.log(charge);
+                   }
+            });
+        },
     delete: function(req, res){
        Orders.findByIdAndRemove(req.params.id, function(err, result){
           if (err) {

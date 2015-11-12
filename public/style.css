@@ -275,3 +275,7 @@ button {
   background-image: none;
   color: #ffffff;
 }
+
+.ng-invalid {
+    color: red;
+}

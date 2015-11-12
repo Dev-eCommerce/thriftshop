@@ -37,14 +37,9 @@ eCommerce.controller('loginCtrl', function($scope, $state, loginService){
         $state.go('home.carousel');
     }
     
-    $scope.stripeCallback = function (code, result) {
-    if (result.error) {
-        window.alert('it failed! error: ' + result.error.message);
-    } else {
-        window.alert('success! token: ' + result.id);
-    }
-};
-})
+    
+});
+
 
 
 

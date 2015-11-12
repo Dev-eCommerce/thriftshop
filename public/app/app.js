@@ -1,5 +1,9 @@
 var eCommerce = angular.module('eCommerce', ['ui.router', 'ngFileUpload', 'angularPayments']);
 
+//eCommerce.config(function($window) {
+//    $window.Stripe.setPublishableKey('pk_test_Go5t9Qy3SdSuGnRIYkF8Ko7T');
+//});
+
 eCommerce.config(function($stateProvider, $urlRouterProvider) {
    
    $urlRouterProvider.otherwise('/home');
@@ -34,7 +38,8 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
    
         .state('checkout', {
             url: '/checkout',
-            templateUrl: '/views/checkoutTmpl.html'
+            templateUrl: '/views/checkoutTmpl.html',
+            controller: 'checkoutCtrl'
         })
         
         .state('inventory', {
