@@ -12,7 +12,7 @@
                     <p>{{product.descriptionShort}}</p>
                     <p>{{product.price | currency}}</p>
                     <p>
-                        <button class="btn btn-sm" role="button"><i class="fa fa-info-circle fa-lg"></i></button> 
+                        <a ng-href="#/home/product/{{product._id}}/info"><button ng-click="getProductInfo(product._id)"class="btn btn-sm" role="button"><i class="fa fa-info-circle fa-lg"></i></button></a> 
                         <button ng-click="addToCart(product)" class="btn btn-sm pull-right" role="button"><i class="fa fa-cart-plus fa-lg"></i></button>
                     </p>
                 </div>

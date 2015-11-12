@@ -21,6 +21,7 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $stateParams
 	
 	
 	$scope.addProduct = function(product){
+		console.log(product)
 		$scope.product.options.optionValues = $scope.options
 				if($scope.images.length < 1){
 							adminSrvc.addProduct($scope.product);
