@@ -3,9 +3,9 @@
 <a ng-href="/#/admin"><button class="adminOrders">Orders</button></a>
 <a class="adminLogout" ng-href="/api/logout"><button>log out</button></a></br>
 <button ng-click="showProducts=!showProducts" class="adminButton">Get All Products</button>
-<div class="container" ng-repeat="product in products" ng-show="showProducts">
-	<img ng-src={{product.image[0]}} class="thumbnailImage" /> <br>
-	{{product.name}} {{product.category}} {{product.price | currency}} <br>
+<div class="inventoryContainer" ng-repeat="product in products" ng-show="showProducts">
+	<img ng-src={{product.image[0]}} class="thumbnailImage inventoryThumbnail" /> <br>
+	{{product.name}} - {{product.category}} - {{product.price | currency}} <br>
 	{{product.descriptionShort}}
 	<div class="msgBtn">
 		<a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-xs" ng-click="getAProduct(product._id)">Update</button></a> <button type="button" class="btn btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>

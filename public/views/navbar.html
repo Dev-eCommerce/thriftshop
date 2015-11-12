@@ -60,7 +60,6 @@
                   <ul class="nav nav-tabs"id="tabContent">
                     <li><a class="modalTab" href="#customerInfo" data-toggle="tab">ACCOUNT</a></li>
                     <li><a class="modalTab" href="#shipping" data-toggle="tab">SHIPPING</a></li>
-                    <li><a class="modalTab" href="#billing" data-toggle="tab">BILLING</a></li>
                     <li><a class="modalTab" href="#orderHistory" data-toggle="tab">ORDERS</a></li>
                   </ul>
 
@@ -81,12 +80,6 @@
                             Zip Code: <input type="text" size="6" maxlength="5" ng-model="currentUser.zip"/><br><br>
                             <button ng-click="updateUser(currentUser)">Update</button>
                         </div> 
-                      
-                      <div class="tab-pane" id="billing">
-                            Billing
-                            <br><br>
-                            <button ng-click="updateUser(currentUser)">Update</button>
-                        </div>
                       
                       <div class="tab-pane" id="orderHistory">
                             Order History

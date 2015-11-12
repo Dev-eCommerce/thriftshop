@@ -343,8 +343,13 @@ button {
     font-size: 20px;
 }
 
-.prodInfoPrice {
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
+.inventoryContainer {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.inventoryThumbnail {
+    float: none;
 }
