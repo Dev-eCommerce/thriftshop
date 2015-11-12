@@ -67,10 +67,10 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
 
         })
 
-        .state('products', {
-            url: '/products',
-            templateUrl: '/views/products.html',
-            controller: 'productCtrl'
+        .state('home.productInfo', {
+            url:"/product/:id/info",
+            templateUrl: '/views/productInfoTmpl.html',
+            controller: 'productInfoCtrl'
         })
     
     
