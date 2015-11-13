@@ -60,7 +60,6 @@
                   <ul class="nav nav-tabs"id="tabContent">
                     <li><a class="modalTab" href="#customerInfo" data-toggle="tab">ACCOUNT</a></li>
                     <li><a class="modalTab" href="#shipping" data-toggle="tab">SHIPPING</a></li>
-                    <li><a class="modalTab" href="#billing" data-toggle="tab">BILLING</a></li>
                     <li><a class="modalTab" href="#orderHistory" data-toggle="tab">ORDERS</a></li>
                   </ul>
 
@@ -82,12 +81,6 @@
                             <button ng-click="updateUser(currentUser)">Update</button>
                         </div> 
                       
-                      <div class="tab-pane" id="billing">
-                            Billing
-                            <br><br>
-                            <button ng-click="updateUser(currentUser)">Update</button>
-                        </div>
-                      
                       <div class="tab-pane" id="orderHistory">
                             Order History
                         </div>
@@ -107,11 +100,12 @@
               <div class="myCart-header">
                 <button type="button" class="close close_cart" data-dismiss="modal">&times;</button>
               </div>
-                <div class="cart_list" ng-repeat="product in cart">
+                <div class="cart_list" ng-repeat="product in cart track by $index">
                     <span><img ng-src="{{product.image[0]}}" class="thumbnailImage"/></span>
                     <span>{{product.name}}</span>
                     <span>{{product.options.optionValues.name}}</span><br>
                     <span>{{product.price | currency}}</span>
+                    <button class="btn removeItem" ng-click="removeProduct($index)">x</button>
                 </div>
                 <button data-dismiss="modal" ng-click="checkout()">Checkout</button>
             </div>

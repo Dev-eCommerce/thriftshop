@@ -42,4 +42,5 @@ app.controller('adminCtrl', function($scope, adminSrvc, $location, user){
 						})
 				})
 	};
+    
 });
