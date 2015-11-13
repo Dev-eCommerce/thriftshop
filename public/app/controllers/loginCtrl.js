@@ -8,33 +8,33 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
 			$scope.cart = resp;
             
 		})
-        $scope.subtotal = 0;
-    if($scope.cart.length > 0){
-        console.log('cart length', $scope.cart.length)
-        addingSubTotal();
-    }
+    //     $scope.subtotal = 0;
+    // if($scope.cart.length > 0){
+    //     console.log('cart length', $scope.cart.length)
+    //     addingSubTotal();
+    // }
     
-    function addingSubTotal(){
-        $scope.cart.forEach(function(item){
-            $scope.subtotal += item.price;
-        });
-    }
+    // function addingSubTotal(){
+    //     $scope.cart.forEach(function(item){
+    //         $scope.subtotal += item.price;
+    //     });
+    // }
     
-    // shipping
-    $scope.total = $scope.subtotal;
-    $scope.shipping=function(option){
-    console.log(option);
-    if(2 === option || 6 === option){
-        $scope.total = $scope.subtotal + 10;
-        console.log("shipping", $scope.total);
-    } else if(3 === option || 7 === option){
-        $scope.total = $scope.subtotal + 20;
-    }
-    else{
-        $scope.total = $scope.subtotal;
-    }
-    return $scope.total;
-    };
+    // // shipping
+    // $scope.total = $scope.subtotal;
+    // $scope.shipping=function(option){
+    // console.log(option);
+    // if(2 === option || 6 === option){
+    //     $scope.total = $scope.subtotal + 10;
+    //     console.log("shipping", $scope.total);
+    // } else if(3 === option || 7 === option){
+    //     $scope.total = $scope.subtotal + 20;
+    // }
+    // else{
+    //     $scope.total = $scope.subtotal;
+    // }
+    // return $scope.total;
+    // };
     
 	};
 	
@@ -79,6 +79,10 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
     
     $scope.removeProduct = function(index) {
         $scope.cart.splice(index, 1);
+        productService.removeFromCart($scope.cart).then(function(res){
+            console.log(res)
+            $scope.cart = res;
+    })
     }
 
 })
