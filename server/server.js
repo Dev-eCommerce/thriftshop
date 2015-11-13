@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
 var session = require('express-session');
+var mandrill = require('mandrill-api/mandrill');
+var mandrill_client = (process.env.MANDRILL_ID)
 
 // CONFIG
 var AWS = require('aws-sdk');
@@ -14,6 +16,7 @@ var config = require('../config');
 var UsersCtrl = require('./controllers/UsersCtrl');
 var ProductsCtrl = require('./controllers/ProductsCtrl');
 var OrdersCtrl= require('./controllers/OrdersCtrl');
+var MandrillCtrl = require('./controllers/MandrillCtrl')
 
 // Services
 var passport = require('./services/passport');
@@ -81,6 +84,8 @@ app.put('/api/products/:id', ProductsCtrl.update);
 app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);
 app.delete('/api/products/:id', ProductsCtrl.delete);
 
+//-----endpoints for mandrill-------
+app.post('/api/contactus', MandrillCtrl.sendMail);
 
 
 
