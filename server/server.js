@@ -16,7 +16,7 @@ var config = require('../config');
 var UsersCtrl = require('./controllers/UsersCtrl');
 var ProductsCtrl = require('./controllers/ProductsCtrl');
 var OrdersCtrl= require('./controllers/OrdersCtrl');
-var MandrillCtrl = require('./controllers/MandrillCtrl')
+var MandrillCtrl = require('./controllers/mandrillCtrl')
 
 // Services
 var passport = require('./services/passport');
