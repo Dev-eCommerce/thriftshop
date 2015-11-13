@@ -32,7 +32,7 @@ eCommerce.service('productService', function($http){
 		})
 		.then(function(response){
 			console.log("found Cart", response)
-            return response.data
+            return response.data;
         })
 	}
 	
@@ -40,6 +40,19 @@ eCommerce.service('productService', function($http){
 		return $http({
 			method: 'GET',
 			url: '/api/products/' + id
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			return response.data;
+		})
+	}
+	
+		this.getCategory = function(category){
+		var newCategory = category.substr(1);
+		return $http({
+			method: 'GET',
+			url: '/api/products/' + newCategory
 		}).then(function(response){
 			if (response.status != 200) {
 				return "Orders not found";

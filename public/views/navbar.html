@@ -8,7 +8,9 @@
         <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
     </div>
     <div class="nav_browser">
-        <span class="browser_categories">NEW ARRIVALS</span>    <span class="browser_categories">TOPS</span>    <span class="browser_categories">BOTTOMS</span> <span class="browser_categories">SHOES</span>  <span class="browser_categories">JEWELRY</span> <span class="browser_categories">ACCESSORIES</span>    <span class="browser_categories">SALE</span>
+    <a ng-href="#/home/newarrivals"><span class="browser_categories">NEW ARRIVALS</span></a>    <a ng-href="#/home/tops"><span class="browser_categories">TOPS</span></a>   <a ng-href="#/home/bottoms"><span class="browser_categories">BOTTOMS</span></a> 
+        <a ng-href="#/home/shoes"><span class="browser_categories">SHOES</span></a>  <a ng-href="#/home/jewelry"><span class="browser_categories">JEWELRY</span></a> <a ng-href="#/home/accessories"><span class="browser_categories">ACCESSORIES</span></a>    
+        <a ng-href="#/home/sale"><span class="browser_categories">SALE</span></a>
     </div>
 </div>
 
@@ -21,8 +23,8 @@
                     
               <div class="myLogin-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <div>   
-                  <ul class="nav nav-tabs"id="tabContent">
+                <div>
+                  <ul class="nav nav-tabs" id="tabContent">
                     <li><a class="modalTab" href="#login" data-toggle="tab">LOGIN</a></li>
                     <li><a class="modalTab" href="#register" data-toggle="tab">REGISTER</a></li>
                   </ul>
@@ -57,7 +59,7 @@
               <div class="myAccount-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div>   
-                  <ul class="nav nav-tabs"id="tabContent">
+                  <ul class="nav nav-tabs" id="tabContent">
                     <li><a class="modalTab" href="#customerInfo" data-toggle="tab">ACCOUNT</a></li>
                     <li><a class="modalTab" href="#shipping" data-toggle="tab">SHIPPING</a></li>
                     <li><a class="modalTab" href="#orderHistory" data-toggle="tab">ORDERS</a></li>
@@ -96,7 +98,7 @@
 <!-- Cart Modal -->
         <div id="myCart" class="modal" role="dialog">
           <div class="myCart-dialog">
-            <div class="myCart-content">   
+            <div class="myCart-content">
               <div class="myCart-header">
                 <button type="button" class="close close_cart" data-dismiss="modal">&times;</button>
               </div>
@@ -105,8 +107,10 @@
                     <span>{{product.name}}</span>
                     <span>{{product.options.optionValues.name}}</span><br>
                     <span>{{product.price | currency}}</span>
+                    
                     <button class="btn removeItem" ng-click="removeProduct($index)">x</button>
                 </div>
+            <span class="cart_list pull-right">{{subtotal | currency}}</span>
                 <button data-dismiss="modal" ng-click="checkout()">Checkout</button>
             </div>
           </div>

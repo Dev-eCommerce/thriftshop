@@ -56,7 +56,6 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
     //         $scope.subtotal += item.price
     //     })
     // }
-    
     // // shipping
     // $scope.total = $scope.subtotal;
     // $scope.shipping=function(option){

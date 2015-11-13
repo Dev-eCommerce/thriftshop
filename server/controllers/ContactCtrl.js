@@ -22,6 +22,7 @@ module.exports = {
 	var async = false;
 	var ip_pool = "Main Pool";
 	mandrill_client.messages.send({"message": message, "async": async, "ip_pool": ip_pool}, function(result) {
+		res.send(result);
 		console.log(result);
     /*
     [{

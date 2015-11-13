@@ -74,7 +74,7 @@ input {
 .home_footer {
     position: absolute;
     left: 1%;
-    top: 95%;
+    bottom: 0;
     width: 98%;
     margin: 0 auto;
     height: 16%;
@@ -354,4 +354,12 @@ button {
 .floatButtonRight {
     float: right;
     margin: 3%;
+}
+
+.product_info_container {
+    position: absolute;
+    bottom: 20%;
+    height: 64%;
+    width: 100%;
+    overflow: auto;
 }

@@ -4,7 +4,7 @@ app.controller('contactCtrl', function($scope, contactService, $state, $statePar
 		contactService.sendMail(email).then(function(res){
 			alert("Email Sent Thank You")
 			$scope.email = {}
-			$state.go('home')
+			$state.go('home.carousel')
 		})
 	}
 })
