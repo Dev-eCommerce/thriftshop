@@ -1,6 +1,6 @@
 var Orders = require('../models/Order')
 var Users = require('../models/User')
-
+var stripe = require('stripe')('sk_test_nKAYqh1v37Dt9MYHfyMBALoD');
 
 module.exports = {
     // Create New Order
@@ -11,7 +11,7 @@ module.exports = {
             } else {
                 Users.findById(req.body.userId, function(err, user){
                     user.orders.push(order._id);
-                    Users.save();
+                    user.save();
                     return res.json(order)
             
                 })
@@ -54,12 +54,7 @@ module.exports = {
         }
         });
     },
-    checkout: function(req, res){
-        Orders.findByIdAndUpdate(req.body.id, {$set: req.body}, {new: true}, function(err, result){
-            if(err) return res.status(500).json(err);
-            return res.status(200).json(result);
-        });
-    },
+
     delete: function(req, res){
        Orders.findByIdAndRemove(req.params.id, function(err, result){
           if (err) {
@@ -68,5 +63,25 @@ module.exports = {
                     res.json(result);
                 }
             });
+    },
+    checkout: function(req, res){
+        console.log(req.body, "stripe")
+        var stripeToken = req.body.stripeToken;
+            stripe.charges.create({
+                    amount: 2000,
+                    currency: "usd",
+                    card: stripeToken,
+                    description: "Charge for user1@example.com"
+            }, function(err, charge){
+                    if (err){
+                        console.log(err) 
+                        res.send(err)
+                   } else {
+                        console.log(charge)
+                        res.send(charge)
+                   }
+            });
+       
+         
     }
 }; 

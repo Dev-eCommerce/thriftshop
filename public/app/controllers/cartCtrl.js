@@ -1,36 +1,76 @@
 var eCommerce = angular.module('eCommerce');
 
-eCommerce.controller('cartCtrl', function($scope, productService, getCart) {
+eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, productService, getCart, User) {
     $scope.reviewCart = getCart;
-    console.log(getCart)
-//  var reviewOrder = productService.getCart().then(function(res){
-//         $scope.reviewCart = res;
-//          console.log('reviewOrder', $scope.reviewCart)
-//     })
-
-
-
-    // $scope.addItem = function() {
-    //     $scope.invoice.items.push({
-    //         qty: 1,
-    //         description: '',
-    //         cost: 0
-    //     });
-    // },
-
-    // $scope.removeItem = function(index) {
-    //     $scope.invoice.items.splice(index, 1);
-    // },
-
-    // $scope.total = function() {
-    //     var total = 0;
-    //     angular.forEach($scope.invoice.items, function(item) {
-    //         total += item.qty * item.cost;
-    //     });
-
-    //     return total;
-    // }
+    $scope.user = User;
+    console.log("reviewCart", getCart)
+    console.log("user", User)
+   
+    // Subtotal
+    $scope.subtotal= 0;
+    if(getCart.length > 0){
+        addingSubTotal();
+    }
     
+    function addingSubTotal(){
+        getCart.forEach(function(item){
+            $scope.subtotal += item.price
+        })
+    }
+    
+    // shipping
+    $scope.total = $scope.subtotal;
+    $scope.shipping=function(option){
+    console.log(option)
+    if(2 === option || 6 === option){
+        $scope.total = $scope.subtotal + 10 
+        console.log("shipping", $scope.total)
+    } else if(3 === option || 7 === option){
+        $scope.total = $scope.subtotal + 20
+    }
+    else{
+        $scope.total = $scope.subtotal 
+    }
+    return $scope.total
+    }
+    
+     $scope.removeProduct = function(index){
+        confirm("Are you sure?")
+        var cart = getCart;
+        getCart.splice(index, 1)
+        console.log("new Cart", cart);
+        productService.removeFromCart(cart).then(function(res){
+          productService.getCart().then(function(result){
+              $scope.reviewCart = result;
+               $scope.subtotal= 0;
+    if(getCart.length > 0){
+        addingSubTotal();
+    }
+    
+    function addingSubTotal(){
+        getCart.forEach(function(item){
+            $scope.subtotal += item.price
+        })
+    }
+    
+    // shipping
+    $scope.total = $scope.subtotal;
+    $scope.shipping=function(option){
+    console.log(option)
+    if(2 === option || 6 === option){
+        $scope.total = $scope.subtotal + 10 
+        console.log("shipping", $scope.total)
+    } else if(3 === option || 7 === option){
+        $scope.total = $scope.subtotal + 20
+    }
+    else{
+        $scope.total = $scope.subtotal 
+    }
+    return $scope.total
+    }
+            })
+        })
+    }
     
     
 });

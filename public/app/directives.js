@@ -4,6 +4,9 @@ var app = angular.module('eCommerce');
 app.directive('navbar', function ($http) {
     return {
         restrict: 'E',
+        scope: {
+            cart: '='
+        },
         templateUrl: 'views/navbar.html',
         link: function(scope, el, attrs) {
             angular.element(document).ready(function() {
@@ -14,7 +17,8 @@ app.directive('navbar', function ($http) {
                     scope.currentUser = res.data;
                 })
             })
-        }
+        },
+        controller: 'loginCtrl'
     };
     
 });

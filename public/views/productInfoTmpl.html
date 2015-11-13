@@ -1,0 +1,10 @@
+
+
+<div class="container">
+	<img ng-src="{{product.image[0]}}" /><br>
+	{{product.descriptionLong}} <br>
+	{{product.price | currency}} <br>
+	<div ng-repeat="option in product.options.optionValues">
+	{{option.name}} <input type="number" ng-model='newProduct.options.optionValues.count' placeholder='Count'/>
+	<button ng-click="addToCart(product)" class="btn btn-sm pull-right" role="button"><i class="fa fa-cart-plus fa-lg"></i></button>
+</div>

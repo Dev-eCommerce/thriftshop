@@ -35,5 +35,28 @@ eCommerce.service('productService', function($http){
             return response.data
         })
 	}
+	
+	this.getAProduct = function(id){
+		return $http({
+			method: 'GET',
+			url: '/api/products/' + id
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			return response.data;
+		})
+	}
+	
+	   this.removeFromCart = function(cart){
+        return $http({
+            method: 'PUT',
+            url: '/api/cart/update', 
+            data: cart
+        }).then(function(response){
+			console.log("removeProduct", response)
+            return response.data
+        })
+    }
 
 });
