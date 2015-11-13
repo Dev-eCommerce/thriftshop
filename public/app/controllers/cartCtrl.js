@@ -1,6 +1,6 @@
 var eCommerce = angular.module('eCommerce');
 
-eCommerce.controller('cartCtrl', function($scope, productService, getCart, User) {
+eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, productService, getCart, User) {
     $scope.reviewCart = getCart;
     $scope.user = User;
     console.log("reviewCart", getCart)
@@ -34,9 +34,43 @@ eCommerce.controller('cartCtrl', function($scope, productService, getCart, User)
     return $scope.total
     }
     
-    $scope.removeProduct = function(id, index){
-        
-        $scope.reviewCart.splice(index, 1)
+     $scope.removeProduct = function(index){
+        confirm("Are you sure?")
+        var cart = getCart;
+        getCart.splice(index, 1)
+        console.log("new Cart", cart);
+        productService.removeFromCart(cart).then(function(res){
+          productService.getCart().then(function(result){
+              $scope.reviewCart = result;
+               $scope.subtotal= 0;
+    if(getCart.length > 0){
+        addingSubTotal();
     }
+    
+    function addingSubTotal(){
+        getCart.forEach(function(item){
+            $scope.subtotal += item.price
+        })
+    }
+    
+    // shipping
+    $scope.total = $scope.subtotal;
+    $scope.shipping=function(option){
+    console.log(option)
+    if(2 === option || 6 === option){
+        $scope.total = $scope.subtotal + 10 
+        console.log("shipping", $scope.total)
+    } else if(3 === option || 7 === option){
+        $scope.total = $scope.subtotal + 20
+    }
+    else{
+        $scope.total = $scope.subtotal 
+    }
+    return $scope.total
+    }
+            })
+        })
+    }
+    
     
 });

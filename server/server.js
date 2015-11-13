@@ -106,6 +106,11 @@ app.get('/api/cart', isCart,  function(req, res) {
     res.send(req.session.cart)
 })
 
+app.put('/api/cart/update', function(req, res) {
+    req.session.cart = req.body;
+    res.send(req.session.cart)
+})
+
 
 
 
