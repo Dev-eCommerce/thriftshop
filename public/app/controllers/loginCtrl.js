@@ -39,13 +39,16 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
     $scope.checkout = function() {
 		productService.getCart().then(function(resp) {
 		$scope.cart = resp;
-        $state.go('checkout')
+        $state.go('home.checkout')
     })
 	}
     
     $scope.goHome = function() {
-		
         $state.go('home.carousel');
+    }
+    
+    $scope.removeProduct = function(index) {
+        $scope.cart.splice(index, 1);
     }
 
 })

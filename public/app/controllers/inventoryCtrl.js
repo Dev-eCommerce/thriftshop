@@ -47,7 +47,8 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $stateParams
 						};
 			        	reader.readAsDataURL(image)
 			        })
-				}	
+				}
+        $scope.addProducts = false;
 	};
 	
 	$scope.deleteProduct = function(productId, index){
@@ -74,6 +75,16 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $stateParams
 		})
 	}
 	
+    $scope.addProduct = function() {
+        $scope.addProducts = true;
+        $scope.showProducts = false;
+    }
+    
+    $scope.showProduct = function() {
+        $scope.addProducts = false;
+        $scope.showProducts = true;
+    }
+    
 });
 
 
