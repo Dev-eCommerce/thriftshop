@@ -8,236 +8,156 @@
                 </div>
             </div>
             <div>
-                <form class="form-horizontal" method="post" action="">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
-                   
-                    <div class="panel panel-primary">
-                        <div class="panel-heading panel-heading-custom">
-                            Review Order <div class="pull-right"><small><a href="#" ng-click="getCart()">Edit Cart</a></small></div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-group" ng-repeat="product in reviewCart track by $index">
-                                <div class="col-sm-3 col-xs-3">
-                                    <img ng-src="{{product.image[0]}}" class="thumbnailImage"/>
-                                </div>
-                                <div class="col-sm-6 col-xs-6">
-                                    <div class="col-xs-12">{{product.name}}</div>
-                                    <div class="col-xs-12"><small>Quantity:<span>1</span></small></div>
-                                </div>
-                                <div class="col-sm-3 col-xs-3 text-right">
-                                    <h6><span>{{product.price | currency}}</span></h6>
-                                </div>
-                                <button class="btn" ng-click="removeProduct($index)">x</button>
+                <form class="form-horizontal" method="POST" action="http://www.derelicteclothing.com/api/checkout">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading panel-heading-custom">
+                                Review Order <div class="pull-right"><small><a href="#" ng-click="getCart()">Edit Cart</a></small></div>
                             </div>
-                            <div class="form-group"><hr /></div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <strong>Subtotal</strong>
-                                    <div class="pull-right"><span>{{subtotal | currency}}</span><span></span></div>
+                            <div class="panel-body">
+                                <div class="form-group" ng-repeat="product in reviewCart track by $index">
+                                    <div class="col-sm-3 col-xs-3">
+                                        <img ng-src="{{product.image[0]}}" class="thumbnailImage"/>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="col-xs-12">{{product.name}}</div>
+                                        <div class="col-xs-12"><small>Quantity:<span>1</span></small></div>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-3 text-right">
+                                        <h6><span>{{product.price | currency}}</span></h6>
+                                    </div>
+                                    <button class="btn" ng-click="removeProduct($index)">x</button>
                                 </div>
-                                <div class="col-xs-12">
-                                    <!--<small>Shipping</small>-->
-                                    <!--<div class="pull-right"><span>{{shipping.option | currency}}</span></div>-->
-                                    <a type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> shipping <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a ng-click='shipping(1)'>fedex standard free</a></li>
-                                        <li><a ng-click="shipping(2)">fedex express $10</a></li>
-                                        <li><a ng-click="shipping(3)">fedex overnight $20</a></li>
-                                        <li><a ng-click="shipping(4)">USPS free</a></li>
-                                        <li><a ng-click="shipping(5)">UPS standard free</a></li>
-                                        <li><a ng-click="shipping(6)">UPS express $10</a></li>
-                                        <li><a ng-click="shipping(7)">UPS express $20</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="form-group"><hr /></div>
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <strong>Order Total</strong>
-                                    <div class="pull-right"><span>{{total | currency}}</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
-                    
-                    <div class="panel panel-primary">
-                        <div class="panel-heading panel-heading-custom">Address</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <h4>Shipping Address</h4>
-                                </div>
-                            </div>
-                            <!--<div class="form-group">
-                                <div class="col-md-12"><strong>Country:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="country" value="" />
-                                </div>
-                            </div>-->
-                            <div class="form-group">
-                                <div class="col-md-6 col-xs-12">
-                                    <strong>First Name:</strong>
-                                    <input type="text" name="first_name" class="form-control" value="" ng-model="user.firstName"/>
-                                </div>
-                                <div class="span1"></div>
-                                <div class="col-md-6 col-xs-12">
-                                    <strong>Last Name:</strong>
-                                    <input type="text" name="last_name" class="form-control" value="" ng-model="user.lastName" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Address:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="address" class="form-control" value="" ng-model="user.address" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>City:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="city" class="form-control" value="" ng-model="user.city"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>State:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="state" class="form-control" value="" ng-model="user.state"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="zip_code" class="form-control" value="" ng-model="user.zip"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Phone Number:</strong></div>
-                                <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" ng-model="user.phoneNumber"/></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Email Address:</strong></div>
-                                <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" ng-model="user.email"/></div>
-                                </div>
-
+                                <div class="form-group"><hr /></div>
                                 <div class="form-group">
-                                <div class="col-md-12"><strong>Shipping Speed:</strong></div>
-                                <div class="col-md-12"><label class="btn">
-                    <input type="radio" id="q156" name="quality[25]" value="1" /> 1-3 Business Days
-                </label> </div>
-                            </div>
-
-                                <!--<div class="form-group">
-                                <div class="col-md-12"><strong>Shipping</strong></div>
-                                    <a type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> shipping options <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a ng-click='shipping(1)'>fedex standard free</a></li>
-                                        <li><a ng-click="shipping(2)">fedex express $10</a></li>
-                                        <li><a ng-click="shipping(3)">fedex overnight $20</a></li>
-                                        <li><a ng-click="shipping(4)">USPS free</a></li>
-                                        <li><a ng-click="shipping(5)">UPS standard free</a></li>
-                                        <li><a ng-click="shipping(6)">UPS express $10</a></li>
-                                        <li><a ng-click="shipping(7)">UPS express $20</a></li>
-                                    </ul>
-                            </div>-->
-                        
-                    </div>
-                    </div>
-                    
-                    <div class="panel panel-primary">
-                        <div class="panel-heading panel-heading-custom"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Card Type:</strong></div>
-                                <div class="col-md-12">
-                                    <select id="CreditCardType" name="CreditCardType" class="form-control">
-                                        <option value="5">Visa</option>
-                                        <option value="6">MasterCard</option>
-                                        <option value="7">American Express</option>
-                                        <option value="8">Discover</option>
-                                    </select>
+                                    <div class="col-xs-12">
+                                        <strong>Subtotal</strong>
+                                        <div class="pull-right"><span>{{subtotal | currency}}</span><span></span></div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <!--<small>Shipping</small>-->
+                                        <!--<div class="pull-right"><span>{{shipping.option | currency}}</span></div>-->
+                                        <a type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> shipping <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-click='shipping(1)'>fedex standard free</a></li>
+                                            <li><a ng-click="shipping(2)">fedex express $10</a></li>
+                                            <li><a ng-click="shipping(3)">fedex overnight $20</a></li>
+                                            <li><a ng-click="shipping(4)">USPS free</a></li>
+                                            <li><a ng-click="shipping(5)">UPS standard free</a></li>
+                                            <li><a ng-click="shipping(6)">UPS express $10</a></li>
+                                            <li><a ng-click="shipping(7)">UPS express $20</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Credit Card Number:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" /></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12"><strong>Card CVV:</strong></div>
-                                <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <strong>Expiration Date</strong>
+                                <div class="form-group"><hr /></div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <strong>Order Total</strong>
+                                        <div class="pull-right"><span>{{total | currency}}</span></div>
+                                    </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
-                                        <option value="">Month</option>
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                </select>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="">
-                                        <option value="">Year</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                </div>
-                                <div class="col-md-12">
-                                    
-                                    
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <button type="submit" class="btn">Place Order</button>
+                                <div class="floatbuttonRight" >
+                                    <!-- <form action="http://requestb.in/18kaifo1" method="POST"> -->
+                                        <script
+                                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                            data-key="pk_test_mFqWlaAs5uKqHQoSkm1Owrqv"
+                                            data-image="https://s3.amazonaws.com/stripe-uploads/acct_173BheDizn23VEuvmerchant-icon-1446583784619-foosball.jpg"
+                                            data-name="Test"
+                                            data-description="2 widgets"
+                                            data-amount=({{total}} * 100)
+                                            data-locale="auto">
+                                        </script>
+                                    <!-- </form> -->
                                 </div>
                             </div>
                         </div>
+            
                     </div>
-                    
-                </div>
-                
-                </form>
-                <form action="http://requestb.in/18kaifo1" method="POST">
-                    <script
-                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="pk_test_mFqWlaAs5uKqHQoSkm1Owrqv"
-                        data-image="https://s3.amazonaws.com/stripe-uploads/acct_173BheDizn23VEuvmerchant-icon-1446583784619-foosball.jpg"
-                        data-name="Test"
-                        data-description="2 widgets"
-                        data-amount="2000"
-                        data-locale="auto">
-                    </script>
-                </form>
-            </div>
-            <div>
-        
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
+                        
+                        <div class="panel panel-primary">
+                            <div class="panel-heading panel-heading-custom">Address</div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <h4>Shipping Address</h4>
+                                    </div>
+                                </div>
+                                <!--<div class="form-group">
+                                    <div class="col-md-12"><strong>Country:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" name="country" value="" />
+                                    </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <div class="col-md-6 col-xs-12">
+                                        <strong>First Name:</strong>
+                                        <input type="text" name="first_name" class="form-control" value="" ng-model="user.firstName"/>
+                                    </div>
+                                    <div class="span1"></div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <strong>Last Name:</strong>
+                                        <input type="text" name="last_name" class="form-control" value="" ng-model="user.lastName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Address:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="address" class="form-control" value="" ng-model="user.address" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>City:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="city" class="form-control" value="" ng-model="user.city"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>State:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="state" class="form-control" value="" ng-model="user.state"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
+                                    <div class="col-md-12">
+                                        <input type="text" name="zip_code" class="form-control" value="" ng-model="user.zip"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Phone Number:</strong></div>
+                                    <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" ng-model="user.phoneNumber"/></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12"><strong>Email Address:</strong></div>
+                                    <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" ng-model="user.email"/></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <!-- <div class="col-md-12"><strong>Shipping Speed:</strong></div>
+                                    <div class="col-md-12">
+                                        <label class="btn">
+                                            <input type="radio" id="q156" name="quality[25]" value="1" /> 1-3 Business Days
+                                        </label> 
+                                    </div> -->
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <form action="http://requestb.in/18kaifo1" method="POST">
+                            <script
+                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="pk_test_mFqWlaAs5uKqHQoSkm1Owrqv"
+                                data-image="https://s3.amazonaws.com/stripe-uploads/acct_173BheDizn23VEuvmerchant-icon-1446583784619-foosball.jpg"
+                                data-name="Test"
+                                data-description="2 widgets"
+                                data-amount="2000"
+                                data-locale="auto">
+                            </script>
+                        </form>
+                    </div> -->
+                </form>   
             </div>
 </div>
