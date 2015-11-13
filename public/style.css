@@ -74,7 +74,7 @@ input {
 .home_footer {
     position: absolute;
     left: 1%;
-    bottom: 0;
+    top: 100%;
     width: 98%;
     margin: 0 auto;
     height: 16%;
@@ -359,7 +359,7 @@ button {
 .product_info_container {
     position: absolute;
     bottom: 20%;
-    height: 64%;
+    height: 80%;
     width: 100%;
     overflow: auto;
 }
