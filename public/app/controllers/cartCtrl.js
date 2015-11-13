@@ -20,6 +20,7 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
     
     // shipping
     $scope.total = $scope.subtotal;
+    $scope.stripeTotal = $scope.total * 100;
     $scope.shipping=function(option){
     console.log(option)
     if(2 === option || 6 === option){
@@ -30,6 +31,7 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
     }
     else{
         $scope.total = $scope.subtotal 
+        $scope.stripeTotal = $scope.total * 100;
     }
     return $scope.total
     }
@@ -38,6 +40,7 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
         confirm("Are you sure?")
         var cart = getCart;
         getCart.splice(index, 1)
+        $scope.reviewCart = cart;
         console.log("new Cart", cart);
         productService.removeFromCart(cart).then(function(res){
             $window.location.reload();

@@ -351,3 +351,7 @@ button {
 .removeItem {
     float: right;
 }
+.floatButtonRight {
+    float: right;
+    margin: 3%;
+}

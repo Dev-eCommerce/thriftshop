@@ -56,15 +56,15 @@
                                         <div class="pull-right"><span>{{total | currency}}</span></div>
                                     </div>
                                 </div>
-                                <div class="floatbuttonRight" >
+                                <div class="floatButtonRight" >
                                     <!-- <form action="http://requestb.in/18kaifo1" method="POST"> -->
                                         <script
                                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                             data-key="pk_test_mFqWlaAs5uKqHQoSkm1Owrqv"
-                                            data-image="https://s3.amazonaws.com/stripe-uploads/acct_173BheDizn23VEuvmerchant-icon-1446583784619-foosball.jpg"
-                                            data-name="Test"
+                                            data-image="http://i246.photobucket.com/albums/gg83/serapis/ooohderelicte.png"
+                                            data-name="Derelicte clothing"
                                             data-description="2 widgets"
-                                            data-amount=({{total}} * 100)
+                                            data-amount={{stripeTotal}}
                                             data-locale="auto">
                                         </script>
                                     <!-- </form> -->
