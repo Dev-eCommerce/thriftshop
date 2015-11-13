@@ -49,9 +49,10 @@ eCommerce.service('productService', function($http){
 	}
 	
 		this.getCategory = function(category){
+		var newCategory = category.substr(1);
 		return $http({
 			method: 'GET',
-			url: '/api/products/' + category
+			url: '/api/products/' + newCategory
 		}).then(function(response){
 			if (response.status != 200) {
 				return "Orders not found";

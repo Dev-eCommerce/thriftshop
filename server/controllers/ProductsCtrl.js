@@ -175,7 +175,8 @@ module.exports = {
     },
     
     findOne: function(req, res) {
-        Products.find({})
+        console.log(req.params.category)
+        Products.find()
         .where(Products.category).equals(req.params.category) 
         .exec(function(err, result){
           if (err) {
