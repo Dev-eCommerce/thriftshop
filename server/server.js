@@ -81,7 +81,7 @@ app.post('/api/checkout', OrdersCtrl.checkout);
 //-----endpoints for products-------
 app.get('/api/products', ProductsCtrl.findAll);
 app.get('/api/products/:id', ProductsCtrl.findById);
-app.get('/api/products/:category', ProductsCtrl.findOne)
+app.get('/api/products/category/:category', ProductsCtrl.findOne)
 app.post('/api/products', ProductsCtrl.create);
 app.put('/api/products/:id', ProductsCtrl.update);
 app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);
