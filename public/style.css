@@ -74,7 +74,7 @@ input {
 .home_footer {
     position: absolute;
     left: 1%;
-    top: 95%;
+    bottom: 0;
     width: 98%;
     margin: 0 auto;
     height: 16%;
@@ -350,4 +350,10 @@ button {
 
 .removeItem {
     float: right;
+}
+
+.product_info_container {
+    height: 80%;
+    width: 100%;
+    overflow: auto;
 }
