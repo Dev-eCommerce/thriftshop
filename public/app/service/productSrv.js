@@ -52,7 +52,7 @@ eCommerce.service('productService', function($http){
 		var newCategory = category.substr(1);
 		return $http({
 			method: 'GET',
-			url: '/api/products/' + newCategory
+			url: '/api/products/category/' + newCategory
 		}).then(function(response){
 			if (response.status != 200) {
 				return "Orders not found";

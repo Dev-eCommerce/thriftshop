@@ -8,7 +8,7 @@ var Product = new mongoose.Schema({
     descriptionShort: {type: String},
     descriptionLong: {type: String},
     image: [{type: String}],
-    category: {type: String},
+    category: {type: String, lowerCase: true},
     stockTotal: {type: Number},
     options: {
         optionName: {type: String},
