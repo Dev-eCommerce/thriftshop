@@ -1,6 +1,6 @@
 var Orders = require('../models/Order')
 var Users = require('../models/User')
-var stripe = require('stripe')('sk_test_nKAYqh1v37Dt9MYHfyMBALoD');
+var stripe = require('stripe')('process.env.STRIPE_SECRET_KEY');
 
 module.exports = {
     // Create New Order
