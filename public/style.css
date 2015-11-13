@@ -234,8 +234,8 @@ button {
     color: white;
 }
 .thumbnailImage {
-    height: 30%;
-    width: 30%;
+    height: 60px;
+    width: 60px;
     border: 2px solid #00CC99;
     float: left;
     margin-right: 2%;
@@ -278,7 +278,6 @@ button {
 
 .thumbnail > img {
     background-color: #00CC99;
- 
 }
 
 .backgroundColor{
@@ -291,6 +290,7 @@ button {
     font-family: 'Quicksand', sans-serif;
     color: #00CC99;
     width: 55%;
+    float: left;
 }
 
 .checkout_page {
