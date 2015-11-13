@@ -358,8 +358,11 @@ button {
 
 .product_info_container {
     position: absolute;
+    width: 96%;
+    left: 2%;
     bottom: 20%;
     height: 80%;
     width: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
