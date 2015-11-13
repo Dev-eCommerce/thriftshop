@@ -58,15 +58,15 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
     $scope.shipping=function(option){
     console.log(option)
     if(2 === option || 6 === option){
-        $scope.total = $scope.subtotal + 10 
-        console.log("shipping", $scope.total)
+        $scope.total = $scope.subtotal + 10;
+        console.log("shipping", $scope.total);
     } else if(3 === option || 7 === option){
-        $scope.total = $scope.subtotal + 20
+        $scope.total = $scope.subtotal + 20;
     }
     else{
-        $scope.total = $scope.subtotal 
+        $scope.total = $scope.subtotal;
     }
-    return $scope.total
+    return $scope.total;
     }
             })
         })

@@ -21,8 +21,8 @@
                     
               <div class="myLogin-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <div>   
-                  <ul class="nav nav-tabs"id="tabContent">
+                <div>
+                  <ul class="nav nav-tabs" id="tabContent">
                     <li><a class="modalTab" href="#login" data-toggle="tab">LOGIN</a></li>
                     <li><a class="modalTab" href="#register" data-toggle="tab">REGISTER</a></li>
                   </ul>
@@ -57,7 +57,7 @@
               <div class="myAccount-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div>   
-                  <ul class="nav nav-tabs"id="tabContent">
+                  <ul class="nav nav-tabs" id="tabContent">
                     <li><a class="modalTab" href="#customerInfo" data-toggle="tab">ACCOUNT</a></li>
                     <li><a class="modalTab" href="#shipping" data-toggle="tab">SHIPPING</a></li>
                     <li><a class="modalTab" href="#billing" data-toggle="tab">BILLING</a></li>
@@ -103,7 +103,7 @@
 <!-- Cart Modal -->
         <div id="myCart" class="modal" role="dialog">
           <div class="myCart-dialog">
-            <div class="myCart-content">   
+            <div class="myCart-content">
               <div class="myCart-header">
                 <button type="button" class="close close_cart" data-dismiss="modal">&times;</button>
               </div>
@@ -112,7 +112,9 @@
                     <span>{{product.name}}</span>
                     <span>{{product.options.optionValues.name}}</span><br>
                     <span>{{product.price | currency}}</span>
+                    
                 </div>
+            <span class="cart_list pull-right">{{subtotal | currency}}</span>
                 <button data-dismiss="modal" ng-click="checkout()">Checkout</button>
             </div>
           </div>

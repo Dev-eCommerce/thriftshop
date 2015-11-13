@@ -32,7 +32,7 @@ eCommerce.service('productService', function($http){
 		})
 		.then(function(response){
 			console.log("found Cart", response)
-            return response.data
+            return response.data;
         })
 	}
 	
