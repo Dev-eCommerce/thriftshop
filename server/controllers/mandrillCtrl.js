@@ -6,7 +6,7 @@ module.exports = {
 	sendMail: function(req, res){
 		var message = {
 			"text": req.body.text,
-			"subject": "Thank you for contacting DerelicteClothing.com",
+			"subject": req.body.subject,
 			"from_email": req.body.from,
 			"from_name": req.body.name,
 			"to": [{
