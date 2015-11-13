@@ -6,7 +6,7 @@ var cors = require('cors');
 var session = require('express-session');
 
 // CONFIG
-var Stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+var stripe = require('stripe')('sk_test_nKAYqh1v37Dt9MYHfyMBALoD');
 var AWS = require('aws-sdk');
 var config = require('../config');
 
@@ -71,8 +71,9 @@ app.get('/api/orders', OrdersCtrl.findAll);
 app.get('/api/orders/:id', OrdersCtrl.findOne);
 app.post('/api/orders', OrdersCtrl.create);
 app.put('/api/orders/:id', OrdersCtrl.update);
-app.put('/api/checkout/:id', OrdersCtrl.checkout);
 app.delete('/api/orders/:id', OrdersCtrl.delete);
+
+app.post('/api/checkout', OrdersCtrl.checkout);
 
 //-----endpoints for products-------
 app.get('/api/products', ProductsCtrl.findAll);
@@ -113,6 +114,8 @@ app.get('/user/auth', function(req, res) {
     }
     res.end()
 })
+
+
 
 
 
