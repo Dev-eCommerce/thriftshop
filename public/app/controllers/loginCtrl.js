@@ -19,7 +19,6 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
             $scope.subtotal += item.price;
         });
     }
-//    addingSubTotal();
     
     // shipping
     $scope.total = $scope.subtotal;
@@ -77,7 +76,6 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
     $scope.goHome = function() {
         $state.go('home.carousel');
     };
-    }
     
     $scope.removeProduct = function(index) {
         $scope.cart.splice(index, 1);

@@ -71,4 +71,4 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
     }
             })
      }
-    }
+    })
