@@ -2,10 +2,10 @@
 <h1 class="adminHeader">Products</h1>
 <a ng-href="/#/admin"><button class="adminOrders">Orders</button></a>
 <a class="adminLogout" ng-href="/api/logout"><button>log out</button></a></br>
-<button ng-click="showProducts=!showProducts" class="adminButton">Get All Products</button>
-<div class="container" ng-repeat="product in products" ng-show="showProducts">
-	<img ng-src={{product.image[0]}} class="thumbnailImage" /> <br>
-	{{product.name}} {{product.category}} {{product.price | currency}} <br>
+<button ng-click="showProduct()" class="adminButton">Get All Products</button>
+<div class="inventoryContainer" ng-repeat="product in products" ng-show="showProducts">
+	<img ng-src={{product.image[0]}} class="thumbnailImage inventoryThumbnail" /> <br>
+	{{product.name}} - {{product.category}} - {{product.price | currency}} <br>
 	{{product.descriptionShort}}
 	<div class="msgBtn">
 		<a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-xs" ng-click="getAProduct(product._id)">Update</button></a> <button type="button" class="btn btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
@@ -15,8 +15,8 @@
 <br>
 <br>
 
-<button class="adminButton" ng-click="addProducts=!addProducts">Add Product</button>
-<div class="container" ng-show="addProducts"><br><br>
+<button ng-click="addNewProduct()" class="adminButton">Add Product</button>
+<div class="addProductContainer" ng-show="addProducts"><br><br>
 	<div class="col-lg-12 well">
 	<div class="row">
 
@@ -69,8 +69,8 @@
   					<label><input ng-click="showOptions=!showOptions" type="checkbox" name="Options"/>Product Options</label><br>
 				</div> <br>
 				<div class="row" ng-show="showOptions">
-					<div class="col-sm-3 form-group">
-						<label>Option Name <select name="optionName" class="select-field" ng-model="product.options.optionName">
+					<span><div class="col-sm-3 form-group">
+                        <label>Option Name</label><br> <select name="optionName" class="select-field" ng-model="product.options.optionName">
 								<option>Size</option>
 								<!--<option>Color</option>-->
           			</select></label>
@@ -115,7 +115,8 @@
 					<div class="col-sm-3 form-group">
 						<label>Quantity</label>
 						<input type="number" ng-model='newProduct.options.optionValues.count' placeholder='Count'/>
-					</div> <br>
+					</div> 
+                    </span><br>
 					<button  class="btn btn-lg" ng-click='addOptions(newProduct.options.optionValues)'>Add options</button><br>
 					<div ng-repeat='option in options'>{{option.count}} {{option.name}}</div>
 				</div>

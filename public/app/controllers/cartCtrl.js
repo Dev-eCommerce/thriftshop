@@ -40,18 +40,19 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
         getCart.splice(index, 1)
         console.log("new Cart", cart);
         productService.removeFromCart(cart).then(function(res){
-          productService.getCart().then(function(result){
-              $scope.reviewCart = result;
-               $scope.subtotal= 0;
-    if(getCart.length > 0){
-        addingSubTotal();
-    }
+            $window.location.reload();
+    //       productService.getCart().then(function(result){
+    //           $scope.reviewCart = result;
+    //            $scope.subtotal= 0;
+    // if(getCart.length > 0){
+    //     addingSubTotal();
+    // }
     
-    function addingSubTotal(){
-        getCart.forEach(function(item){
-            $scope.subtotal += item.price
-        })
-    }
+    // function addingSubTotal(){
+    //     getCart.forEach(function(item){
+    //         $scope.subtotal += item.price
+    //     })
+    // }
     
     // shipping
     $scope.total = $scope.subtotal;
@@ -69,8 +70,5 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
     return $scope.total;
     }
             })
-        })
+     }
     }
-    
-    
-});

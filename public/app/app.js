@@ -40,7 +40,7 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
            }
         })
    
-        .state('checkout', {
+        .state('home.checkout', {
             url: '/checkout',
             templateUrl: '/views/checkoutTmpl.html',
             controller: 'cartCtrl',
@@ -64,13 +64,18 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
            url: '/inventory/:id/update',
            templateUrl: '/views/updateProductTmpl.html',
            controller: 'updateProductCtrl'
-
         })
 
         .state('home.productInfo', {
             url:"/product/:id/info",
             templateUrl: '/views/productInfoTmpl.html',
             controller: 'productInfoCtrl'
+        })
+        
+        .state('contactus', {
+            url: '/contactus',
+            templateUrl: '/views/contactTmpl.html',
+            controller: 'contactCtrl'
         })
     
     
@@ -100,7 +105,4 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
         return deferred.promise
     };
 });
-
-
-
 

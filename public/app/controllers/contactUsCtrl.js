@@ -1,11 +1,10 @@
 var app = angular.module('eCommerce');
-
-app.controller('contactUsCtrl', function($scope, contactUsService, $state, $stateParams){
+app.controller('contactCtrl', function($scope, contactService, $state, $stateParams){
 	$scope.sendMail = function(email){
-		contactUsService.sendMail(email).then(function(res){
+		contactService.sendMail(email).then(function(res){
 			alert("Email Sent Thank You")
 			$scope.email = {}
-			$state.go($stateParams)
+			$state.go('home')
 		})
 	}
 })

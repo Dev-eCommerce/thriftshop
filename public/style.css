@@ -5,7 +5,7 @@ html {
 #navbar {
     position: fixed;
     width: 100%;
-    height: 122px;
+    height: 19%;
     top: 0px;
     z-index: 10;
     background: white;
@@ -21,6 +21,8 @@ html {
     background: #00CC99;
     font-size: 15px;
     color: floralwhite;
+    width: 100%;
+    text-align: center;
 }
 
 .store_name {
@@ -31,16 +33,16 @@ html {
 
 .nav_user_info {
     position: relative;
-    right: -425px;
-    margin-right: 40px;
+    right: -30%;
+    margin-right: 4%;
     cursor: pointer;
 }
 
 .browser_categories {
     position: relative;
-    left: 250px;
-    margin-right: 30px;
+    margin-right: 2%;
     cursor: pointer;
+    letter-spacing: 1.5px;
 }
 
 input:focus,
@@ -56,90 +58,71 @@ input {
     color: #A6A6A6;
 }
 
-.home_content {
-    position: absolute;
-    top: 130px;
-    width: 98.5%;
-    height: 100%;
-    overflow: hidden;
-}
-
 #home_carousel {
     position: absolute;
-    top: 10px;
-    left: 275px;
+    top: 21%;
+    left: 21.5%;
 }
 
 .carousel-inner > .item > img {
     width: 700px;
     height: 450px;
+    margin: 0 auto;
     border: 2px solid #00CC99;
 }
 
 .home_footer {
-    position: relative;
-    left: 15px;
-    top: 500px;
-    width: 100%;
+    position: absolute;
+    left: 1%;
+    top: 95%;
+    width: 98%;
     margin: 0 auto;
-    height: 150px;
+    height: 16%;
     background: #E6E6E6;
     color: dimgray;
 }
 
-#store_about_us {
-    position: absolute;
-    top: 35px;
-    left: 200px;
+.footer_info {
+    display: inline-block;
+    margin-top: 1%;
+    margin-left: 16%;
     font-size: 13px;
-}
-
-#store_contact {
-    position: absolute;
-    top: 35px;
-    left: 550px;
-    font-size: 13px;
-}
-
-#store_social_media {
-    position: absolute;
-    top: 35px;
-    left: 950px;
-    font-size: 13px;
+    text-align: left;
 }
 
 .myLogin-content {
-    position: relative;
-    top: 150px;
-    left: 500px;
-    height: 350px;
-    width: 300px;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    height: 50%;
+    width: 20%;
     background: white;
 }
 
 .myAccount-content {
-    position: relative;
-    top: 150px;
-    left: 380px;
-    height: 450px;
-    width: 500px;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    height: 60%;
+    width: 35%;
     background: white;
+    overflow: auto;
 }
 
 .myCart-content {
-    position: relative;
-    top: 100px;
-    left: 430px;
-    height: 500px;
-    width: 400px;
+    position: absolute;
+    top: 15%;
+    left: 35%;
+    height: 75%;
+    width: 30%;
     background: white;
     overflow: auto;
 }
 
 .myCart-content > button {
-    position: fixed;
-    bottom: 50px;
-    right: 470px;
+    position: absolute;
+    bottom: 3%;
+    right: 8%;
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     background: #00CC99;
@@ -153,8 +136,8 @@ input {
 
 .tab-pane {
     position: absolute;
-    top: 50px;
-    left: 10px;
+    top: 13%;
+    left: 1%;
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
     color: #00CC99;
@@ -169,15 +152,15 @@ button {
 }
 
 .close {
-    position: fixed;
-    right: 420px;
-    top: 160px;
+    position: absolute;
+    right: 5%;
+    top: 3%;
 }
 
 .close_cart {
-    position: fixed;
-    right: 480px;
-    top: 110px;
+    position: absolute;
+    right: 5%;
+    top: 3%;
 }
 
 .test-size {
@@ -188,7 +171,7 @@ button {
 
 .fulfilled {
     float: right;
-    margin-right: 45px;
+    margin-right: 3%;
 }
 
 .logout {
@@ -199,15 +182,15 @@ button {
 .adminLogout {
     font-size: 16px;
     position: absolute;
-    top: 30px;
-    right: 50px;
+    top: 4%;
+    right: 4%;
 }
 
 .adminInventory {
     font-size: 16px;
     position: absolute;
-    top: 30px;
-    right: 125px;
+    top: 4%;
+    right: 10%;
 }
 
 .adminHeader {
@@ -222,14 +205,15 @@ button {
 .adminOrders {
     font-size: 16px;
     position: absolute;
-    top: 30px;
-    right: 125px;
+    top: 4%;
+    right: 10%;
 }
 
 .container {
     font-family: 'Quicksand', sans-serif;
     position: absolute;
-    top: 10px;
+    top: 20%;
+    overflow: auto;
 }
 
 .btn {
@@ -250,11 +234,11 @@ button {
     color: white;
 }
 .thumbnailImage {
-    height: 45px;
-    width: 45px;
+    height: 60px;
+    width: 60px;
     border: 2px solid #00CC99;
     float: left;
-    margin-right: 5px;
+    margin-right: 2%;
 }
 
 .products {
@@ -294,7 +278,6 @@ button {
 
 .thumbnail > img {
     background-color: #00CC99;
- 
 }
 
 .backgroundColor{
@@ -302,15 +285,17 @@ button {
 }
 
 .cart_list {
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: 4%;
+    margin-left: 4%;
     font-family: 'Quicksand', sans-serif;
     color: #00CC99;
+    width: 55%;
+    float: left;
 }
 
 .checkout_page {
     position: absolute;
-    top: 150px;
+    top: 22%;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -343,8 +328,26 @@ button {
     font-size: 20px;
 }
 
-.prodInfoPrice {
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
+.inventoryContainer {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.inventoryThumbnail {
+    height: 8%;
+    width: 8%;
+    float: none;
+}
+
+.addProductContainer {
+    position: absolute;
+    width: 70%;
+    top: 20%;
+    left: 1%;
+}
+
+.removeItem {
+    float: right;
 }

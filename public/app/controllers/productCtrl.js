@@ -16,12 +16,5 @@ eCommerce.controller("productCtrl", function($scope, $location, $http, $state, $
         $scope.selectedProduct = product;
         console.log($scope.selectedProduct)
     }
-    
-//    console.log($stateParams.id);
-// 	$scope.productId = $stateParams.id;
-// 	var productInfo = productService.getAProduct($scope.productId).then(function(response){
-// 		console.log(response);
-// 		$scope.product = response;
-// 	});
                   
 });
