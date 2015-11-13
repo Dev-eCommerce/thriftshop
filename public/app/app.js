@@ -39,22 +39,26 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             
         .state('home.bottoms', {
             url: '/bottoms',
-            templateUrl: 'views/products.html'
+            templateUrl: 'views/products.html',
+            controller: 'bottomsCtrl'
             })
             
         .state('home.shoes', {
             url: '/shoes',
-            templateUrl: 'views/products.html'
+            templateUrl: 'views/products.html',
+            controller: 'shoesCtrl'
             })
             
         .state('home.jewelry', {
             url: '/jewelry',
-            templateUrl: 'views/products.html'
+            templateUrl: 'views/products.html',
+            controller: 'jewelryCtrl'
             })
             
         .state('home.accessories', {
             url: '/accessories',
-            templateUrl: 'views/products.html'
+            templateUrl: 'views/products.html',
+            controller: 'accessoriesCtrl'
             })
             
         .state('home.sale', {
