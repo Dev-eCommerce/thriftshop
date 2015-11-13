@@ -40,8 +40,8 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
         
         .state('contactus', {
             url: '/contactus',
-            templateUrl: '/views/contactUsTmpl.html',
-            controller: 'contactUsCtrl'
+            templateUrl: '/views/contactTmpl.html',
+            controller: 'contactCtrl'
         })
         
        

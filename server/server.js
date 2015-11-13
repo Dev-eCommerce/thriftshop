@@ -17,7 +17,7 @@ var config = require('../config');
 var UsersCtrl = require('./controllers/UsersCtrl');
 var ProductsCtrl = require('./controllers/ProductsCtrl');
 var OrdersCtrl= require('./controllers/OrdersCtrl');
-var MandrillCtrl = require('./controllers/mandrillCtrl')
+var MandrillCtrl = require('./controllers/MandrillCtrl')
 
 // Services
 var passport = require('./services/passport');
@@ -83,8 +83,7 @@ app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);
 app.delete('/api/products/:id', ProductsCtrl.delete);
 
 //-----endpoints for mandrill-------
-app.post('/contactus', MandrillCtrl.sendMail);
-app.post('/orderconfirmation', MandrillCtrl.sendPurchaseEmail);
+app.post('/api/contactus', MandrillCtrl.sendMail);
 
 
 //Connection
