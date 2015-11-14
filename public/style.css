@@ -280,10 +280,6 @@ button {
     background-color: #00CC99;
 }
 
-.backgroundColor{
-    background-color: #00CC99;
-}
-
 .cart_list {
     margin-top: 4%;
     margin-left: 4%;
@@ -372,4 +368,12 @@ button {
     top: 0;
     height: 100%;
     width: 100%;
+}
+
+.group {
+    background-color: #00CC99;
+}
+
+.list-group-image > img {
+    margin: 0 auto;
 }
