@@ -82,6 +82,8 @@ app.post('/api/checkout', OrdersCtrl.checkout);
 app.get('/api/products', ProductsCtrl.findAll);
 app.get('/api/products/:id', ProductsCtrl.findById);
 app.get('/api/products/category/:category', ProductsCtrl.findOne)
+app.get('/api/products/newarrival/:newarrival', ProductsCtrl.findNewArrival)
+app.get('/api/products/sale/:sale', ProductsCtrl.findSale)
 app.post('/api/products', ProductsCtrl.create);
 app.put('/api/products/:id', ProductsCtrl.update);
 app.put('/api/productsandimage/:id', ProductsCtrl.updateImage);

@@ -63,12 +63,14 @@ eCommerce.config(function($stateProvider, $urlRouterProvider) {
             
         .state('home.sale', {
             url: '/sale',
-            templateUrl: 'views/products.html'
+            templateUrl: 'views/products.html',
+            controller: 'saleCtrl'
             })
             
         .state('home.newArrivals', {
             url: '/newarrivals',
-            templateUrl: 'views/products.html'
+            templateUrl: 'views/products.html',
+            controller: 'newArrivalsCtrl'
             })
 
         .state('admin', {
