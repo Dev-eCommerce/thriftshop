@@ -11,7 +11,8 @@ module.exports = {
                 console.log("213");
                 Products.create(req.body, function(err, result) {
                                 if (err) {
-                                    res.send(err, "Product not created");
+                                    console.log(err)
+                                    res.status(400).json(err);
                                 } else {
                                     res.json(result);
                                 }
