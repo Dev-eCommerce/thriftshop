@@ -2,11 +2,14 @@ var app = angular.module('eCommerce');
 
 app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $state){
 	console.log($stateParams.id);
+	//scope.category = ['tops', 'bottoms', 'shoes', 'jewelry', 'accessories'];
 	$scope.productId = $stateParams.id;
-	var productToUpdate = adminSrvc.getAProduct($scope.productId).then(function(response){
+	adminSrvc.getAProduct($scope.productId).then(function(response){
 		console.log(response);
-		$scope.oldProduct = response;
+		$scope.categoryId = response.category;
+		$scope.product = response;
 	});
+
 
 	$scope.options = [];
 	$scope.addOptions = function(option){

@@ -48,7 +48,7 @@ eCommerce.service('productService', function($http){
 		})
 	}
 	
-		this.getCategory = function(category){
+	this.getCategory = function(category){
 		var newCategory = category.substr(1);
 		return $http({
 			method: 'GET',
@@ -98,4 +98,13 @@ eCommerce.service('productService', function($http){
         })
     }
 
+    this.submitOrder = function(cart){
+    	return $http({
+    		method: 'POST',
+    		url: '/api/orders',
+    		data: cart
+    	}).then(function(response){
+    		return response.data;
+    	})
+    }
 });
