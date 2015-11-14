@@ -2,7 +2,7 @@
 <h1 class="adminHeader">Products</h1>
 <a ng-href="/#/admin"><button class="adminOrders">Orders</button></a>
 <a class="adminLogout" ng-href="/api/logout"><button>log out</button></a></br>
-<button ng-click="showProduct()" class="adminButton">Get All Products</button>
+<button ng-click="showProduct()" class="adminButton getProductsButton">Get All Products</button>
 <div class="inventoryContainer" ng-repeat="product in products" ng-show="showProducts">
 	<img ng-src={{product.image[0]}} class="thumbnailImage inventoryThumbnail" /> <br>
 	{{product.name}} - {{product.category}} - {{product.price | currency}} <br>
@@ -15,7 +15,7 @@
 <br>
 <br>
 
-<button ng-click="addNewProduct()" class="adminButton">Add Product</button>
+<button ng-click="addNewProduct()" class="adminButton addProductsButton">Add Product</button>
 <div class="addProductContainer" ng-show="addProducts"><br><br>
 	<div class="col-lg-12 well">
 	<div class="row">
