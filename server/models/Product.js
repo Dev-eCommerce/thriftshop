@@ -10,13 +10,13 @@ var Product = new mongoose.Schema({
     image: [{type: String}],
     category: {type: String, lowerCase: true},
     stockTotal: {type: Number},
-    options: {
-        optionName: {type: String},
-        optionValues:[{
-            name: {type: String},
-            count: {type: Number}
-        }]
-    },
+    // options: {
+    //     optionName: {type: String},
+    //     optionValues:[{
+    //         name: {type: String},
+    //         count: {type: Number}
+    //     }]
+    // },
     newArrival: {type: Boolean, default: false},
     sale: {type: Boolean, default: false},
     date: {type: Date, default: Date.now()},
