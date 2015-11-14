@@ -4,21 +4,14 @@
         <div class="products1">
             <div class="products" ng-repeat ="product in products">
                 <div class="thumbnail">
-                    <div class="group list-group-image">
+                    <div class="group list-group-image" data-toggle="modal" data-target="#productInfo" ng-click="selectProduct(product)">
                         <img class="customImg center-block" ng-src="{{product.image[0]}}" />
                     </div>
                 <div class="caption">
                     <h4>{{product.name}}</h4>
                     <p>{{product.descriptionShort}}</p>
                     <p>{{product.price | currency}}</p>
-
-                    <p>
-                      
-                        
-                        <button class="btn btn-sm" role="button" data-toggle="modal" data-target="#productInfo" ng-click="selectProduct(product)"><i class="fa fa-info-circle fa-lg"></i></button> 
-                        <button ng-click="addToCart(product)" class="btn btn-sm pull-right" role="button"><i class="fa fa-cart-plus fa-lg"></i></button>
-
-                    </p>
+                    <button ng-click="addToCart(product)" class="btn btn-sm pull-right" role="button"><i class="fa fa-cart-plus fa-lg"></i></button>
                 </div>
                 </div>
                 
@@ -37,6 +30,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title">{{selectedProduct.name}}</h2>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <img class="customImg prodInfoImg" ng-src="{{selectedProduct.image[0]}}"/>

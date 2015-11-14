@@ -4,13 +4,12 @@
         <span class="store_name" ng-click="goHome()">Derelicte</span>   
         <span class="nav_user_info" data-toggle="modal" data-target="#myLogin" ng-show="!currentUser"><i class="fa fa-user"></i>  LOGIN</span> 
         <span class="nav_user_info" data-toggle="modal" data-target="#myAccount" ng-show="currentUser"><i class="fa fa-user"></i>  MY ACCOUNT <a class="logout" ng-href="/api/logout">(log out)</a></span>
-        <span class="nav_user_info" data-toggle="modal" data-target="#myCart" ng-click="getCart()"><i class="fa fa-opencart"></i>    CART({{cart.length}})</span>   
-        <span class="nav_user_info"><i class="fa fa-search"></i>    <input type="text"/></span>
+        <span class="nav_user_info" ng-click="checkout()"><i class="fa fa-opencart"></i>    CART({{cart.length}})</span>  
     </div>
     <div class="nav_browser">
-    <a ng-href="#/home/newarrivals"><span class="browser_categories">NEW ARRIVALS</span></a>    <a ng-href="#/home/tops"><span class="browser_categories">TOPS</span></a>   <a ng-href="#/home/bottoms"><span class="browser_categories">BOTTOMS</span></a> 
-        <a ng-href="#/home/shoes"><span class="browser_categories">SHOES</span></a>  <a ng-href="#/home/jewelry"><span class="browser_categories">JEWELRY</span></a> <a ng-href="#/home/accessories"><span class="browser_categories">ACCESSORIES</span></a>    
-        <a ng-href="#/home/sale"><span class="browser_categories">SALE</span></a>
+    <a ng-href="#/home/newarrivals"><span class="browser_categories">New Arrivals</span></a>    <a ng-href="#/home/tops"><span class="browser_categories">Tops</span></a>   <a ng-href="#/home/bottoms"><span class="browser_categories">Bottoms</span></a> 
+        <a ng-href="#/home/shoes"><span class="browser_categories">Shoes</span></a>  <a ng-href="#/home/jewelry"><span class="browser_categories">Jewelry</span></a> <a ng-href="#/home/accessories"><span class="browser_categories">Accessories</span></a>    
+        <a ng-href="#/home/sale"><span class="browser_categories">Sale</span></a>
     </div>
 </div>
 
@@ -95,7 +94,8 @@
           </div>
         </div>
 
-<!-- Cart Modal -->
+<!--
+ Cart Modal 
         <div id="myCart" class="modal" role="dialog">
           <div class="myCart-dialog">
             <div class="myCart-content">
@@ -115,4 +115,4 @@
             </div>
           </div>
         </div>
-</div>
+</div>-->
