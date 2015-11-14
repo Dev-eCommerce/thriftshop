@@ -187,6 +187,32 @@ module.exports = {
             });
     },
     
+     findNewArrival: function(req, res) {
+        console.log(req.params.newArrival)
+        Products.find({})
+        .where("newArrival").equals(true) 
+        .exec(function(err, result){
+          if (err) {
+                    res.send(err);
+                } else {
+                   res.json(result);
+                }
+            });
+    },
+    
+    findSale: function(req, res) {
+        console.log(req.params.newArrival)
+        Products.find({})
+        .where("sale").equals(true) 
+        .exec(function(err, result){
+          if (err) {
+                    res.send(err);
+                } else {
+                   res.json(result);
+                }
+            });
+    },
+    
     delete: function(req, res) {
         Products.findById(req.params.id, function(err, product){
             if (err) {
