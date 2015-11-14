@@ -56,9 +56,10 @@ app.service('adminSrvc', function($http){
 			method: 'POST',
 			url: '/api/products',
 			data: product
-		}).then(function(response){
-			if (response.status != 200) {
-				return "Product not created";
+		}).then(function(response, err){
+			console.log(response, err)
+			if (err) {
+				return err 
 			}
 			console.log(response.data);
 			return response.data;
