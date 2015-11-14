@@ -65,7 +65,7 @@
 				</div>	 
                 
 				<!--Begin Options	-->
-				<div class="checkbox">
+				<!--<div class="checkbox">
   					<label><input ng-click="showOptions=!showOptions" type="checkbox" name="Options"/>Product Options</label><br>
 				</div> <br>
 				<div class="row" ng-show="showOptions">
@@ -73,7 +73,7 @@
                         <label>Option Name</label><br> <select name="optionName" class="select-field" ng-model="product.options.optionName">
 								<option>Size</option>
 								<!--<option>Color</option>-->
-          			</select></label>
+          			<!--</select></label>
 					</div>
 					<div class="col-sm-3 form-group">
 						<label>Sizes <select ng-model='newProduct.options.optionValues.name'>
@@ -120,7 +120,7 @@
 					<button  class="btn btn-lg" ng-click='addOptions(newProduct.options.optionValues)'>Add options</button><br>
 					<div ng-repeat='option in options'>{{option.count}} {{option.name}}</div>
 				</div>
-				</div> <br><br>
+				</div> <br><br>-->
 				</div>
 
 				<input type="submit" ng-click="addProduct(product)" class="btn btn-lg" value="Save"/>

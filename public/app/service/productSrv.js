@@ -61,6 +61,32 @@ eCommerce.service('productService', function($http){
 		})
 	}
 	
+	this.getNewArrival = function(category){
+		var newArrival = category.substr(1);
+		return $http({
+			method: 'GET',
+			url: '/api/products/newarrival/' + newArrival
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			return response.data;
+		})
+	}
+	
+	this.getSale = function(category){
+		var newSale = category.substr(1);
+		return $http({
+			method: 'GET',
+			url: '/api/products/sale/' + newSale
+		}).then(function(response){
+			if (response.status != 200) {
+				return "Orders not found";
+			}
+			return response.data;
+		})
+	}
+	
 	   this.removeFromCart = function(cart){
         return $http({
             method: 'PUT',
