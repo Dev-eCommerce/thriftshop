@@ -21,10 +21,17 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $state, $sta
 	
 	
 	$scope.addProduct = function(product){
+		alertify.set('notifier','position', 'bottom-left', 'delay');
 		console.log(product)
 		// $scope.product.options.optionValues = $scope.options
 				if($scope.images.length < 1){
-							adminSrvc.addProduct($scope.product);
+					adminSrvc.addProduct($scope.product).then(function(response){
+							$scope.products.push(response);
+							alertify.success("product added", 3);
+							$window.location.reload();
+						}, function(error){
+							alertify.error("please try again", 3);
+						});
 				}
 				else if ($scope.images.length > 0){	
 					var images = $scope.images;
@@ -41,9 +48,12 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $state, $sta
 								$scope.product.image = productImagesArr;
 								console.log($scope.product);
 								adminSrvc.addProduct($scope.product).then(function(response){
-									$scope.products.push(response);
-									$window.location.reload();
-								});
+							$scope.products.push(response);
+							alertify.success("product added", 3);
+							$window.location.reload();
+						}, function(error){
+							alertify.error("please try again", 3);
+						});
 							}
 						};
 			        	reader.readAsDataURL(image)

@@ -47,16 +47,23 @@
 				</div>
 				<div class="row">
 					<div class="col-sm-4 form-group">
-						<label>Category</label>
-						<input type="text" placeholder="Tops, Bottoms, Accessories, etc." class="form-control" ng-model="product.category"/>
+						<label>Category<select name="category" class="select-field" ng-model="product.category">
+							<option value="tops">Tops</option>
+							<option value="bottoms">Bottoms</option>
+							<option value="shoes">Shoes</option>
+							<option value="jewelry">Jewelry</option>
+							<option value="accessories">Accessories</option>
+						</select></label>
 					</div>
 					<div class="col-sm-4 form-group">
 						<label>Quantity</label>
-						<input type="text" placeholder="Total Quantity" class="form-control" ng-model="product.stockTotal"/>
+						<input type="text" class="form-control" ng-model="product.stockTotal"/>
 					</div>
 					<div class="col-sm-4 form-group">
-						<label>Gender</label>
-						<input type="text" class="form-control" ng-model="product.gender"/>
+						<label>Gender<select name="gender" class="select-field" ng-model="product.gender">
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+						</select></label>
 					</div>
 					</div>
 					 <br>

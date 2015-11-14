@@ -8,8 +8,14 @@ eCommerce.controller("productCtrl", function($scope, $location, $http, $state, $
     //             })
     
     $scope.addToCart = function(product) {
-        productService.addToCart(product).then(function(response){
+        alertify.set('notifier','position', 'bottom-left', 'delay');
+        productService.addToCart(product).then(function(response, err){
+            if(err){
+                alertify.error("item not added to cart", 2)
+            } else {
             $scope.cart = response;
+            alertify.success("item added to cart", 1.5); 
+            }
         })
     };
     
