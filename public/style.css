@@ -40,8 +40,7 @@ html {
 }
 
 .browser_categories {
-    position: relative;
-    margin-right: 5%;
+    margin: 2.5%;
     cursor: pointer;
     letter-spacing: 2px;
     font-family: 'Quicksand', sans-serif;
