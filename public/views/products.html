@@ -1,7 +1,7 @@
 <div class="container product_info_container">
 
-    <span class="productFilterSelection"><input type="radio" ng-model="filterProducts" name="male" value="Male"/> Men's </span>
-    <span class="productFilterSelection"><input type="radio" ng-model="filterProducts" name="female" value="Female"/> Women's </span><br><br>
+    <span class="productFilterSelection"><input type="radio" ng-model="filterProducts" value="boy"/> Men's </span>
+    <span class="productFilterSelection"><input type="radio" ng-model="filterProducts" value="girl"/> Women's </span><br><br>
     <div class="row">
         <div class="products1">
             <div class="products" ng-repeat="product in products | filter: filterProducts">
