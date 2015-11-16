@@ -256,6 +256,7 @@ button {
 
 .thumbnail {
 	margin: 1%;
+    box-shadow: 1px 1px 1px 1px lightgray
 }
 
 .panel-primary {
@@ -417,4 +418,5 @@ a:hover {
 .caption > button {
     position: relative;
     bottom: 30px;
+    box-shadow: 1px 1px 1px 1px lightgray;
 }
