@@ -2,14 +2,14 @@
 <a ng-href="/#/inventory"><button class="adminInventory">Inventory</button></a>
 <a class="adminLogout" ng-href="/api/logout"><button>log out</button></a></br>
 <button class="adminButton" ng-click="getOrders()">NEW</button>
-<div class="test-size" ng-repeat="order in submitted">
+<div class="test-size" ng-repeat="order in submitted | orderBy: '-date'">
 	Submitted On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}} {{order.orderShipAddress}}
 	<div class="fulfilled">
 		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Fulfilled</button>
 	</div>
 </div>
 <button class="adminButton" ng-click="getOrders()">FULFILLED</button>
-<div class="test-size" ng-repeat="order in fulfilled">
+<div class="test-size" ng-repeat="order in fulfilled | orderBy: 'date'">
 	Fulfilled On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}} {{order.orderShipAddress}}
 	<div class="fulfilled">
 		<button ng-click="updateOrderStatus(order._id, 'Submitted')">Undo</button>
@@ -17,7 +17,7 @@
 	</div>
 </div>
 <button class="adminButton" ng-click="getOrders()">SHIPPED</button>
-<div class="test-size" ng-repeat="order in shipped">
+<div class="test-size" ng-repeat="order in shipped | orderBy: 'date'">
 	Shipped On: {{order.shipDate | date: 'short'}}</br> Shipped To: {{order.orderShipTo}} {{order.orderShipAddress}}
 	<div class="fulfilled">
 		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Undo</button>

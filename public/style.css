@@ -59,9 +59,16 @@ input {
     color: #A6A6A6;
 }
 
+.home_content {
+    position: absolute;
+    top: 18%;
+    height: 77.5%;
+    width: 100%;
+}
+
 #home_carousel {
     position: absolute;
-    top: 21%;
+    top: 0%;
     left: 21.5%;
 }
 
@@ -77,7 +84,7 @@ input {
     top: 100%;
     width: 100%;
     margin: 0 auto;
-    height: 16%;
+    height: 18%;
     background: #E6E6E6;
     color: dimgray;
 }
