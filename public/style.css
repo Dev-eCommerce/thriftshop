@@ -40,8 +40,7 @@ html {
 }
 
 .browser_categories {
-    position: relative;
-    margin-right: 5%;
+    margin: 2.5%;
     cursor: pointer;
     letter-spacing: 2px;
     font-family: 'Quicksand', sans-serif;
@@ -256,7 +255,10 @@ button {
 
 .thumbnail {
 	margin: 1%;
-    box-shadow: 1px 1px 1px 1px lightgray
+    box-shadow: 1px 1px 1px 1px lightgray;
+    max-height: 400px;
+    max-width: 375px;
+
 }
 
 .panel-primary {
@@ -274,8 +276,8 @@ button {
 }
 
 .customImg {
-    max-width: 400px;
-    max-height: 250px;
+    width: 365px;
+    height: 250px;
 }
 
 .thumbnail > img {
@@ -300,6 +302,7 @@ button {
 .checkout_page {
     position: absolute;
     top: 22%;
+    left: 18%;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -413,6 +416,7 @@ a:visited {
 a:hover {
     font-style: italic;
     text-shadow: 2px 2px 5px #A6A6A6;
+    cursor: pointer;
 }
 
 .caption > button {
