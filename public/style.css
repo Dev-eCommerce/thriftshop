@@ -172,16 +172,15 @@ button {
 
 .test-size {
     height: auto;
+    width: 94%;
     border-bottom: 1px solid #00CC99;
     font-family: 'Quicksand', sans-serif;
     margin-left: 3%;
 }
 
-
-
 .fulfilled {
     float: right;
-    margin-right: 3%;
+    margin-left: 3%;
 }
 
 
