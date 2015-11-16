@@ -1,5 +1,6 @@
 <h1 class="adminHeader">Orders</h1>
-<a ng-href="/#/inventory"><button class="adminInventory">Inventory</button></a>
+<div class="container">
+<a ng-href="/#/inventory"><button class="adminInventory">Inventory</button></a> <br>
 <a class="adminLogout" ng-href="/api/logout"><button>log out</button></a></br>
 <button class="adminButton" ng-click="getOrders()">NEW</button>
 <div class="test-size" ng-repeat="order in submitted | orderBy: '-date'">
@@ -13,6 +14,7 @@
 		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')" class="pull-right">Fulfilled</button>
 	</div>
 </div>
+<br>
 <button class="adminButton" ng-click="getOrders()">FULFILLED</button>
 <div class="test-size" ng-repeat="order in fulfilled | orderBy: 'date'">
 	Fulfilled On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}} {{order.orderShipAddress}}
@@ -37,4 +39,5 @@
 	<div class="fulfilled">
 		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Undo</button>
 	</div>
+</div>
 </div>
