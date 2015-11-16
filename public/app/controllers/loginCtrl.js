@@ -1,6 +1,6 @@
 var eCommerce = angular.module('eCommerce');
 
-eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginService, productService){
+eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginService, productService, adminSrvc){
     
 	$scope.getCart = function() {
 		console.log("getting cart");
@@ -8,34 +8,6 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
 			$scope.cart = resp;
             
 		})
-    //     $scope.subtotal = 0;
-    // if($scope.cart.length > 0){
-    //     console.log('cart length', $scope.cart.length)
-    //     addingSubTotal();
-    // }
-    
-    // function addingSubTotal(){
-    //     $scope.cart.forEach(function(item){
-    //         $scope.subtotal += item.price;
-    //     });
-    // }
-    
-    // // shipping
-    // $scope.total = $scope.subtotal;
-    // $scope.shipping=function(option){
-    // console.log(option);
-    // if(2 === option || 6 === option){
-    //     $scope.total = $scope.subtotal + 10;
-    //     console.log("shipping", $scope.total);
-    // } else if(3 === option || 7 === option){
-    //     $scope.total = $scope.subtotal + 20;
-    // }
-    // else{
-    //     $scope.total = $scope.subtotal;
-    // }
-    // return $scope.total;
-    // };
-    
 	};
 	
 	$scope.createUser = function(user){
@@ -49,6 +21,7 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
 	$scope.loginUser = function(user){
 		loginService.loginUser(user).then(function(resp) {
             $scope.currentUser = resp.data;
+			console.log("login", $scope.currentUser)
 			if(resp.data.admin === true){
 				$state.go('admin');
 			} else {
@@ -84,6 +57,12 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
             $scope.cart = res;
     })
     }
+    
+   $scope.getCurrentUser = function(id){
+	   loginService.getCurrentUser(id).then(function(res){
+		   $scope.currentUser = res.data;
+	   })
+   }
 
 })
 

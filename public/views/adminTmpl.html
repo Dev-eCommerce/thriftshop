@@ -1,8 +1,9 @@
 <h1 class="adminHeader">Orders</h1>
-<a ng-href="/#/inventory"><button class="adminInventory">Inventory</button></a>
+<div class="container">
+<a ng-href="/#/inventory"><button class="adminInventory">Inventory</button></a> <br>
 <a class="adminLogout" ng-href="/api/logout"><button>log out</button></a></br>
-<button class="adminButton" ng-click="getOrders()">NEW</button>
-<div class="test-size" ng-repeat="order in submitted">
+<button class="adminButton test-size " ng-click="getOrders()">NEW</button> <br> <br>
+<div class="test-size " ng-repeat="order in submitted">
 	Submitted On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}} {{order.orderShipAddress}}
 	<span class="checkbox">
 		<label><input ng-click="showproducts = !showproducts" type="checkbox" name="products">Show Products</label>
@@ -14,18 +15,20 @@
 		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')" class="pull-right">Fulfilled</button>
 	</div>
 </div>
-<button class="adminButton" ng-click="getOrders()">FULFILLED</button>
+<br>
+<button class="adminButton test-size" ng-click="getOrders()">FULFILLED</button>
 <div class="test-size" ng-repeat="order in fulfilled">
 	Fulfilled On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}} {{order.orderShipAddress}}
-	<div class="fulfilled">
+	<div class="fulfilled test-size">
 		<button ng-click="updateOrderStatus(order._id, 'Submitted')">Undo</button>
 		<button ng-click="updateOrderStatus(order._id, 'Shipped')">Shipped</button>
 	</div>
 </div>
-<button class="adminButton" ng-click="getOrders()">SHIPPED</button>
+<button class="adminButton test-size" ng-click="getOrders()">SHIPPED</button>
 <div class="test-size" ng-repeat="order in shipped">
 	Shipped On: {{order.shipDate | date: 'short'}}</br> Shipped To: {{order.orderShipTo}} {{order.orderShipAddress}}
 	<div class="fulfilled">
 		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Undo</button>
 	</div>
+</div>
 </div>
