@@ -439,3 +439,10 @@ a:hover {
 .selectOrderDetails {
     cursor: pointer;
 }
+
+.productFilterSelection {
+    position: relative;
+    left: 40%;
+    display: inline-block;
+    margin-right: 5%;
+}

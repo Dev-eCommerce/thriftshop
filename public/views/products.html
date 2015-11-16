@@ -1,8 +1,10 @@
 <div class="container product_info_container">
 
+    <span class="productFilterSelection"><input type="radio" ng-model="filterProducts" name="male" value="Male"/> Men's </span>
+    <span class="productFilterSelection"><input type="radio" ng-model="filterProducts" name="female" value="Female"/> Women's </span><br><br>
     <div class="row">
         <div class="products1">
-            <div class="products" ng-repeat ="product in products">
+            <div class="products" ng-repeat="product in products | filter: filterProducts">
                 <div class="thumbnail">
                     <div class="group list-group-image" data-toggle="modal" data-target="#productInfo" ng-click="selectProduct(product)">
                         <img class="customImg center-block" ng-src="{{product.image[0]}}" />
