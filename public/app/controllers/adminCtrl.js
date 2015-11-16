@@ -4,6 +4,7 @@ app.controller('adminCtrl', function($scope, adminSrvc, $location, user){
 	console.log(user)
 	var getOrders = adminSrvc.getOrders()
 			.then(function(response){
+				console.log("order", response)
 				$scope.submitted = [];
 				$scope.fulfilled = [];
 				$scope.shipped = [];
@@ -42,5 +43,9 @@ app.controller('adminCtrl', function($scope, adminSrvc, $location, user){
 						})
 				})
 	};
+	
+	// show products
+	
+	// $scope.showProducts = function()
     
 });

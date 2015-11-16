@@ -171,9 +171,10 @@ button {
 }
 
 .test-size {
-    height: 50px;
+    height: auto;
     border-bottom: 1px solid #00CC99;
     font-family: 'Quicksand', sans-serif;
+    margin-left: 3%;
 }
 
 .fulfilled {
@@ -207,6 +208,7 @@ button {
 
 .adminButton {
     letter-spacing: 1px;
+    margin-top: 10px;
 }
 
 .adminOrders {
