@@ -84,10 +84,16 @@
                       
                       <div class="tab-pane" id="orderHistory">
                             Order History
-                         <div ng-repeat="order in currentUser.orders">
-                                {{order._id}} {{order.orderDate}} {{order.Status}} {{order.productsOrdered}}
-                         </div>
+                            <hr>
+                         <div ng-repeat="order in currentUserOrders">
+                                {{order._id}} <br> {{order.orderDate | date: 'short'}} <br> {{order.Status}} <br> 
+                                <div ng-repeat="product in order.productsOrdered">
+                                {{product.name}} {{product.price | currency}} 
+                                </div>
+                                Order Total: {{order.orderTotal | currency}}
+                                <hr>
                      </div>
+                                
                       
                   </div>
                 </div>

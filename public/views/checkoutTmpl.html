@@ -37,7 +37,7 @@
                                     <div class="col-xs-12">
                                         <!--<small>Shipping</small>-->
                                         <!--<div class="pull-right"><span>{{shipping.option | currency}}</span></div>-->
-                                        <a type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> shipping <span class="caret"></span></a>
+                                        <!-- <a type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> shipping <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a ng-click='shipping(1)'>fedex standard free</a></li>
                                             <li><a ng-click="shipping(2)">fedex express $10</a></li>
@@ -46,7 +46,12 @@
                                             <li><a ng-click="shipping(5)">UPS standard free</a></li>
                                             <li><a ng-click="shipping(6)">UPS express $10</a></li>
                                             <li><a ng-click="shipping(7)">UPS express $20</a></li>
-                                        </ul>
+                                        </ul> -->
+                                        <label>Shipping</br><select name="shipping" class="select-field" ng-model="shippingCost" ng-change="shipping(shippingCost)" ng-options="cost.price as cost.name for cost in shippingCosts">
+                                        </select></label>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="pull-right">{{costOfShipping | currency}}</div>
                                     </div>
                                 </div>
                                 <div class="form-group"><hr /></div>
@@ -56,7 +61,7 @@
                                         <div class="pull-right"><span>{{total | currency}}</span></div>
                                     </div>
                                 </div>
-                                <div class="floatButtonRight" ng-click="submitOrder">
+                                <div class="floatButtonRight">
                                     <!-- <form action="http://requestb.in/18kaifo1" method="POST"> -->
                                         <script
                                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -133,34 +138,14 @@
                                     <div class="col-md-12"><strong>Email Address:</strong></div>
                                     <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" ng-model="user.email"/></div>
                                 </div>
-
-                                <!-- <div class="form-group">
-                                    <div class="col-md-12"><strong>Shipping Speed:</strong></div>
-                                    <div class="col-md-12">
-                                        <label class="btn">
-                                            <input type="radio" id="q156" name="quality[25]" value="1" /> 1-3 Business Days
-                                        </label> 
-                                    </div> 
-                                </div>-->
-
-                        
                             </div>
                         </div>
                     </div>
-                    <!-- <div>
-                        <form action="http://requestb.in/18kaifo1" method="POST">
-                            <script
-                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                data-key="pk_test_mFqWlaAs5uKqHQoSkm1Owrqv"
-                                data-image="https://s3.amazonaws.com/stripe-uploads/acct_173BheDizn23VEuvmerchant-icon-1446583784619-foosball.jpg"
-                                data-name="Test"
-                                data-description="2 widgets"
-                                data-amount="2000"
-                                data-locale="auto">
-                            </script>
-                        </form>
-                    </div> -->
-                </form>   
+                    <div style="position: absolute; bottom: 10; left: 10;">
+                    <button ng-click="submitOrder()">submit order<button>
+                </div> 
+                </form>  
             </div>
+
 
 </div>

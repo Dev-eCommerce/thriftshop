@@ -60,7 +60,9 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, loginSe
     
    $scope.getCurrentUser = function(id){
 	   loginService.getCurrentUser(id).then(function(res){
-		   $scope.currentUser = res.data;
+		   console.log(res)
+		   $scope.currentUserOrders = res.orders;
+		   console.log($scope.currentUserOrders)
 	   })
    }
 

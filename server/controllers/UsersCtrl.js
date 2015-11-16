@@ -1,14 +1,29 @@
 var Users = require('../models/User')
+var Orders = require('../models/Order')
 var Products = require('../models/Product')
 
 module.exports = {
     // Create New User
     create: function(req, res){
+        console.log(req.body);
         Users.create(req.body, function(err, user){
             if(err){
                 return res.status(500).json(err)
             } else {
                 user.password = null;
+                Orders.find({}).where('email').equals(req.body.email).exec(function(err, response){
+                    if(err){
+                        res.status(500).json(err)
+                    }
+                    else {
+                        req.body.orders = []
+                        response.forEach(function(order){
+                            req.body.orders.push(order._id)
+                            order.userId = user._id;
+                        })
+                        console.log(req.body.orders);
+                    }
+                })
                 console.log(user._id);
                 return res.json(user)
             }
