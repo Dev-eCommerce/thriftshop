@@ -4,8 +4,14 @@
 <button class="adminButton" ng-click="getOrders()">NEW</button>
 <div class="test-size" ng-repeat="order in submitted">
 	Submitted On: {{order.orderDate | date: 'short'}}</br> Ship To: {{order.orderShipTo}} {{order.orderShipAddress}}
+	<span class="checkbox">
+		<label><input ng-click="showproducts = !showproducts" type="checkbox" name="products">Show Products</label>
+	</span>
+	<div ng-show="showproducts" ng-repeat="product in order.productsOrdered">
+		{{product._id}} {{product.name}}
+	</div>
 	<div class="fulfilled">
-		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')">Fulfilled</button>
+		<button ng-click="updateOrderStatus(order._id, 'Fulfilled')" class="pull-right">Fulfilled</button>
 	</div>
 </div>
 <button class="adminButton" ng-click="getOrders()">FULFILLED</button>
