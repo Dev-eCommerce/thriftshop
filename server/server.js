@@ -117,6 +117,10 @@ app.put('/api/cart/update', function(req, res) {
     req.session.cart = req.body;
     res.send(req.session.cart)
 })
+app.delete('/api/cart', function(req, res){
+    req.session.cart = [];
+    res.send(req.session.cart)
+})
 
 
 

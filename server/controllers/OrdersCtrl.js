@@ -1,22 +1,63 @@
-var Orders = require('../models/Order')
-var Users = require('../models/User')
+var Orders = require('../models/Order');
+var Users = require('../models/User');
+var Products = require('../models/Product');
 var stripe = require('stripe')('process.env.STRIPE_SECRET_KEY');
 
 module.exports = {
     // Create New Order
     create: function(req, res){
-        Orders.create(req.body, function(err, order){
-            if(err){
-                return res.status(500).json(err)
-            } else {
-                Users.findById(req.body.userId, function(err, user){
-                    user.orders.push(order._id);
-                    user.save();
-                    return res.json(order)
-            
-                })
-            }    
-        });
+
+        //stripe charge here
+        
+        var productsOrdered = [];
+        var productKey = {};
+        req.body.productsOrdered.forEach(function(product){
+            productsOrdered.push(product._id);
+            if(!productKey[product._id]){
+                productKey[product._id] = 1;
+            }else {
+                productKey[product._id]++
+            }
+        }); 
+        console.log(productKey);
+        for (var prop in productKey){  
+            console.log(prop); 
+            Products.findById(prop, function(err, response){
+                if (err) {
+                    res.status(500).json(err)
+                }
+                else {
+                    console.log(response.stockTotal)
+                    response.stockTotal = response.stockTotal - productKey[prop];
+                    console.log(response.stockTotal)
+                    response.save();
+                }
+        
+            })
+        }
+        if(productsOrdered.length == req.body.productsOrdered.length) {
+            req.body.productsOrdered = productsOrdered;
+            console.log(req.body);
+            Orders.create(req.body, function(err, order){
+                if(err){
+                    return res.status(500).json(err)
+                } else {
+                    if (req.body.userId == null || req.body.userId == undefined){
+                        return res.json(order)
+                    }
+                    else {
+                        Users.findById(req.body.userId, function(err, user){
+                        user.orders.push(order._id);
+                        user.save();
+                        console.log('success');
+                        return res.json(order)
+                
+                    })
+                    }
+                    
+                }    
+            });
+        }
     },
     findAll: function(req, res){
         Orders.find().populate({

@@ -98,11 +98,19 @@ eCommerce.service('productService', function($http){
         })
     }
 
-    this.submitOrder = function(cart){
+    this.submitOrder = function(order){
     	return $http({
     		method: 'POST',
     		url: '/api/orders',
-    		data: cart
+    		data: order
+    	}).then(function(response){
+    		return response.data;
+    	})
+    }
+    this.resetCart = function(){
+    	return $http({
+    		method: 'DELETE',
+    		url: '/api/cart',
     	}).then(function(response){
     		return response.data;
     	})
