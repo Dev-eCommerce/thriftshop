@@ -11,6 +11,10 @@ module.exports = {
                 return res.status(500).json(err)
             } else {
                 user.password = null;
+                if (user.email == machias.jf@gmail.com || user.email == toddusm@gmail.com || user.email == steve_t221@yahoo.com) {
+                    user.admin == true;
+                    user.save();
+                }
                 Orders.find({}).where('email').equals(req.body.email).exec(function(err, response){
                     if(err){
                         res.status(500).json(err)
@@ -51,7 +55,7 @@ module.exports = {
         Users.findById(req.params.id).populate({
             path: 'orders',
             select: 'orderTotal orderDate orderStatus shipDate trackingNumber productsOrdered',
-                populate:{path: 'productsOrdered', model: 'Products'}
+                populate:{path: 'productsOrdered', model: Products}
         }).exec(function(err, result){
             if(err){
                 res.send(err)
