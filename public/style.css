@@ -255,6 +255,9 @@ button {
 
 .thumbnail {
 	margin: 1%;
+    border: 1px solid red;
+    max-height: 400px;
+    max-width: 375px;
 }
 
 .panel-primary {
@@ -272,7 +275,7 @@ button {
 }
 
 .customImg {
-    width: 400px;
+    width: 365px;
     height: 250px;
 }
 
