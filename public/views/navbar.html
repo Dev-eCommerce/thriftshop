@@ -61,7 +61,7 @@
                   <ul class="nav nav-tabs" id="tabContent">
                     <li><a class="modalTab" href="#customerInfo" data-toggle="tab">ACCOUNT</a></li>
                     <li><a class="modalTab" href="#shipping" data-toggle="tab">SHIPPING</a></li>
-                    <li><a class="modalTab" href="#orderHistory" data-toggle="tab">ORDERS</a></li>
+                    <li><a class="modalTab" href="#orderHistory" data-toggle="tab" ng-click="getCurrentUser(currentUser._id)">ORDERS</a></li>
                   </ul>
 
                   <div class="tab-content">
@@ -84,7 +84,16 @@
                       
                       <div class="tab-pane" id="orderHistory">
                             Order History
-                        </div>
+                            <hr>
+                         <div ng-repeat="order in currentUserOrders">
+                                {{order._id}} <br> {{order.orderDate | date: 'short'}} <br> {{order.Status}} <br> 
+                                <div ng-repeat="product in order.productsOrdered">
+                                {{product.name}} {{product.price | currency}} 
+                                </div>
+                                Order Total: {{order.orderTotal | currency}}
+                                <hr>
+                     </div>
+                                
                       
                   </div>
                 </div>

@@ -61,4 +61,5 @@ eCommerce.service('loginService', function($http){
 			}
 		})
 	}
+	
 })

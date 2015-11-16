@@ -52,7 +52,9 @@ module.exports = {
         })    
     },
     findOne: function(req, res){
-        Users.findById(req.params.id).populate({
+        console.log(req.body);
+        Users.findById(req.params.id)
+        .populate({
             path: 'orders',
             select: 'orderTotal orderDate orderStatus shipDate trackingNumber productsOrdered',
                 populate:{path: 'productsOrdered', model: Products}
