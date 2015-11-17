@@ -21,7 +21,7 @@ angular.module('eCommerce')
         controller: 'loginCtrl'
     };
     
-});
+})
 
 .directive('footer', function ($http) {
     return {
