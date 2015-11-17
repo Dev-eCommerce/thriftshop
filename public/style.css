@@ -66,17 +66,16 @@ input {
     width: 100%;
 }
 
-#home_carousel {
-    position: absolute;
-    top: 0%;
-    left: 21.5%;
-}
-
 .carousel-inner > .item > img {
     width: 700px;
     height: 450px;
     margin: 0 auto;
     border: 2px solid #00CC99;
+}
+
+#home_carousel {
+    width: 700px;
+    height: 450px;
 }
 
 .home_footer {
@@ -354,8 +353,9 @@ button {
 }
 
 .inventoryThumbnail {
-    height: 8%;
-    width: 8%;
+    margin-top: 3%;
+    height: 100px;
+    width: 100px;
     float: none;
 }
 
