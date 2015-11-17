@@ -1,6 +1,6 @@
-//var ngFileUpload = require('ng-file-upload');
 
-var app = angular.module('eCommerce', ['ui.router', 'ng-file-upload'])
+
+var app = angular.module('eCommerce', ['ui.router'])//, 'ngFileUpload'])
 
 app.config(function($stateProvider, $urlRouterProvider) {
    
