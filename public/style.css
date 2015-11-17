@@ -353,8 +353,9 @@ button {
 }
 
 .inventoryThumbnail {
-    height: 8%;
-    width: 8%;
+    margin-top: 3%;
+    height: 100px;
+    width: 100px;
     float: none;
 }
 
