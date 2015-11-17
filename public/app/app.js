@@ -1,6 +1,6 @@
-var eCommerce = angular.module('eCommerce', ['ui.router', 'ngFileUpload']);
+angular.module('eCommerce', ['ui.router', 'ngFileUpload']);
 
-eCommerce.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
    
    $urlRouterProvider.otherwise('/home');
    
