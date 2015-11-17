@@ -31,7 +31,6 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
     
 
      $scope.removeProduct = function(index){
-        confirm("Are you sure?")
         var cart = getCart;
         getCart.splice(index, 1)
         $scope.reviewCart = cart;
@@ -76,6 +75,7 @@ eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, pr
         })
         productService.resetCart().then(function(response){
             console.log(response);
+            
             $state.go('home.carousel')
         })
     }
