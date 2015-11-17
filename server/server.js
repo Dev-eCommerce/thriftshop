@@ -2,7 +2,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var cors = require('cors');
 var session = require('express-session');
 var mandrill = require('mandrill-api/mandrill');
 var mandrill_client = (process.env.MANDRILL_ID)
@@ -33,7 +32,6 @@ var app = express();
 
 // Middleware
 app.use(bodyParser.json({limit: '50mb'}));
-app.use(cors());
 app.use(express.static(__dirname + '/../public'));
 app.use(session({
 	secret: 'blah',

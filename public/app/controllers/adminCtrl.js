@@ -1,4 +1,4 @@
-var app = angular.module('eCommerce');
+var app = angular.module('eCommerce')
 
 app.controller('adminCtrl', function($scope, adminSrvc, $location, user){
 	console.log(user)

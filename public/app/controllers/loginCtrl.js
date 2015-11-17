@@ -1,6 +1,6 @@
-var eCommerce = angular.module('eCommerce');
+var app = angular.module('eCommerce')
 
-eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, $window, $loaction, loginService, productService, adminSrvc){
+app.controller('loginCtrl', function($scope, $state, $stateParams, $window, $location, loginService, productService, adminSrvc){
     
 	$scope.getCart = function() {
 		console.log("getting cart");
@@ -25,7 +25,7 @@ eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, $window
 			if(resp.data.admin === true){
 				$state.go('admin');
 			} else {
-                $window.location.reload()
+                $window.location.reload();
             }
 		}, function(err) {
 			alert("Email or password is incorrect. Please try again.")

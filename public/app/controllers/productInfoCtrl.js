@@ -1,4 +1,4 @@
-var app = angular.module('eCommerce');
+var app = angular.module('eCommerce')
 
 app.controller('productInfoCtrl', function($scope, productService, $stateParams, $state, getCart){
 	console.log($stateParams.id);

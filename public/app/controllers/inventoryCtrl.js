@@ -1,5 +1,5 @@
-var app = angular.module('eCommerce');
-
+var app = angular.module('eCommerce')
+//Upload
 app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $state, $stateParams, $window){
 	$scope.images = [];
 	var getProducts = adminSrvc.getProducts()

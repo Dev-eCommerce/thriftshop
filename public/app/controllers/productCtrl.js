@@ -1,5 +1,6 @@
-var eCommerce = angular.module('eCommerce');
-eCommerce.controller("productCtrl", function($scope, $location, $http, $state, $stateParams, productService, getCart) {
+var app = angular.module('eCommerce')
+
+app.controller("productCtrl", function($scope, $location, $http, $state, $stateParams, productService, getCart) {
     $scope.cart = getCart;
     // var getProducts = productService.getProducts()
 	// 		.then(function(response){

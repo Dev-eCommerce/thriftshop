@@ -1,4 +1,4 @@
-var app = angular.module('eCommerce');
+var app = angular.module('eCommerce')
 
 
 app.directive('navbar', function ($http) {
@@ -21,7 +21,7 @@ app.directive('navbar', function ($http) {
         controller: 'loginCtrl'
     };
     
-});
+})
 
 app.directive('footer', function ($http) {
     return {

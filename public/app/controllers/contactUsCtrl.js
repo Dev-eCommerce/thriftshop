@@ -1,4 +1,5 @@
-var app = angular.module('eCommerce');
+var app = angular.module('eCommerce')
+
 app.controller('contactCtrl', function($scope, contactService, $state, $stateParams){
 	$scope.sendMail = function(email){
 		contactService.sendMail(email).then(function(res){

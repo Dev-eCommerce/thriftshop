@@ -1,4 +1,4 @@
-var app = angular.module('eCommerce');
+var app = angular.module('eCommerce')
 
 app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $state){
 	console.log($stateParams.id);
