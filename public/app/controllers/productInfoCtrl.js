@@ -1,6 +1,6 @@
-var app = angular.module('eCommerce');
+angular.module('eCommerce')
 
-app.controller('productInfoCtrl', function($scope, productService, $stateParams, $state, getCart){
+.controller('productInfoCtrl', function($scope, productService, $stateParams, $state, getCart){
 	console.log($stateParams.id);
 	$scope.productId = $stateParams.id;
 	var productInfo = productService.getAProduct($scope.productId).then(function(response){

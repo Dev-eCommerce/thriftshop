@@ -1,7 +1,7 @@
-var app = angular.module('eCommerce');
+angular.module('eCommerce')
 
 
-app.directive('navbar', function ($http) {
+.directive('navbar', function ($http) {
     return {
         restrict: 'E',
         scope: {

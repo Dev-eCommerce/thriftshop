@@ -1,6 +1,6 @@
-var eCommerce = angular.module('eCommerce');
+angular.module('eCommerce')
 
-eCommerce.service('productService', function($http){
+.service('productService', function($http){
     
     this.getProducts = function(){
 		return $http({

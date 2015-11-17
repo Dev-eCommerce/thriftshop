@@ -1,6 +1,6 @@
-var app = angular.module('eCommerce');
+angular.module('eCommerce')
 
-app.controller('adminCtrl', function($scope, adminSrvc, $location, user){
+.controller('adminCtrl', function($scope, adminSrvc, $location, user){
 	console.log(user)
 	var getOrders = adminSrvc.getOrders()
 			.then(function(response){

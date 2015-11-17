@@ -1,6 +1,6 @@
-var eCommerce = angular.module('eCommerce');
+angular.module('eCommerce')
 
-eCommerce.service('loginService', function($http){
+.service('loginService', function($http){
 	this.createUser = function(user){
 		return $http({
 			method: "POST",

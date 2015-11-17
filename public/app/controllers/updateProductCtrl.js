@@ -1,6 +1,6 @@
-var app = angular.module('eCommerce');
+angular.module('eCommerce')
 
-app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $state){
+.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $state){
 	console.log($stateParams.id);
 	//scope.category = ['tops', 'bottoms', 'shoes', 'jewelry', 'accessories'];
 	$scope.productId = $stateParams.id;

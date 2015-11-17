@@ -1,6 +1,6 @@
-var app = angular.module('eCommerce');
+angular.module('eCommerce')
 
-app.service('contactService', function($http){
+.service('contactService', function($http){
 		this.sendMail = function(email){
 		console.log('email', email)
 		return $http({

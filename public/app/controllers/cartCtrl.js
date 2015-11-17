@@ -1,6 +1,6 @@
-var eCommerce = angular.module('eCommerce');
+angular.module('eCommerce')
 
-eCommerce.controller('cartCtrl', function($scope, $state, $window, $location, productService, getCart, User) {
+.controller('cartCtrl', function($scope, $state, $window, $location, productService, getCart, User) {
     $scope.reviewCart = getCart;
     $scope.user = User;
     $scope.shippingCosts= [{name:"USPS free", price: 0}, {name:"fedex standard free", price: 0}, {name:"fedex express $10", price: 10}, {name:"fedex overnight $20", price: 20}, {name:"UPS standard free", price: 0}, {name:"UPS express $10", price: 10}, {name:"UPS express $20", price: 20}];

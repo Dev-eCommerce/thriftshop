@@ -1,6 +1,6 @@
-var eCommerce = angular.module('eCommerce');
+angular.module('eCommerce')
 
-eCommerce.controller('loginCtrl', function($scope, $state, $stateParams, $window, $location, loginService, productService, adminSrvc){
+.controller('loginCtrl', function($scope, $state, $stateParams, $window, $location, loginService, productService, adminSrvc){
     
 	$scope.getCart = function() {
 		console.log("getting cart");
