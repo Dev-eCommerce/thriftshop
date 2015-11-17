@@ -1,7 +1,7 @@
-angular.module('eCommerce')
+var app = angular.module('eCommerce')
 
 
-.directive('navbar', function ($http) {
+app.directive('navbar', function ($http) {
     return {
         restrict: 'E',
         scope: {
@@ -23,7 +23,7 @@ angular.module('eCommerce')
     
 })
 
-.directive('footer', function ($http) {
+app.directive('footer', function ($http) {
     return {
         restrict: 'E',
         templateUrl: 'views/footer.html',

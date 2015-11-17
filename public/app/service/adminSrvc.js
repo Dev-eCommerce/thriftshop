@@ -1,6 +1,6 @@
-angular.module('eCommerce')
+var app = angular.module('eCommerce')
 
-.service('adminSrvc', function($http){
+app.service('adminSrvc', function($http){
  	this.getOrders = function(){
 		return $http({
 			method: 'GET',

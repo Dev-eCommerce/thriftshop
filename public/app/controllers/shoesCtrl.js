@@ -1,6 +1,6 @@
-angular.module('eCommerce')
+var app = angular.module('eCommerce')
 
-.controller('shoesCtrl', function($scope, productService, $state, $stateParams){
+app.controller('shoesCtrl', function($scope, productService, $state, $stateParams){
 	console.log('stateparams', $state.current.url);
 	productService.getCategory($state.current.url).then(function(res){
 		$scope.products = res;
