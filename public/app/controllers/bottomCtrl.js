@@ -1,4 +1,4 @@
-angular.module('eCommerce');
+angular.module('eCommerce')
 
 .controller('bottomsCtrl', function($scope, productService, $state, $stateParams){
 	console.log('stateparams', $state.current.url);

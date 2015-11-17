@@ -23,7 +23,7 @@ angular.module('eCommerce')
     
 });
 
-app.directive('footer', function ($http) {
+.directive('footer', function ($http) {
     return {
         restrict: 'E',
         templateUrl: 'views/footer.html',
