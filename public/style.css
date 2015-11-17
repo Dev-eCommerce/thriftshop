@@ -446,3 +446,11 @@ a:hover {
     display: inline-block;
     margin-right: 5%;
 }
+
+#fakePayBtn{
+    background-color: lightgray;
+    opacity: .2;
+    color: black;
+    border-radius: 5px;
+    cursor: default;
+}

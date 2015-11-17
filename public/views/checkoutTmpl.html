@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div>
-                <form class="form-horizontal" method="POST" action="http://www.derelicteclothing.com/api/checkout">
+                <form class="form-horizontal" method="POST" action="http://www.derelicteclothing.com/api/checkout" name="formName">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading panel-heading-custom">
@@ -61,7 +61,10 @@
                                         <div class="pull-right"><span>{{total | currency}}</span></div>
                                     </div>
                                 </div>
-                                <div class="floatButtonRight">
+                                <div class="floatButtonRight" ng-show="formName.email_address.$invalid">
+                                    <button id="fakePayBtn">Pay with Card</button>
+                                </div>
+                                <div class="floatButtonRight" ng-show="formName.email_address.$valid">
                                     <!-- <form action="http://requestb.in/18kaifo1" method="POST"> -->
                                         <script
                                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -97,53 +100,53 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-xs-12">
                                         <strong>First Name:</strong>
-                                        <input type="text" name="first_name" class="form-control" value="" ng-model="user.firstName"/>
+                                        <input type="text" name="first_name" class="validate form-control" value="" ng-model="user.firstName" required/>
                                     </div>
                                     <div class="span1"></div>
                                     <div class="col-md-6 col-xs-12">
                                         <strong>Last Name:</strong>
-                                        <input type="text" name="last_name" class="form-control" value="" ng-model="user.lastName" />
+                                        <input type="text" name="last_name" class="form-control" value="" ng-model="user.lastName" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Address:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="address" class="form-control" value="" ng-model="user.address" />
+                                        <input type="text" name="address" class="form-control" value="" ng-model="user.address" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>City:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="city" class="form-control" value="" ng-model="user.city"/>
+                                        <input type="text" name="city" class="form-control" value="" ng-model="user.city" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>State:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="state" class="form-control" value="" ng-model="user.state"/>
+                                        <input type="text" name="state" class="form-control" value="" ng-model="user.state" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
                                     <div class="col-md-12">
-                                        <input type="text" name="zip_code" class="form-control" value="" ng-model="user.zip"/>
+                                        <input type="text" name="zip_code" class="form-control" value="" ng-model="user.zip" required/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Phone Number:</strong></div>
-                                    <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" ng-model="user.phoneNumber"/></div>
+                                    <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" ng-model="user.phoneNumber" required/></div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-md-12"><strong>Email Address:</strong></div>
-                                    <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" ng-model="user.email"/></div>
+                                    <div class="col-md-12"><input type="email" name="email_address" class="validate form-control" value="" ng-model="user.email" required/></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div style="position: absolute; bottom: 10; left: 10;">
-                    <button ng-click="submitOrder()">submit order<button>
-                </div> 
+                    <!--<div style="position: absolute; bottom: 10; left: 10;">
+                    <button ng-click="submitOrder()" ng-disabled="formName.first_name.$invalid">submit order<button>
+                </div> -->
                 </form>  
             </div>
 
