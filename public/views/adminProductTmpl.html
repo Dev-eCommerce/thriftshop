@@ -6,8 +6,8 @@
 <div class="viewProducts">
 <div class="inventoryContainer" ng-repeat="product in products" ng-show="showProducts">
 	<img ng-src={{product.image[0]}} class="thumbnailImage inventoryThumbnail" /> <br>
-	{{product.name}} - {{product.category}} - {{product.price | currency}} <br>
-	{{product.descriptionShort}}
+	{{product.name}} <br> {{product.category}} <br> {{product.price | currency}} <br>
+	{{product.stockTotal}}
 	<div class="msgBtn">
 		<a ng-href="#/inventory/{{product._id}}/update"> <button type="button" class="btn btn-xs" ng-click="getAProduct(product._id)">Update</button></a> <button type="button" class="btn btn-xs" ng-click="deleteProduct(product._id, $index)">Delete</button>
 	</div>

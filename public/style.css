@@ -349,6 +349,8 @@ button {
 }
 
 .inventoryContainer {
+    display: inline-block;
+    width: 200px;
     margin-top: 1%;
     margin-bottom: 1%;
     margin-left: 1%;
