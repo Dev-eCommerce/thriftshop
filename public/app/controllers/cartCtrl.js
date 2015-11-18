@@ -20,13 +20,11 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
     }
     
     // shipping
-    $scope.total = $scope.subtotal;
-    $scope.stripeTotal = $scope.total * 100;
 
     $scope.shipping=function(option){
         $scope.costOfShipping = option;
         $scope.total = $scope.subtotal + option;
-    
+        $scope.stripeTotal = $scope.total * 100;
     }
     
 
@@ -58,7 +56,9 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
         })
     }
     
-    $scope.submitOrder = function(){
+
+    $scope.submitOrder = function(token){
+        console.log(token);
         var order = {
             userId: $scope.user._id,
             email: $scope.user.email,
@@ -68,7 +68,8 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
             orderShipAddress: $scope.user.address + ' ' + $scope.user.city + ' ' + $scope.user.state + ' ' + $scope.user.zip,
             shippingCost: $scope.costOfShipping,
             orderStatus: 'Submitted',
-            productsOrdered: getCart
+            productsOrdered: getCart,
+            stripeToken: token
         }
         productService.submitOrder(order).then(function(response){
             console.log('success', response)
@@ -79,4 +80,29 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
             $state.go('home.carousel')
         })
     }
+    
+    
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_mFqWlaAs5uKqHQoSkm1Owrqv',
+            image: "http://i246.photobucket.com/albums/gg83/serapis/ooohderelicte.png",
+            locale: 'auto',
+            token: function(token){
+                $scope.submitOrder(token);
+            },
+            bitcoin: true
+        });
+        $scope.pay = function () {
+            handler.open({
+                order: getCart,
+                name: 'Derelicte Clothing Inc',
+                description: "Thank you for your purchase from Derelicte Clothing.",
+                amount: $scope.stripeTotal
+            })
+        };
+    
+
+    $(window).on('popstate', function() {
+        handler.close();
+    });
+
 });

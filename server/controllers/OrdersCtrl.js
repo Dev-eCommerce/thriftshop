@@ -6,9 +6,23 @@ var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 module.exports = {
     // Create New Order
     create: function(req, res){
-
+        console.log(req.body);
         //stripe charge here
-        
+        var stripeToken = req.body.stripeToken.id;
+            stripe.charges.create({
+                    amount: req.body.orderTotal * 100,
+                    currency: "usd",
+                    source: stripeToken,
+                    description: "Purchase at DerelicteClothing.com"
+            }, function(err, charge){
+                    if (err){
+                        console.log(err) 
+                        
+                   } else {
+                        console.log(charge)
+                        
+                   }
+        })
         var productsOrdered = [];
         var productKey = {};
         req.body.productsOrdered.forEach(function(product){
@@ -116,10 +130,10 @@ module.exports = {
             }, function(err, charge){
                     if (err){
                         console.log(err) 
-                        res.send(err)
+                        
                    } else {
                         console.log(charge)
-                        res.send(charge)
+                        
                    }
             });
        

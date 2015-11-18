@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div>
-                <form class="form-horizontal" method="POST" action="/api/orders" name="formName">
+                <form class="form-horizontal" name="formName">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading panel-heading-custom">
@@ -68,7 +68,7 @@
                                 <div class="floatButtonRight" ng-show="formName.email_address.$valid">
 
                                     <!-- <form action="http://requestb.in/18kaifo1" method="POST"> -->
-                                        <script
+                                           <!-- <script
                                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                             data-key="pk_test_mFqWlaAs5uKqHQoSkm1Owrqv"
                                             data-image="http://i246.photobucket.com/albums/gg83/serapis/ooohderelicte.png"
@@ -76,8 +76,13 @@
                                             data-description="2 widgets"
                                             data-amount={{stripeTotal}}
                                             data-locale="auto">
-                                        </script>
+                                        </script> -->
                                     <!-- </form> -->
+                                    
+                                    
+                                    <button type="submit" ng-click="pay()">Purchase</button>
+
+
                                 </div>
                             </div>
                         </div>
