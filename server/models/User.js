@@ -17,7 +17,8 @@ var User = new mongoose.Schema({
         ref: 'Order'
     }],
     addressUsed: [],
-    date: {type: Date, default: Date.now}
+    date: {type: Date, default: Date.now},
+    stripe: {type: String}
     
 });
 
