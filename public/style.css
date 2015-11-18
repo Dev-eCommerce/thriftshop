@@ -288,6 +288,7 @@ button {
 .customImg {
     width: 100%;
     height: 250px;
+    cursor: pointer;
 }
 
 .thumbnail > img {
