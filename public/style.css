@@ -1,6 +1,9 @@
 html {
     font-family: 'Quicksand', sans-serif;
 }
+body {
+    background: url(https://s3-us-west-2.amazonaws.com/l.michelle-photography/non-requested/grunge_wall.png) repeat left top;
+}
 
 #navbar {
     position: fixed;
@@ -84,7 +87,7 @@ input {
     width: 100%;
     margin: 0 auto;
     height: 18%;
-    background: #E6E6E6;
+    background: white;
     color: dimgray;
 }
 
