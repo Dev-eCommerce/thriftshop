@@ -10,19 +10,22 @@ module.exports = {
             if(err){
                 return res.status(500).json(err)
             } else {
-                user.password = null;
-                Orders.find({}).where('email').equals(req.body.email).exec(function(err, response){
-                    if(err){
-                        res.status(500).json(err)
-                    }
-                    else {
-                        req.body.orders = []
-                        response.forEach(function(order){
-                            req.body.orders.push(order._id)
-                            order.userId = user._id;
-                        })
-                        console.log(req.body.orders);
-                    }
+                Orders.find({})
+                    .where("email").equals(req.body.email)
+                    .exec(function(err, response){
+                        if(err){
+                            res.status(500).json(err)
+                        }
+                        else {
+                            user.orders = [];
+                            response.forEach(function(order){
+                                user.orders.push(order._id)
+                                order.userId = user._id;
+                                order.save();
+                            })
+                            user.save();
+                            console.log(user.orders);
+                        }
                 })
                 console.log(user._id);
                 return res.json(user)

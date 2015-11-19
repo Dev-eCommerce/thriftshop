@@ -74,13 +74,15 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
         productService.submitOrder(order).then(function(response){
             console.log('success', response)
             $scope.reviewCart = getCart;
+            alertify.success("Order completed", 2);
+            $state.go('home.carousel', {}, { reload: true });
         })
-        productService.resetCart().then(function(response){
-            console.log(response);
-            $scope.reviewCart = getCart;
-            alertify.success("Order completed", 1.5);
-            $state.go('home.carousel')
-        })
+        // productService.resetCart().then(function(response){
+        //     console.log(response);
+        //     $scope.reviewCart = getCart;
+        //     alertify.success("Order completed", 1.5);
+        //     $state.go('home.carousel')
+        // })
     }
     
     
