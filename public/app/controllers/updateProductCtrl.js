@@ -1,11 +1,8 @@
 var app = angular.module('eCommerce')
 
 app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $state){
-	console.log($stateParams.id);
-	//scope.category = ['tops', 'bottoms', 'shoes', 'jewelry', 'accessories'];
 	$scope.productId = $stateParams.id;
 	adminSrvc.getAProduct($scope.productId).then(function(response){
-		console.log(response);
 		$scope.categoryId = response.category;
 		$scope.product = response;
 	});
@@ -19,7 +16,6 @@ app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $s
 			count: option.count
 			}
 		);
-		console.log($scope.options);
 	};
 
 	$scope.setProductToUpdate = function(product, id){
@@ -41,7 +37,6 @@ app.controller('updateProductCtrl', function($scope, adminSrvc, $stateParams, $s
 					productImagesArr.push({base64: fileBody, file: {name: image.name, type: image.type} });
 					if (productImagesArr.length == images.length) {
 						$scope.product.image = productImagesArr;
-						console.log($scope.product);
 						adminSrvc.updateProductAndImage(product, id).then(function(response){
 							$state.go('inventory');
 						})

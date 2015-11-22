@@ -35,7 +35,6 @@ app.service('adminSrvc', function($http){
 			if (response.status != 200) {
 				return "Orders not found";
 			}
-			console.log(response.data);
 			return response.data;
 		})
 	}
@@ -57,11 +56,9 @@ app.service('adminSrvc', function($http){
 			url: '/api/products',
 			data: product
 		}).then(function(response, err){
-			console.log(response, err)
 			if (err) {
 				return err 
 			}
-			console.log(response.data);
 			return response.data;
 		})
 	}
@@ -74,7 +71,6 @@ app.service('adminSrvc', function($http){
 			if (response.status != 200) {
 				return "Product not found";
 			}
-			console.log(response.data);
 			return response;
 		})
 	}
@@ -88,7 +84,6 @@ app.service('adminSrvc', function($http){
 			if (response.status != 200) {
 				return "product not found";
 			}
-			console.log("updated product",response);
 			return response;
 		})
 	}
@@ -101,7 +96,6 @@ app.service('adminSrvc', function($http){
 			if (response.status != 200) {
 				return "product not found";
 			}
-			console.log("updated product",response);
 			return response;
 		})
 	}

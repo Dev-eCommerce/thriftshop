@@ -131,7 +131,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }).then(function(response) {
             deferred.resolve(response.data)
         })
-        console.log("checkout user", deferred.promise )
         return deferred.promise
     };
     

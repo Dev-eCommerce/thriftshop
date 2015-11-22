@@ -15,14 +15,12 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $state, $sta
 			count: option.count
 			}
 		);
-		console.log($scope.options);
 	};
 	
 	
 	
 	$scope.addProduct = function(product){
 		alertify.set('notifier','position', 'bottom-left', 'delay');
-		console.log(product)
 		// $scope.product.options.optionValues = $scope.options
 				if($scope.images.length < 1){
 					adminSrvc.addProduct($scope.product).then(function(response){
@@ -46,7 +44,6 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $state, $sta
 							productImagesArr.push({base64: fileBody, file: {name: image.name, type: image.type} });
 							if (productImagesArr.length == images.length) {
 								$scope.product.image = productImagesArr;
-								console.log($scope.product);
 								adminSrvc.addProduct($scope.product).then(function(response){
 							$scope.products.push(response);
 							alertify.success("product added", 3);
@@ -71,17 +68,18 @@ app.controller('inventoryCtrl', function($scope, adminSrvc, Upload, $state, $sta
 	$scope.getAProduct = function(id){
 		adminSrvc.getAProduct(id).then(function(res, err){
 			if(err) {
-				console.log(err);
 			} else {
-			console.log("controller got a product", res);
+				
 			}
 		})
 	}
 
 	$scope.updateProduct = function(product){
 		adminSrvc.updateProduct($scope.product).then(function(res, err){
-			if(err) console.log(err);
-			console.log("controller update product",res);
+			if(err){
+			} else {
+				
+			}
 		})
 	}
 	

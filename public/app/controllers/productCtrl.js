@@ -4,7 +4,6 @@ app.controller("productCtrl", function($scope, $location, $http, $state, $stateP
     $scope.cart = getCart;
     // var getProducts = productService.getProducts()
 	// 		.then(function(response){
-    //             console.log('products', response)
 	// 			$scope.products = response;
     //             })
     
@@ -22,7 +21,6 @@ app.controller("productCtrl", function($scope, $location, $http, $state, $stateP
     
     $scope.selectProduct = function(product) {
         $scope.selectedProduct = product;
-        console.log($scope.selectedProduct)
     }
                   
 });

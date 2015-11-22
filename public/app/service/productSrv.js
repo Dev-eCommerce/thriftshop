@@ -20,7 +20,6 @@ app.service('productService', function($http){
             url: '/api/cart', 
             data: product
         }).then(function(response){
-			console.log("addToCart", response)
             return response.data
         })
     }
@@ -31,7 +30,6 @@ app.service('productService', function($http){
 			url: '/api/cart'
 		})
 		.then(function(response){
-			console.log("found Cart", response)
             return response.data;
         })
 	}
@@ -93,7 +91,6 @@ app.service('productService', function($http){
             url: '/api/cart/update', 
             data: cart
         }).then(function(response){
-			console.log("removeProduct", response)
             return response.data
         })
     }

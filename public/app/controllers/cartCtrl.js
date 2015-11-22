@@ -4,8 +4,6 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
     $scope.reviewCart = getCart;
     $scope.user = User;
     $scope.shippingCosts= [{name:"USPS free", price: 0}, {name:"fedex standard free", price: 0}, {name:"fedex express $10", price: 10}, {name:"fedex overnight $20", price: 20}, {name:"UPS standard free", price: 0}, {name:"UPS express $10", price: 10}, {name:"UPS express $20", price: 20}];
-    console.log("reviewCart", getCart)
-    console.log("user", User)
    
     // Subtotal
     $scope.subtotal= 0;
@@ -32,9 +30,9 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
         var cart = getCart;
         getCart.splice(index, 1)
         $scope.reviewCart = cart;
-        console.log("new Cart", cart);
         productService.removeFromCart(cart).then(function(res){
-            $window.location.reload();
+            $state.go('home.checkout', {}, { reload: true });
+            //$window.location.reload();
             // productService.getCart().then(function(result){
             //     $scope.reviewCart = result;
             //     $scope.subtotal= 0;
@@ -58,7 +56,6 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
     
 
     $scope.submitOrder = function(token){
-        console.log(token);
         var order = {
             userId: $scope.user._id,
             email: $scope.user.email,
@@ -72,13 +69,11 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
             stripeToken: token
         }
         productService.submitOrder(order).then(function(response){
-            console.log('success', response)
             $scope.reviewCart = getCart;
             alertify.success("Order completed", 2);
             $state.go('home.carousel', {}, { reload: true });
         })
         // productService.resetCart().then(function(response){
-        //     console.log(response);
         //     $scope.reviewCart = getCart;
         //     alertify.success("Order completed", 1.5);
         //     $state.go('home.carousel')
@@ -88,7 +83,7 @@ app.controller('cartCtrl', function($scope, $state, $window, $location, productS
     
         var handler = StripeCheckout.configure({
             key: 'pk_test_mFqWlaAs5uKqHQoSkm1Owrqv',
-            image: "http://i246.photobucket.com/albums/gg83/serapis/ooohderelicte.png",
+            image: 'https://s3-us-west-2.amazonaws.com/l.michelle-photography/non-requested/ooohderelicte.png',
             locale: 'auto',
             token: function(token){
                 $scope.submitOrder(token);

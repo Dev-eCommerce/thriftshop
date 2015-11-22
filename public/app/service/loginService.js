@@ -9,23 +9,19 @@ app.service('loginService', function($http){
 
 		}).then(function(err, res){
 			if(err){
-				console.log(err);
-				return(err);
+				return err;
 			} else {
-				console.log(res);
 				return res;
 			}
 		})
 	}
     
     this.updateUser = function (user) {
-        console.log(user);
         return $http({
             method: "PUT",
             url: '/api/users/' + user._id,
             data: user
         }).then(function(data){
-			console.log('updateUser', data)
             return data.data;
         })
     }
@@ -37,7 +33,6 @@ app.service('loginService', function($http){
 			method: "GET",
 			url: 'api/users/' + id
 		}).then(function(response){
-			console.log('users', response)
 			return response.data
 		})
 	}
@@ -53,8 +48,7 @@ app.service('loginService', function($http){
 			data: user
 		}).then(function(res, err){
 			if(err){
-				console.log(err);
-				return(err);
+				return err;
 			} else {
 				currentUser = res.data;
 				return res;
